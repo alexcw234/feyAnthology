@@ -13,7 +13,7 @@ class CreateInfoTable extends Migration
     public function up()
     {
         //
-        Schema::create('info',function(table))
+        Schema::create('info',function(table)
         {
             $table->increments('infoID');
             $table->hstore('info');

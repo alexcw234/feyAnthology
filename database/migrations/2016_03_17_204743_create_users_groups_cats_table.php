@@ -13,7 +13,7 @@ class CreateUsersGroupsCatsTable extends Migration
     public function up()
     {
         //
-        Schema::create('UsersGroupsCats',function(table))
+        Schema::create('UsersGroupsCats',function(table)
         {
         $table->integer('userID')->unsigned();
         $table->integer('groupID')->unsigned();
