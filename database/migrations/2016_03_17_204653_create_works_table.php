@@ -25,6 +25,9 @@ class CreateWorksTable extends Migration
             $table->dateTime('subDate');
             $table->dateTime('appDate');
 
+            $table->softDeletes();
+            $table->timestamps();
+
             $table->foreign('catID')->references('catID')->on('categories');
             $table->foreign('infoID')->references('infoID')->on('info');
             $table->foreign('subID')->references('userID')->on('users');

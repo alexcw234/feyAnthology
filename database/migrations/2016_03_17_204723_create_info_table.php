@@ -13,6 +13,15 @@ class CreateInfoTable extends Migration
     public function up()
     {
         //
+        Schema::create('info',function(table))
+        {
+            $table->increments('infoID');
+            $table->hstore('info');
+
+            $table->softDeletes();
+            $table->timestamps();
+
+        });
     }
 
     /**
@@ -23,5 +32,6 @@ class CreateInfoTable extends Migration
     public function down()
     {
         //
+        Schema::drop('info');
     }
 }

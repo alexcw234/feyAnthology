@@ -17,7 +17,8 @@ class CreateCategoriesTable extends Migration
         {
             $table->increments('catID');
             $table->string('catName', 30);
-
+            $table->softDeletes();
+            $table->timestamps();
         });
     }
 

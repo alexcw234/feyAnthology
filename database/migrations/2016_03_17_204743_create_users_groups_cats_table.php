@@ -13,6 +13,22 @@ class CreateUsersGroupsCatsTable extends Migration
     public function up()
     {
         //
+        Schema::create('UsersGroupsCats',function(table))
+        {
+        $table->integer('userID')->unsigned();
+        $table->integer('groupID')->unsigned();
+        $table->integer('catID')->unsigned();
+
+        $table->softDeletes();
+        $table->timestamps();
+
+        $table->foreign('catID')->references('catID')->on('categories');
+        $table->foreign('groupID')->references('groupID')->on('groups');
+        $table->foreign('userID')->references('userID')->on('users');
+
+        $table->primary(['userID','groupsID','catID']);
+      });
+
     }
 
     /**
@@ -23,5 +39,6 @@ class CreateUsersGroupsCatsTable extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('UsersGroupsCats');
     }
 }

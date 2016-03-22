@@ -13,6 +13,22 @@ class CreateCommentsTable extends Migration
     public function up()
     {
         //
+        Schema::create('comments',function(table))
+        {
+            $table->increments('commentID');
+            $table->integer('workID')->unsigned();
+            $table->integer('userID')->unsigned();
+            $table->text('comment');
+            $table->dateTime('Date');
+
+            $table->softDeletes();
+            $table->timestamps();
+
+            $table->foreign('userID')->references('userID')->on('users');
+            $table->foreign('workID')->references('workID')->on('works');
+
+
+        });
     }
 
     /**
@@ -23,5 +39,6 @@ class CreateCommentsTable extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('comments');
     }
 }

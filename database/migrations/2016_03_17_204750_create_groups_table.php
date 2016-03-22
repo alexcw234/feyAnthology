@@ -13,6 +13,14 @@ class CreateGroupsTable extends Migration
     public function up()
     {
         //
+        Schema::create('groups',function(table))
+        {
+            $table->increments('groupID');
+            $table->string('groupName', 30);
+            $table->softDeletes();
+            $table->timestamps();
+        }
+
     }
 
     /**
@@ -23,5 +31,6 @@ class CreateGroupsTable extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('categories');
     }
 }
