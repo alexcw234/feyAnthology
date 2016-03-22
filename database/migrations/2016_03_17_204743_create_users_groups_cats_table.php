@@ -13,7 +13,7 @@ class CreateUsersGroupsCatsTable extends Migration
     public function up()
     {
         //
-        Schema::create('UsersGroupsCats',function(Blueprint $table)
+        Schema::create('usersgroupscats',function(Blueprint $table)
         {
         $table->integer('userID')->unsigned();
         $table->integer('groupID')->unsigned();
@@ -26,7 +26,7 @@ class CreateUsersGroupsCatsTable extends Migration
   //      $table->foreign('groupID')->references('groupID')->on('groups');
   //      $table->foreign('userID')->references('userID')->on('users');
 
-        $table->primary(['userID','groupsID','catID']);
+        $table->primary(['userID','groupID','catID']);
       });
 
     }
