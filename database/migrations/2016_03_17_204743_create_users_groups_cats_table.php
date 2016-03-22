@@ -39,6 +39,6 @@ class CreateUsersGroupsCatsTable extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('UsersGroupsCats');
+        Schema::dropIfExists('usersgroupscats');
     }
 }
