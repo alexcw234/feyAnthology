@@ -19,7 +19,7 @@ class CreateGroupsTable extends Migration
             $table->string('groupName', 30);
             $table->softDeletes();
             $table->timestamps();
-        }
+        });
 
     }
 
