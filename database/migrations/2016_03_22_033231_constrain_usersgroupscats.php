@@ -33,9 +33,9 @@ class ConstrainUsersgroupscats extends Migration
         //
         Schema::table('usersgroupscats', function ($table) {
 
-        $table->dropForeign('usersgroupscats_catID_foreign');
-        $table->dropForeign('usersgroupscats_groupID_foreign');
-        $table->dropForeign('usersgroupscats_userID_foreign');
+        $table->dropForeign('usersgroupscats_catid_foreign');
+        $table->dropForeign('usersgroupscats_groupid_foreign');
+        $table->dropForeign('usersgroupscats_userid_foreign');
       });
     }
 }

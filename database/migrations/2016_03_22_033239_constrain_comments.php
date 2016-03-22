@@ -34,8 +34,8 @@ class ConstrainComments extends Migration
         //
         Schema::table('comments', function ($table) {
 
-        $table->dropForeign('comments_userID_foreign');
-        $table->dropForeign('comments_workID_foreign');
+        $table->dropForeign('comments_userid_foreign');
+        $table->dropForeign('comments_workid_foreign');
       });
     }
 }

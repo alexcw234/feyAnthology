@@ -34,10 +34,10 @@ class ConstrainWorks extends Migration
         //
         Schema::table('works', function ($table) {
 
-        $table->dropForeign('works_catID_foreign');
-        $table->dropForeign('works_infoID_foreign');
-        $table->dropForeign('works_subID_foreign');
-        $table->dropForeign('works_appID_foreign');
+        $table->dropForeign('works_catid_foreign');
+        $table->dropForeign('works_infoid_foreign');
+        $table->dropForeign('works_subid_foreign');
+        $table->dropForeign('works_appid_foreign');
       });
     }
 }
