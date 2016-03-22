@@ -20,6 +20,7 @@ class CreateTestTestTable extends Migration
            $table->increments('id');
            $table->uuid('public_uid');
            $table->uuid('private_uid');
+           $table->hstore('hstore_test');
 
            $table->softDeletes();
            $table->timestamps();
