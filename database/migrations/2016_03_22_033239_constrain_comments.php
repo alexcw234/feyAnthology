@@ -32,7 +32,7 @@ class ConstrainComments extends Migration
     public function down()
     {
         //
-        Schema::table('users', function ($table) {
+        Schema::table('comments', function ($table) {
 
         $table->dropForeign('comments_userID_foreign');
         $table->dropForeign('comments_workID_foreign');
