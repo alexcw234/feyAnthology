@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
 
-    protected $primaryKey = 'userID'
+    protected $primaryKey = 'userID';
     /**
      * The attributes that are mass assignable.
      *
