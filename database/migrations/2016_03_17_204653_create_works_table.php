@@ -28,10 +28,10 @@ class CreateWorksTable extends Migration
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('catID')->references('catID')->on('categories');
-            $table->foreign('infoID')->references('infoID')->on('info');
-            $table->foreign('subID')->references('userID')->on('users');
-            $table->foreign('subID')->references('userID')->on('users');
+      //      $table->foreign('catID')->references('catID')->on('categories');
+      //      $table->foreign('infoID')->references('infoID')->on('info');
+      //      $table->foreign('subID')->references('userID')->on('users');
+      //      $table->foreign('subID')->references('userID')->on('users');
         });
     }
 

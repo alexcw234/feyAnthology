@@ -22,9 +22,9 @@ class CreateUsersGroupsCatsTable extends Migration
         $table->softDeletes();
         $table->timestamps();
 
-        $table->foreign('catID')->references('catID')->on('categories');
-        $table->foreign('groupID')->references('groupID')->on('groups');
-        $table->foreign('userID')->references('userID')->on('users');
+  //      $table->foreign('catID')->references('catID')->on('categories');
+  //      $table->foreign('groupID')->references('groupID')->on('groups');
+  //      $table->foreign('userID')->references('userID')->on('users');
 
         $table->primary(['userID','groupsID','catID']);
       });
