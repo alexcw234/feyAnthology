@@ -1,0 +1,43 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class ConstrainWorks extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        //
+        Schema::table('works',function($table)
+        {
+
+          $table->foreign('catID')->references('catID')->on('categories');
+          $table->foreign('infoID')->references('infoID')->on('info');
+          $table->foreign('subID')->references('userID')->on('users');
+          $table->foreign('appID')->references('userID')->on('users');
+
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        //
+        Schema::table('works', function ($table) {
+
+        $table->dropForeign('works_catID_foreign');
+        $table->dropForeign('works_infoID_foreign');
+        $table->dropForeign('works_subID_foreign');
+        $table->dropForeign('works_appID_foreign');
+      });
+    }
+}
