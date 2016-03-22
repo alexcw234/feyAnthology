@@ -15,6 +15,7 @@ class CreateUsersGroupsCatsTable extends Migration
         //
         Schema::create('usersgroupscats',function(Blueprint $table)
         {
+        $table->increments('ugcID');
         $table->integer('userID')->unsigned();
         $table->integer('groupID')->unsigned();
         $table->integer('catID')->unsigned();
@@ -26,7 +27,7 @@ class CreateUsersGroupsCatsTable extends Migration
   //      $table->foreign('groupID')->references('groupID')->on('groups');
   //      $table->foreign('userID')->references('userID')->on('users');
 
-        $table->primary(['userID','groupID','catID']);
+        $table->unique(['ugcID','userID','groupID','catID']);
       });
 
     }
