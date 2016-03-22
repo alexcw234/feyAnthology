@@ -13,7 +13,7 @@ class CreateWorksTable extends Migration
     public function up()
     {
         //
-        Schema::create('works', function(table)
+        Schema::create('works', function(Blueprint $table)
         {
             $table->increments('workID');
             $table->integer('catID')->unsigned();
