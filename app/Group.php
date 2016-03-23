@@ -23,20 +23,10 @@ class Group extends Model
 
 
       /*
-      *     Relationship: Belongs to many users
+      *     Relationship: Has many usersgroupscats (Belongs to many groups and cats)
       */
-      public function user() {
-          return $this->belongsToMany('User','usersgroupscats','userID','userID')
-          ->withPivot('catID')->withTimestamps();
-      }
-
-
-      /*
-      *     Relationship: Belongs to many categories
-      */
-      public function category() {
-          return $this->belongsToMany('Category','usersgroupscats','catID','catID')
-          ->withPivot('userID')->withTimestamps();
+      public function ugc() {
+          return $this->hasMany('UGC','groupID','groupID');
       }
 
 }

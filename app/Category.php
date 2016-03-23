@@ -31,21 +31,10 @@ class Category extends Model
 
 
   /*
-  *     Relationship: Belongs to many users
+  *     Relationship: Has many usersgroupscats (Belongs to many users and groups)
   */
-  public function user() {
-      return $this->belongsToMany('User','usersgroupscats','userID','userID')
-      ->withPivot('groupID')->withTimestamps();
+  public function ugc() {
+      return $this->hasMany('UGC','catID','catID');
   }
-
-
-  /*
-  *     Relationship: Belongs to many groups
-  */
-  public function group() {
-      return $this->belongsToMany('Group','usersgroupscats','groupID','groupID')
-      ->withPivot('userID')->withTimestamps();
-  }
-
 
 }

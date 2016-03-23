@@ -53,21 +53,10 @@ class User extends Authenticatable
     }
 
     /*
-    *     Relationship: Belongs to many groups
+    *     Relationship: Has many usersgroupscats (Belongs to many groups and cats)
     */
-    public function group() {
-        return $this->belongsToMany('Group','usersgroupscats','groupID','groupID')
-        ->withPivot('catID')->withTimestamps();
+    public function ugc() {
+        return $this->hasMany('UGC','userID','userID');
     }
-
-    /*
-    *     Relationship: Belongs to many Categories
-    */
-    public function category() {
-        return $this->belongsToMany('Category','usersgroupscats','catID','catID')
-        ->withPivot('groupID')->withTimestamps();
-    }
-
-
 
 }
