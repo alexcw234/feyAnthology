@@ -12,10 +12,6 @@ class CatsSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-          'catName' => 'All',
-        ]);
-
-        DB::table('categories')->insert([
           'catName' => 'Sample',
         ]);
     }
