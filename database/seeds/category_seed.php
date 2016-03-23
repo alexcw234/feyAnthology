@@ -1,12 +1,27 @@
 <?php
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
-return array(
+class CatsSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('categories')->insert([
+          'catName' => 'All',
+        ]);
 
-  'table' => 'categories',
+        DB::table('categories')->insert([
+          'catName' => 'Sample',
+        ]);
+    }
+}
 
-  array('catName' => 'All Categories'),
-  array('catName' => 'Sample Category'),
 
-);
+
 
  ?>
