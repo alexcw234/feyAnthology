@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+  use SoftDeletes;
 
     protected $primaryKey = 'userID';
     /**
@@ -17,6 +18,9 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $guarded = array('userID');
+    protected $dates = ['deleted_at'];
+
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -25,4 +29,43 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    /*
+    *     Relationship: Has many Work:subID
+    */
+    protected function subID() {
+        return $this->hasMany('Work','subID','userID');
+    }
+
+    /*
+    *     Relationship: Has many Work:appID
+    */
+    protected function appID() {
+        return $this->hasMany('Work','appID','userID');
+    }
+
+    /*
+    *     Relationship: Has many comments
+    */
+    protected function comment() {
+        return $this->hasMany('Comment','userID','userID');
+    }
+
+    /*
+    *     Relationship: Belongs to many groups
+    */
+    public function group() {
+        return $this->belongsToMany('Group','usersgroupscats','groupID','groupID');
+    }
+
+    /*
+    *     Relationship: Belongs to many Categories
+    */
+    public function category() {
+        return $this->belongsToMany('Category','usersgroupscats','catID','catID');
+    }
+
+
+
 }
