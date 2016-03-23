@@ -20,7 +20,6 @@ class CreateUsersGroupsCatsTable extends Migration
         $table->integer('groupID')->unsigned();
         $table->integer('catID')->unsigned();
 
-        $table->softDeletes();
         $table->timestamps();
 
   //      $table->foreign('catID')->references('catID')->on('categories');

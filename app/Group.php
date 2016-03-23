@@ -26,7 +26,8 @@ class Group extends Model
       *     Relationship: Belongs to many users
       */
       public function user() {
-          return $this->belongsToMany('User','usersgroupscats','userID','userID');
+          return $this->belongsToMany('User','usersgroupscats','userID','userID')
+          ->withPivot('catID')->withTimestamps();
       }
 
 
@@ -34,7 +35,8 @@ class Group extends Model
       *     Relationship: Belongs to many categories
       */
       public function category() {
-          return $this->belongsToMany('Category','usersgroupscats','catID','catID');
+          return $this->belongsToMany('Category','usersgroupscats','catID','catID')
+          ->withPivot('userID')->withTimestamps();
       }
 
 }

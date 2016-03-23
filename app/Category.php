@@ -34,7 +34,8 @@ class Category extends Model
   *     Relationship: Belongs to many users
   */
   public function user() {
-      return $this->belongsToMany('User','usersgroupscats','userID','userID');
+      return $this->belongsToMany('User','usersgroupscats','userID','userID')
+      ->withPivot('groupID')->withTimestamps();
   }
 
 
@@ -42,7 +43,8 @@ class Category extends Model
   *     Relationship: Belongs to many groups
   */
   public function group() {
-      return $this->belongsToMany('Group','usersgroupscats','groupID','groupID');
+      return $this->belongsToMany('Group','usersgroupscats','groupID','groupID')
+      ->withPivot('userID')->withTimestamps();
   }
 
 
