@@ -26,7 +26,7 @@ class Info extends Model
     */
     public function work() {
 
-        return  $this->belongsTo('Work','workID','workID');
+        return  $this->belongsTo('Work','infoID','infoID');
 
     }
 
