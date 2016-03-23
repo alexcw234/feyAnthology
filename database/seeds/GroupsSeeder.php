@@ -17,7 +17,7 @@ class GroupsSeeder extends Seeder
         ]);
 
         DB::table('groups')->insert([
-          'groupName' => 'admin',
+          'groupName' => 'catadmin',
         ]);
 
         DB::table('groups')->insert([
@@ -25,8 +25,25 @@ class GroupsSeeder extends Seeder
         ]);
 
         DB::table('groups')->insert([
+          'groupName' => 'contributor+',
+        ]);      
+
+        DB::table('groups')->insert([
           'groupName' => 'contributor',
         ]);
+
+        DB::table('groups')->insert([
+          'groupName' => 'none',
+        ]);
+
+        DB::table('groups')->insert([
+          'groupName' => 'limited',
+        ]);
+
+        DB::table('groups')->insert([
+          'groupName' => 'banned',
+        ]);
+
     }
 }
 
