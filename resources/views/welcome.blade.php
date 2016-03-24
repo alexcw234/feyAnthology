@@ -3,10 +3,13 @@
 @section('content')
 
 <!--Angular scripts-->
-  <script src="bower_compontents/angular/angular.min.js"></script>
-  <script src="bower_compontents/angular/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script  src="bower_components/angular/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+
 <!--End angular scripts-->
-@include('welcome-angular');
+
+
 
 <div class="container">
     <div class="row">
@@ -16,6 +19,9 @@
 
                 <div class="panel-body">
                     Your Application's Landing Page.
+
+                    @include('welcome-angular')
+
                 </div>
             </div>
         </div>

@@ -1,5 +1,11 @@
 <?php
 
-echo "<script language = 'JavaScript' src='/angularviews/welcome.js' type = 'text/javascript'></script>";
+echo "
+<script src=\"angularviews/welcome.js\"></script>
+
+                    <div ng-app=\"myApp\" ng-controller=\"myCtrl\">
+                    {{ firstName + \" \" + lastName }}
+                    </div>
+"
 
  ?>
