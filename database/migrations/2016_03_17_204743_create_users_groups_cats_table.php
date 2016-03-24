@@ -26,7 +26,7 @@ class CreateUsersGroupsCatsTable extends Migration
   //      $table->foreign('groupID')->references('groupID')->on('groups');
   //      $table->foreign('userID')->references('userID')->on('users');
 
-        $table->unique(['ugcID','userID','groupID','catID']);
+        $table->unique(['userID','catID']);
       });
 
     }
