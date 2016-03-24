@@ -16,7 +16,7 @@ class CreateInfoTable extends Migration
         Schema::create('info',function(Blueprint $table)
         {
             $table->increments('infoID');
-            $table->hstore('info');
+            $table->jsonb('info');
 
             $table->softDeletes();
             $table->timestamps();
