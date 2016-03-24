@@ -1,5 +1,15 @@
 <script src="js/welcome.js"></script>
 
-                    <div ng-app="myApp" ng-controller="myCtrl">
+
+<h4>Select a category:</h4>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <form name="catForm">
+
+        <select ng-model="selectCat" ng-options="c.groupName for c in groups">
+            <option value="">Select Account</option>
+        </select>
+
                     {{ firstName + " " + lastName }}
-                    </div>
+      </form>
+   </div>

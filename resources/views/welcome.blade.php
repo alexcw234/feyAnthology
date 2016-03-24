@@ -18,7 +18,6 @@
                 <div class="panel-heading">Welcome to Fey Anthology!</div>
 
                 <div class="panel-body">
-                    Your Application's Landing Page.
 
                     @include('welcome-angular-connector')
 
