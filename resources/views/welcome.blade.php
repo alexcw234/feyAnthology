@@ -20,7 +20,7 @@
                 <div class="panel-body">
                     Your Application's Landing Page.
 
-                    @include('welcome-angular')
+                    @include('welcome-angular-connector')
 
                 </div>
             </div>
