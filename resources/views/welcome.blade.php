@@ -6,7 +6,7 @@
   <script src="bower_compontents/angular/angular.min.js"></script>
   <script src="bower_compontents/angular/angular-ui-router/release/angular-ui-router.min.js"></script>
 <!--End angular scripts-->
-@include('welcome.angular');
+@include('welcome-angular');
 
 <div class="container">
     <div class="row">
