@@ -1,4 +1,4 @@
 <?php
-set_include_path("../resources/templates");
+set_include_path("templates");
 include("frontpage.html");
  ?>
