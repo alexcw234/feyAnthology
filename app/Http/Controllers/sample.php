@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class CatsController extends Controller
+class SampleController extends Controller
 {
     //
 
