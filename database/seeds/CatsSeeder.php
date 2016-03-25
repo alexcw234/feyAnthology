@@ -11,8 +11,16 @@ class CatsSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('categories')->insert([
           'catName' => 'Sample',
+          'description' => 'A sample description',
+          'options' => json_encode(array
+          (
+            'public' => 1,
+            'allow_new_contributors' => 1,
+            )
+          ),
         ]);
     }
 }
