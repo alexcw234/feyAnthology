@@ -1,6 +1,8 @@
 <script src="js/welcome.js"></script>
 <div ng-app="browseApp"><div ng-controller="myCtrl">
 
+  <div ng-view></div>
+
 
 <h4>Select a category:</h4>
         {{ firstName + " " + lastName }}
@@ -10,7 +12,6 @@
         <form name="catForm">
 
           <table ng-controller="tableCtrl">
-{{test}}
           <tr>
             <th>Category</th>
             <th>Description</th>
@@ -26,4 +27,11 @@
 
 
     </div>
+
+
+
+
+
+
+
 </div></div>
