@@ -1,15 +1,29 @@
 <script src="js/welcome.js"></script>
+<div ng-app="myApp"><div ng-controller="myCtrl">
 
 
 <h4>Select a category:</h4>
+        {{ firstName + " " + lastName }}
+  <div>
+    <style scoped>@import url("css/catlist.css");</style>
 
-    <div ng-app="myApp" ng-controller="myCtrl">
-      <form name="catForm">
+        <form name="catForm">
 
-        <select ng-model="selectCat" ng-options="c.catName for c in categories">
-            <option value="">Select Account</option>
-        </select>
+          <table ng-controller="tableCtrl">
+            
+          <tr>
+            <th>Category</th>
+            <th>Description</th>
+          </tr>
+          <tr ng-repeat="x in cats">
+            <td>{{x.name}}</td>
+            <td>{{x.description}}</td>
+          </tr>
 
-                    {{ firstName + " " + lastName }}
-      </form>
-   </div>
+          </table>
+
+       </form>
+
+
+    </div>
+</div></div>
