@@ -2,31 +2,4 @@
 <div ng-app="browseApp">
 
 
-  <div ng-controller="myCtrl">
-
-  <h4>Select a category:</h4>
-          {{ firstName + " " + lastName }}
-    <div>
-      <style scoped>@import url("css/catlist.css");</style>
-
-          <form name="catForm">
-
-            <table ng-controller="tableCtrl">
-            <tr>
-              <th>Category</th>
-              <th>Description</th>
-            </tr>
-            <tr ng-repeat="x in cats">
-              <td>{{x.catName}}</td>
-              <td>{{x.description}}</td>
-            </tr>
-
-            </table>
-
-         </form>
-
-      </div>
-
-  </div>
-
 </div>
