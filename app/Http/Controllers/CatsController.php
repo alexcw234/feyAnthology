@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use DB;
+use Response;
 
 class CatsController extends Controller
 {
@@ -17,7 +19,8 @@ class CatsController extends Controller
    */
   public function index()
   {
-      //
+      $allCats = DB::table('categories')->select('catName','description')->get();
+      return Response::json($allCats);
   }
 
   /**

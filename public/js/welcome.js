@@ -7,9 +7,12 @@ app.controller("myCtrl", function($scope) {
 
 
 app.controller("tableCtrl", function($scope, $http) {
-    $http.get("reqs/test.json")
+    $http.get("reqs/cats/showall")
       .success(function(response)
         {
-          $scope.cats = response;
+            console.log("Test");
+            $scope.cats = response;
+
         });
+
 });

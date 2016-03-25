@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(array('prefix' => 'reqs'), function() {
+
+  Route::get('cats/showall', 'CatsController@index');
+
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
