@@ -1,37 +1,32 @@
-<script src="js/welcome.js"></script>
-<div ng-app="browseApp"><div ng-controller="myCtrl">
-
-  <div ng-view></div>
+<script src="js/routes.js"></script>
+<div ng-app="browseApp">
 
 
-<h4>Select a category:</h4>
-        {{ firstName + " " + lastName }}
-  <div>
-    <style scoped>@import url("css/catlist.css");</style>
+  <div ng-controller="myCtrl">
 
-        <form name="catForm">
+  <h4>Select a category:</h4>
+          {{ firstName + " " + lastName }}
+    <div>
+      <style scoped>@import url("css/catlist.css");</style>
 
-          <table ng-controller="tableCtrl">
-          <tr>
-            <th>Category</th>
-            <th>Description</th>
-          </tr>
-          <tr ng-repeat="x in cats">
-            <td>{{x.catName}}</td>
-            <td>{{x.description}}</td>
-          </tr>
+          <form name="catForm">
 
-          </table>
+            <table ng-controller="tableCtrl">
+            <tr>
+              <th>Category</th>
+              <th>Description</th>
+            </tr>
+            <tr ng-repeat="x in cats">
+              <td>{{x.catName}}</td>
+              <td>{{x.description}}</td>
+            </tr>
 
-       </form>
+            </table>
 
+         </form>
 
-    </div>
+      </div>
 
+  </div>
 
-
-
-
-
-
-</div></div>
+</div>
