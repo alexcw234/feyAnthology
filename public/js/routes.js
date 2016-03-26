@@ -11,7 +11,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .state('categories',{
         url: '/categories',
-        templateUrl: 'templates/catpage.html'
+        templateUrl: 'templates/catlist.html'
+    })
+
+    .state('works',{
+        url: '/works',
+        templateUrl: 'templates/worklist.html'
     });
 
 
