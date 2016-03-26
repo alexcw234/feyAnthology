@@ -8,9 +8,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
 
-    .state('test',{
-        url: 'test',
-        templateUrl: 'test'
+    .state('teststate',{
+        url: '/test',
+        templateUrl: 'templates/test.html'
     });
 
 
