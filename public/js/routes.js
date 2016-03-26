@@ -10,7 +10,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .state('teststate',{
         url: '/test',
-        templateUrl: 'templates/test.html'
+        templateUrl: 'templates/catpage.html'
     });
 
 
