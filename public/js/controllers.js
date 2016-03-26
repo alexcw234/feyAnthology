@@ -1,4 +1,6 @@
-var app = angular.module("browseApp", []);
+var app = angular.module("browseApp.controllers", []);
+
+
 
 app.controller("myCtrl", function($scope) {
     $scope.firstName = "If this is showing,";
