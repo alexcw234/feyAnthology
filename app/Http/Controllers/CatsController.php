@@ -19,7 +19,7 @@ class CatsController extends Controller
    */
   public function index()
   {
-      $allCats = DB::table('categories')->select('catName','description')->get();
+      $allCats = DB::table('categories')->select('catID','catName','description')->get();
       return Response::json($allCats);
   }
 
