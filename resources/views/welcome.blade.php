@@ -10,20 +10,7 @@
 <!--End angular scripts-->
 
 
+@include('welcome-angular-connector')
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Welcome to Fey Anthology!</div>
 
-                <div class="panel-body">
-
-                    @include('welcome-angular-connector')
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
