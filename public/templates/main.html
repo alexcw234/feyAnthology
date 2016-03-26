@@ -7,24 +7,24 @@
 
 
 <div class="container">
-  <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-          <div class="panel panel-default">
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
 
+<!-- Begin controll by browseApp -->
+        <div ng-app="browseApp">
 
-              <div class="panel-heading">Welcome to Fey Anthology!</div>
+              <div class="panel panel-default">
 
+                    <div class="panel-heading">Welcome to Fey Anthology!</div>
 
-              <div class="panel-body">
+                    <div class="panel-body">
 
-                <div ng-app="browseApp">
+                          <div ui-view></div>
 
-                    <div ui-view></div>
-
-                </div>
+                    </div>
               </div>
-
-          </div>
-      </div>
-  </div>
+        </div>
+<!-- End control by browseApp -->
+</div>
+</div>
 </div>

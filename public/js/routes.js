@@ -4,13 +4,13 @@ var app = angular.module("browseApp.routes", ['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/test');
+    $urlRouterProvider.otherwise('/categories');
 
 
     $stateProvider
 
-    .state('teststate',{
-        url: '/test',
+    .state('categories',{
+        url: '/categories',
         templateUrl: 'templates/catpage.html'
     });
 
