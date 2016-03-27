@@ -14,19 +14,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('allcats',{
         url: '/categories',
         templateUrl: 'templates/catlist.html',
-        controller: 'categories'
+        controller: 'header_c'
     })
 
     .state('list',{
         url: '/list',
         templateUrl: 'templates/list.html',
-        controller: 'list'
+        controller: 'header_l'
     })
 
     .state('new',{
         url: '/new',
         templateUrl: 'templates/new.html',
-        controller: 'new'
+        controller: 'header_n'
     });
 
 });

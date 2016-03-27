@@ -4,4 +4,7 @@ var app = angular.module("browseApp",
   [
     'browseApp.routes',
     'browseApp.controllers'
+    'browseApp.cats',
+    'browseApp.newsub',
+    'browseApp.workslist'
   ]);

@@ -21,21 +21,21 @@ app.controller("tableCtrl", function($scope, $http) {
 
 });
 
-app.controller("categories", function($scope) {
+app.controller("header_c", function($scope) {
 
 $scope.$parent.header = "List of categories";
 
 });
 
 
-app.controller("list", function($scope) {
+app.controller("header_l", function($scope) {
 
 $scope.$parent.header = "List";
 
 });
 
 
-app.controller("new", function($scope) {
+app.controller("header_n", function($scope) {
 $scope.$parent.header = "Submit something new";
 
 });
