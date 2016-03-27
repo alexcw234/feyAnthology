@@ -6,8 +6,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider
 
-    .when('/list','works')
-
     .otherwise('/categories');
 
 
