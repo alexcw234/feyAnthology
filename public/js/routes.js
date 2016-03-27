@@ -16,10 +16,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/catlist.html'
     })
 
-    .state('works',{
+    .state('list',{
         url: '/list',
-        templateUrl: 'templates/worklist.html'
-    });
+        templateUrl: 'templates/list.html'
+    })
 
+    .state('new',{
+        url: '/new',
+        templateUrl: 'templates/new.html'
+    });
 
 });
