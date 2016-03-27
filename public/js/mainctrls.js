@@ -1,4 +1,4 @@
-var app = angular.module("browseApp.controllers", []);
+var app = angular.module("browseApp.mainctrls", []);
 
 app.controller("header", function($scope){
 //    $scope.header = "Welcome to Fey Anthology!";
