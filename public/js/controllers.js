@@ -21,7 +21,6 @@ app.controller("tableCtrl", function($scope, $http) {
 
 });
 
-
 app.controller("categories", function($scope) {
 
 $scope.$parent.header = "List of categories";
