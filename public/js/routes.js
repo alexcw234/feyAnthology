@@ -18,13 +18,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state('list',{
-        url: '/list',
+        url: '/list/:catID',
         templateUrl: 'templates/list.html',
         controller: 'header_l'
     })
 
     .state('new',{
-        url: '/new',
+        url: '/new/:catID',
         templateUrl: 'templates/new.html',
         controller: 'header_n'
     });
