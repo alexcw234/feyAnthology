@@ -15,7 +15,7 @@
           </tr>
           <tr ng-repeat="x in cats">
             <td>
-              <a href="">
+              <a ui-sref="list.detail({catID: x.catID})">
               {{x.catName}}
             </a>
             </td>
