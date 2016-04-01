@@ -11,7 +11,6 @@ app.controller("catstableCtrl", function($scope, $http) {
     $http.get("reqs/cats/showall")
       .success(function(response)
         {
-            console.log("Test");
             $scope.cats = response;
 
         });

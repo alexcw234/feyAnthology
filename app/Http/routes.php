@@ -19,6 +19,8 @@ Route::group(array('prefix' => 'reqs'), function() {
 
   Route::get('cats/showall', 'CatsController@index');
 
+  Route::get('list/{catID}', 'WorksController@show');
+
 });
 /*
 |--------------------------------------------------------------------------

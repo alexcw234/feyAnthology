@@ -1,8 +1,8 @@
 
-<div ng-controller="myCtrl">
 
-<h4>Select a category:</h4>
-        {{ firstName + " " + lastName }}
+
+<h4>List of Works:</h4>
+
   <div>
     <style scoped>@import url("css/catlist.css");</style>
 
@@ -15,11 +15,10 @@
           </tr>
           <tr ng-repeat="x in works">
             <td>
-              <a ui-sref="list({catID: x.catID})">
-              {{x.catName}}
-            </a>
+              {{x.catID}}
+
             </td>
-            <td>{{x.description}}</td>
+            <td>{{x.typeID}}</td>
           </tr>
 
           </table>
@@ -27,5 +26,3 @@
        </form>
 
     </div>
-
-</div>
