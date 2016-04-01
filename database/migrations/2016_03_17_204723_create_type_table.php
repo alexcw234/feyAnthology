@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInfoTable extends Migration
+class CreateTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateInfoTable extends Migration
     public function up()
     {
         //
-        Schema::create('info',function(Blueprint $table)
+        Schema::create('type',function(Blueprint $table)
         {
-            $table->increments('infoID');
-            $table->jsonb('info');
+            $table->increments('typeID');
+            $table->string('contentType');
+            $table->hstore('expectedFields');
 
             $table->softDeletes();
             $table->timestamps();
@@ -32,6 +33,6 @@ class CreateInfoTable extends Migration
     public function down()
     {
         //
-        Schema::drop('info');
+        Schema::drop('type');
     }
 }

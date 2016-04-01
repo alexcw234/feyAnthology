@@ -17,7 +17,7 @@ class ConstrainWorks extends Migration
         {
 
           $table->foreign('catID')->references('catID')->on('categories');
-          $table->foreign('infoID')->references('infoID')->on('info');
+          $table->foreign('typeID')->references('typeID')->on('type');
           $table->foreign('subID')->references('userID')->on('users');
           $table->foreign('appID')->references('userID')->on('users');
 
@@ -35,7 +35,7 @@ class ConstrainWorks extends Migration
         Schema::table('works', function ($table) {
 
         $table->dropForeign('works_catid_foreign');
-        $table->dropForeign('works_infoid_foreign');
+        $table->dropForeign('works_typeid_foreign');
         $table->dropForeign('works_subid_foreign');
         $table->dropForeign('works_appid_foreign');
       });

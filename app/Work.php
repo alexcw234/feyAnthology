@@ -16,17 +16,17 @@ class Work extends Model
   protected $table = 'works';
   protected $primaryKey = 'workID';
 
-  protected $fillable = array('catID','infoID','url','approved','subID','appID');
+  protected $fillable = array('catID','typeID','url','info','tags','approved','subID','appID');
 
   protected $guarded = array('workID');
 
   protected $dates = ['deleted_at'];
 
   /*
-  *     Relationship: Has one Info
+  *     Relationship: Has one Type
   */
-  public function info() {
-      return $this->hasOne('Info','infoID','infoID');
+  public function type() {
+      return $this->hasOne('Type','typeID','typeID');
   }
 
   /*

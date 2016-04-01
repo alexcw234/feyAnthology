@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Info extends Model
+class Type extends Model
 {
 
   /*
@@ -13,11 +13,11 @@ class Info extends Model
   */
   use SoftDeletes;
 
-  protected $table = 'info';
-  protected $primaryKey = 'infoID';
+  protected $table = 'type';
+  protected $primaryKey = 'typeID';
 
-  protected $fillable = array('info');
-  protected $guarded = array('infoID');
+  protected $fillable = array('type','contentType','expectedFields');
+  protected $guarded = array('typeID');
 
   protected $dates = ['deleted_at'];
 
@@ -27,7 +27,7 @@ class Info extends Model
     */
     public function work() {
 
-        return  $this->belongsTo('Work','infoID','infoID');
+        return  $this->belongsTo('Work','typeID','typeID');
 
     }
 

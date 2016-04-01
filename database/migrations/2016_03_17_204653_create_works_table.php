@@ -17,8 +17,10 @@ class CreateWorksTable extends Migration
         {
             $table->increments('workID');
             $table->integer('catID')->unsigned();
-            $table->integer('infoID')->unsigned();
+            $table->integer('typeID')->unsigned();
             $table->string('url',1000);
+            $table->jsonb('info');
+            $table->hstore('tags');
             $table->boolean('approved');
             $table->integer('subID')->unsigned();
             $table->integer('appID')->unsigned();
