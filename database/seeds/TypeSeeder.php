@@ -11,6 +11,6 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }
