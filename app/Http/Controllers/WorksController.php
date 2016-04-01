@@ -15,9 +15,11 @@ class WorksController extends Controller
  *
  * @return Response
  */
-public function index()
+public function index($catID)
 {
+  $worksfromcat = DB::table('works')->select('catID','typeID')->where('catID','=',$catID)->get();
 
+  return Response::json($worksfromcat);
 }
 
 /**
@@ -46,11 +48,9 @@ public function store()
  * @param  int  $id
  * @return Response
  */
-public function show($catID)
+public function show($id)
 {
-  $worksfromcat = DB::table('works')->select('catID','typeID')->where('catID','=',$catID)->get();
 
-  return Response::json($worksfromcat);
 }
 
 
