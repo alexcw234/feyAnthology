@@ -18,7 +18,9 @@ class DatabaseSeeder extends Seeder
 
 //        $this->call(GroupsSeeder::class);
 //        $this->call(CatsSeeder::class);
-          $this->call(WorksSeeder::class);
+//        $this->call(TypeSeeder::class);
+        $this->call(WorksSeeder::class);
+
 
       Model::reguard();
     }

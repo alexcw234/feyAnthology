@@ -11,6 +11,15 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('types')->insert([
+
+          'contentType' => 'TEST',
+          'expectedFields' =>  '
+            "TestField1" => "true",
+            "TestField2" => "true",
+          ',
+        ]);
+
 
     }
 }
