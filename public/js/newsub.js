@@ -1,9 +1,9 @@
 var app = angular.module("browseApp.newsub", []);
 
 
-app.controller = ('permissions', function($scope, $http) {
+app.controller = ('permissions', function($scope, $http, $stateParams) {
 
-  $http.get("reqs/check/level")
+  $http.get("reqs/check/")
     .success(function(response)
       {
           console.log("Test");
