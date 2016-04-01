@@ -18,7 +18,7 @@ $scope.$parent.header = "List of categories";
 /*
 * Main controller for the works list state.
 *
-*/app.controller("controller_l", function($scope) {
+*/app.controller("controller_l", function($scope, $stateParams) {
 
 $scope.$parent.header = "List";
 
