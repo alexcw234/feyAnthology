@@ -17,7 +17,7 @@ class ConstrainWorks extends Migration
         {
 
           $table->foreign('catID')->references('catID')->on('categories');
-          $table->foreign('typeID')->references('typeID')->on('type');
+          $table->foreign('typeID')->references('typeID')->on('types');
           $table->foreign('subID')->references('userID')->on('users');
           $table->foreign('appID')->references('userID')->on('users');
 

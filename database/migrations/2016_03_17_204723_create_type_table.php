@@ -13,7 +13,7 @@ class CreateTypeTable extends Migration
     public function up()
     {
         //
-        Schema::create('type',function(Blueprint $table)
+        Schema::create('types',function(Blueprint $table)
         {
             $table->increments('typeID');
             $table->string('contentType');
@@ -33,6 +33,6 @@ class CreateTypeTable extends Migration
     public function down()
     {
         //
-        Schema::drop('type');
+        Schema::drop('types');
     }
 }

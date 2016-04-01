@@ -13,10 +13,10 @@ class Type extends Model
   */
   use SoftDeletes;
 
-  protected $table = 'type';
+  protected $table = 'types';
   protected $primaryKey = 'typeID';
 
-  protected $fillable = array('type','contentType','expectedFields');
+  protected $fillable = array('contentType','expectedFields');
   protected $guarded = array('typeID');
 
   protected $dates = ['deleted_at'];
