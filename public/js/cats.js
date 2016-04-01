@@ -7,7 +7,7 @@ app.controller("myCtrl", function($scope) {
 });
 
 
-app.controller("tableCtrl", function($scope, $http) {
+app.controller("catstableCtrl", function($scope, $http) {
     $http.get("reqs/cats/showall")
       .success(function(response)
         {

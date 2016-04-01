@@ -1,1 +1,31 @@
-Works here
+
+<div ng-controller="myCtrl">
+
+<h4>Select a category:</h4>
+        {{ firstName + " " + lastName }}
+  <div>
+    <style scoped>@import url("css/catlist.css");</style>
+
+        <form name="catForm">
+
+          <table ng-controller="workslistCtrl">
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+          </tr>
+          <tr ng-repeat="x in works">
+            <td>
+              <a ui-sref="list({catID: x.catID})">
+              {{x.catName}}
+            </a>
+            </td>
+            <td>{{x.description}}</td>
+          </tr>
+
+          </table>
+
+       </form>
+
+    </div>
+
+</div>
