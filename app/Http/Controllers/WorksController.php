@@ -26,59 +26,21 @@ class WorksController extends Controller
   }
 
   /**
- * Will display all works for a category.
+ * Will display selection of works.
  *
  * @return Response
  */
 public function index($catID)
 {
-/*
-  Query builder version for reference:
-
-  $worksfromcat = DB::table('works')
-  ->select('workID','catID','typeID','url','info','tags')
-  ->where('catID','=',$catID)
-  ->where('approved',true)
-  ->get();
-
-  return Response::json($worksfromcat);
-*/
 
   $list = $this->work->getallworks($catID);
 
+
+
+
+
+
   return $list->toJson();
-}
-
-/**
-* Will display all works for a category that satisfy query.
-*
-* @return Response
-*/
-public function retrieve($catID, $infoReq, $tagReq)
-{
-
-
-
-  $worksfromcat = Work::
-  select('workID','catID','typeID','url','info','tags')
-  ->where('catID','=',$catID)
-  ->where('approved',true)
-  ->where(function($query) use ($infoReq){
-
-
-
-  })
-  ->where(function($query) use ($tagReq){
-
-
-//      $query->orWhere(, '=', );
-
-
-
-  })
-  ->get();
-
-return $worksfromcat->toJson();
 }
 
 
