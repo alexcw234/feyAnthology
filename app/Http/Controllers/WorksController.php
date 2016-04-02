@@ -5,26 +5,72 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
+use App\Work;
+
 use DB;
 use Response;
 
 class WorksController extends Controller
 {
   /**
- * Display a listing of the resource.
+ * Will display all works for a category.
  *
  * @return Response
  */
 public function index($catID)
 {
+/*
+  Query builder version for reference:
 
-  $worksfromcat = DB::table('works')->select('workID','catID','typeID','url','info','tags')->where('catID','=',$catID)
-  ->where('approved',true)->get();
-
-
+  $worksfromcat = DB::table('works')
+  ->select('workID','catID','typeID','url','info','tags')
+  ->where('catID','=',$catID)
+  ->where('approved',true)
+  ->get();
 
   return Response::json($worksfromcat);
+*/
+
+  $worksfromcat = Work::select('workID','catID','typeID','url','info','tags')
+  ->where('catID','=',$catID)
+  ->where('approved',true)
+  ->get();
+
+  return $worksfromcat->toJson();
 }
+
+/**
+* Will display all works for a category that satisfy query.
+*
+* @return Response
+*/
+public function retrieve($catID, $infoReq, $tagReq)
+{
+
+
+
+  $worksfromcat = Work::
+  select('workID','catID','typeID','url','info','tags')
+  ->where('catID','=',$catID)
+  ->where('approved',true)
+  ->where(function($query) use ($infoReq){
+
+
+
+  })
+  ->where(function($query) use ($tagReq){
+
+
+//      $query->orWhere(, '=', );
+
+
+
+  })
+  ->get();
+
+return $worksfromcat->toJson();
+}
+
 
 /**
  * Show the form for creating a new resource.
