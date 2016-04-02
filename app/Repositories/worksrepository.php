@@ -43,10 +43,10 @@ class WorksRepository {
       })
       ->where(function($query) use ($tagReq){
 
-          foreach ($tag in $tagReq)
+          foreach ($tagReq as $tag)
           {
-          $query->orWhere('tags', 'like', '%'. $tag . '%');
-        }
+            $query->orWhere('tags', 'like', '%'. $tag . '%');
+          }
 
 
       })
