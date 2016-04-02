@@ -34,25 +34,16 @@ class WorksController extends Controller
 public function index($catID)
 {
 
-  $params = $this->request->all();
+  $infos = $this->request->except('tags');
+
+  $tags = explode(',', $this->request->get('tags'));
 
 
 
-  if (!$params) {
-
-  $list = $this->work->getallworks($catID);
+  $list = $this->work->retrieve($catID, $infos, $tags);
 
   return $list->toJson();
-  }
-  else
-  {
 
-  $list = $this->work->parse($params);
-
-  return $list;
-  }
-
-//  return $list->toJson();
 }
 
 

@@ -29,21 +29,21 @@ class WorksRepository {
     *
     * @return Response
     */
-    public function retrieve($catID, $infoReq, $tagReq)
+    public function retrieve($catID, $infos, $tags)
     {
 
       $worksfromcat = Work::join('types','works.typeID','=','types.typeID')
       ->select('workID','catID','contentType','expectedFields','url','info','tags')
       ->where('catID','=',$catID)
       ->where('approved',true)
-      ->where(function($query) use ($infoReq){
+      ->where(function($query) use ($infos){
 
 
 
       })
-      ->where(function($query) use ($tagReq){
+      ->where(function($query) use ($tags){
 
-          foreach ($tagReq as $tag)
+          foreach ($tags as $tag)
           {
             $query->orWhere('tags', 'like', '%'. $tag . '%');
           }
@@ -57,16 +57,15 @@ class WorksRepository {
 
 
     /**
-    * A test function for parsing req input.
+    * Retrieve Tags from parameters.
     *
     * @return Response
     */
-    public function parse($params)
+    public function parsetags($params)
     {
 
+    return $params['tags'];
 
-
-      return $params;
     }
 
 }
