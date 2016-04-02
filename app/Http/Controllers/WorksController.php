@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-
+use Illuminate\Routing\Controller;
 
 use App\Repositories\worksrepository as WorksRepository;
 
@@ -20,9 +20,10 @@ class WorksController extends Controller
   * Injects repository
   *
   */
-  public function __construct(WorksRepository $work)
+  public function __construct(WorksRepository $work, Request $request)
   {
         $this->work = $work;
+        $this->request = $request;
   }
 
   /**
@@ -33,14 +34,25 @@ class WorksController extends Controller
 public function index($catID)
 {
 
+  $params = $this->request->all();
+
+
+
+  if (!$params) {
+
   $list = $this->work->getallworks($catID);
 
-
-
-
-
-
   return $list->toJson();
+  }
+  else
+  {
+
+  $list = $this->work->parse($params);
+
+  return $list;
+  }
+
+//  return $list->toJson();
 }
 
 

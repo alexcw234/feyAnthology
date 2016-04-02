@@ -56,6 +56,19 @@ class WorksRepository {
     }
 
 
+    /**
+    * A test function for parsing req input.
+    *
+    * @return Response
+    */
+    public function parse($params)
+    {
+
+
+
+      return $params;
+    }
+
 }
 
 ?>
