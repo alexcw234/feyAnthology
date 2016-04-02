@@ -5,13 +5,26 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
-use App\Work;
+
+use App\Repositories\worksrepository as WorksRepository;
 
 use DB;
 use Response;
 
 class WorksController extends Controller
 {
+
+  private $work;
+
+  /**
+  * Injects repository
+  *
+  */
+  public function __construct(WorksRepository $work)
+  {
+        $this->work = $work;
+  }
+
   /**
  * Will display all works for a category.
  *
@@ -31,12 +44,9 @@ public function index($catID)
   return Response::json($worksfromcat);
 */
 
-  $worksfromcat = Work::select('workID','catID','typeID','url','info','tags')
-  ->where('catID','=',$catID)
-  ->where('approved',true)
-  ->get();
+  $list = $this->work->getallworks($catID);
 
-  return $worksfromcat->toJson();
+  return $list->toJson();
 }
 
 /**
