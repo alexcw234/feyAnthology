@@ -17,7 +17,11 @@ class WorksController extends Controller
  */
 public function index($catID)
 {
-  $worksfromcat = DB::table('works')->select('catID','typeID')->where('catID','=',$catID)->get();
+
+  $worksfromcat = DB::table('works')->select('catID','typeID','url','info','tags')->where('catID','=',$catID)
+  ->where('approved',true)->get();
+
+
 
   return Response::json($worksfromcat);
 }
