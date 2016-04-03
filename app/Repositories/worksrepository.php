@@ -39,6 +39,9 @@ class WorksRepository {
       ->where(function($query) use ($infos){
 
 
+        // Info search, not currently implemented
+
+
 
       })
       ->where(function($query) use ($tags){
@@ -46,7 +49,7 @@ class WorksRepository {
           foreach ($tags as $tag)
           {
             $query->whereRaw("exist(tags, ?)", array($tag));
-            
+
           }
 
 
