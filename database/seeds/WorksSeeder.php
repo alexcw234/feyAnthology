@@ -19,13 +19,13 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'Title' => 'Sample Title 5',
-              'Author' => 'Sample Author 5',
+              'Title' => 'Sample Title 9',
+              'Author' => 'Sample Author 9',
           )
         ),
           'tags' => '
             "test1" => "true",
-            "test2" => "true",
+            "test4" => "true",
             "test3" => "true",
           ',
           'approved' => true,
@@ -42,14 +42,14 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'Title' => 'Sample Title 6',
-              'Author' => 'Sample Author 6',
+              'Title' => 'Sample Title 10',
+              'Author' => 'Sample Author 10',
           )
         ),
         'tags' => '
-          "test1" => "true",
+          "test4" => "true",
           "test2" => "true",
-          "test3" => "false",
+          "test3" => "true",
         ',
           'approved' => true,
           'subID' => 1,
@@ -64,14 +64,14 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'Title' => 'Sample Title 7',
-              'Author' => 'Sample Author 7',
+              'Title' => 'Sample Title 11',
+              'Author' => 'Sample Author 11',
           )
         ),
         'tags' => '
           "test1" => "true",
-          "test2" => "true",
-          "test3" => "false",
+          "test4" => "true",
+          "test5" => "false",
         ',
           'approved' => false,
           'subID' => 1,
@@ -87,8 +87,8 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'Title' => 'Sample Title 8',
-              'Author' => 'Sample Author 8',
+              'Title' => 'Sample Title 12',
+              'Author' => 'Sample Author 12',
           )
         ),
         'tags' => '
