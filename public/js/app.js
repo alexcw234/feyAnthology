@@ -6,5 +6,6 @@ var app = angular.module("browseApp",
     'browseApp.mainctrls',
     'browseApp.cats',
     'browseApp.newsub',
-    'browseApp.workslist'
+    'browseApp.workslist',
+    'browseApp.search'
   ]);

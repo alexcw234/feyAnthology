@@ -12,8 +12,3 @@ app.controller("workslistCtrl", function($scope, $http) {
         });
 
 });
-
-app.controller("searchbox", function($state) {
-  //  $state.transitionTo('list.search');
-
-});
