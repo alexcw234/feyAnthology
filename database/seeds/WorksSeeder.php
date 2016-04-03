@@ -19,14 +19,14 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'Title' => 'Sample Title 1',
-              'Author' => 'Sample Author 1',
+              'Title' => 'Sample Title 5',
+              'Author' => 'Sample Author 5',
           )
         ),
           'tags' => '
-            "Test1" => "true",
-            "Test2" => "true",
-            "Test3" => "true",
+            "test1" => "true",
+            "test2" => "true",
+            "test3" => "true",
           ',
           'approved' => true,
           'subID' => 1,
@@ -42,14 +42,14 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'Title' => 'Sample Title 2',
-              'Author' => 'Sample Author 2',
+              'Title' => 'Sample Title 6',
+              'Author' => 'Sample Author 6',
           )
         ),
         'tags' => '
-          "Test1" => "true",
-          "Test2" => "true",
-          "Test3" => "false",
+          "test1" => "true",
+          "test2" => "true",
+          "test3" => "false",
         ',
           'approved' => true,
           'subID' => 1,
@@ -64,14 +64,14 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'Title' => 'Sample Title 3',
-              'Author' => 'Sample Author 3',
+              'Title' => 'Sample Title 7',
+              'Author' => 'Sample Author 7',
           )
         ),
         'tags' => '
-          "Test1" => "true",
-          "Test2" => "true",
-          "Test3" => "false",
+          "test1" => "true",
+          "test2" => "true",
+          "test3" => "false",
         ',
           'approved' => false,
           'subID' => 1,
@@ -87,14 +87,14 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'Title' => 'Sample Title 4',
-              'Author' => 'Sample Author 4',
+              'Title' => 'Sample Title 8',
+              'Author' => 'Sample Author 8',
           )
         ),
         'tags' => '
-          "Test1" => "true",
-          "Test2" => "true",
-          "Test3" => "false",
+          "test1" => "true",
+          "test2" => "true",
+          "test3" => "false",
         ',
           'approved' => true,
           'subID' => 1,

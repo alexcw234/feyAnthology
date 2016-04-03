@@ -32,7 +32,7 @@ class WorksRepository {
     public function retrieve($catID, $infos, $tags)
     {
 
-      $worksfromcat = Work::join('types','works.typeID','=','types.typeID')
+    return  $worksfromcat = Work::join('types','works.typeID','=','types.typeID')
       ->select('workID','catID','contentType','expectedFields','url','info','tags')
       ->where('catID','=',$catID)
       ->where('approved',true)
@@ -43,16 +43,16 @@ class WorksRepository {
       })
       ->where(function($query) use ($tags){
 
+
           foreach ($tags as $tag)
           {
-            $query->orWhere('tags', 'like', '%'. $tag . '%');
+            $query->where();
           }
 
 
-      })
+        })
       ->get();
 
-    return $worksfromcat->toJson();
     }
 
 

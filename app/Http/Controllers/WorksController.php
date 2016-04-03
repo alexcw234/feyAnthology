@@ -38,8 +38,6 @@ public function index($catID)
 
   $tags = explode(',', $this->request->get('tags'));
 
-
-
   $list = $this->work->retrieve($catID, $infos, $tags);
 
   return $list->toJson();
