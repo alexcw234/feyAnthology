@@ -1,7 +1,6 @@
 var app = angular.module("browseApp.workslist", []);
 
 
-
 app.controller("workslistCtrl", function($scope, $http) {
 
     $http.get("reqs/list/" + $scope.catID)
@@ -11,5 +10,10 @@ app.controller("workslistCtrl", function($scope, $http) {
             $scope.works = response;
 
         });
+
+});
+
+app.controller("searchbox", function($state) {
+  //  $state.transitionTo('list.search');
 
 });

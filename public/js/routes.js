@@ -27,6 +27,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'controller_l'
     })
 
+    .state('list.search',{
+        templateUrl: 'templates/list.search.html'
+    })
+
     .state('new',{
         url: '/new/:catID',
         templateUrl: 'templates/new.html',
