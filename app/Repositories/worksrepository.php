@@ -46,6 +46,7 @@ class WorksRepository {
           foreach ($tags as $tag)
           {
             $query->whereRaw("exist(tags, ?)", array($tag));
+            
           }
 
 
