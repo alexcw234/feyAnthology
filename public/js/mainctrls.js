@@ -18,11 +18,15 @@ $scope.$parent.header = "List of categories";
 /*
 * Main controller for the works list state.
 *
-*/app.controller("controller_l", function($scope, $stateParams) {
+*/
+app.controller("controller_l", function($scope, $state, $stateParams) {
 
 $scope.$parent.header = "List";
 
 $scope.catID = $stateParams.catID;
+
+$scope.goToState = function(name){$state.go(name)};
+
 
 });
 

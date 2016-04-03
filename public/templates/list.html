@@ -6,9 +6,29 @@
   <div>
     <style scoped>@import url("css/catlist.css");</style>
 
+
       <div ui-view="searchbox"></div>
 
-      <div ui-view="table"></div>
+      <table ng-controller="workslistCtrl">
+      <tr>
+        <th>workID</th>
+        <th>catID</th>
+        <th>contentType</th>
+        <th>url</th>
+        <th>info</th>
+        <th>tags</th>
+      </tr>
+      <tr ng-repeat="x in works">
+        <td>{{x.workID}}</td>
+        <td>{{x.catID}}</td>
+        <td>{{x.contentType}}</td>
+        <td>{{x.url}}</td>
+        <td>{{x.info}}</td>
+        <td>{{x.tags}}</td>
+      </tr>
+
+      </table>
+
 
 
     </div>

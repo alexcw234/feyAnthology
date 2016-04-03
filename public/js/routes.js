@@ -24,16 +24,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('list',{
         url: '/list/:catID',
         templateUrl: 'templates/list.html',
-        controller: 'controller_l',
+        controller: 'controller_l'
     })
 
-
     .state('list.container',{
+      url: '/container',
       views: {
-            'table' : {
-                templateUrl: 'templates/list.table.html',
-                controller: 'workslistCtrl'
-                },
             'searchbox' : {
                 templateUrl: 'templates/list.search.html',
                 controller: 'searchbox'
