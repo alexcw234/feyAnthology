@@ -39,9 +39,12 @@ class WorksRepository {
       ->where(function($query) use ($infos){
 
 
-        // Info search, not currently implemented
+          foreach($infos as $key => $value)
+          {
 
+            $query->where("info->>'$key'", $value);
 
+          }
 
       })
       ->where(function($query) use ($tags){
