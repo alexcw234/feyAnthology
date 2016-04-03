@@ -38,23 +38,24 @@ class WorksRepository {
       ->where('approved',true)
       ->where(function($query) use ($infos){
 
-
           foreach($infos as $key => $value)
           {
+            $key = preg_replace("/[^A-Za-z0-9 ]/", '', $key);
 
             $query->where("info->>'$key'", $value);
-
           }
 
       })
       ->where(function($query) use ($tags){
 
-          foreach ($tags as $tag)
-          {
-            $query->whereRaw("exist(tags, ?)", array($tag));
+              foreach ($tags as $tag)
+              {
+                if ($tag != "")
+                {
+                $query->whereRaw("exist(tags, ?)", array($tag));
+                }
 
-          }
-
+              }
 
         })
       ->get();
