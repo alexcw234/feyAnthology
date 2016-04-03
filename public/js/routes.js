@@ -24,10 +24,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('list',{
         url: '/list/:catID',
         views: {
-              'header' : {
-                  templateUrl: 'templates/list.html',
-                  controller: 'controller_l'
-                  },
               'table' : {
                   templateUrl: 'templates/list.table.html',
                   controller: 'workslistCtrl'
@@ -37,6 +33,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
                   controller: 'searchbox'
                   }
           }
+
     })
 
     .state('new',{
