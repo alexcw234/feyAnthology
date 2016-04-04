@@ -29,8 +29,6 @@ app.controller("searchbox", function($state, $scope) {
           }
         }
 
-        console.log(result);
-
         $scope.$parent.querystring = result;
 
         $state.go('list.table');
