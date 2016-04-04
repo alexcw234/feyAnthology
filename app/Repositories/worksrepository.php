@@ -42,7 +42,7 @@ class WorksRepository {
           {
             $key = preg_replace("/[^A-Za-z0-9 ]/", '', $key);
 
-            $query->where("info->>'$key'", $value);
+            $query->where("info->>'$key'",'ilike', $value);
           }
 
       })
