@@ -5,47 +5,25 @@
       <div class="panel-heading"><div ng-controller="header">
         <div ng-repeat="x in catInfo">
               {{x.catName}}
-
-        <a ui-sref='allcats'>Categories</a>|
-        <a ui-sref='new'>New Submission</a>
         </div>
         </div>
       </div>
 
+      <button type="button" ng-click="goToState('list.searchbox')">Show search menu</button>
+      <button type="button" ng-click="goToState('list.newbox')">Show add entry menu</button>
+      <button type="button" ng-click="goToState('list.table')">Back to list</button>
 
 <!-- End outer template begin body content -->
 <div class="panel-body">
 
-<h4>List of Works:</h4>
-
   <div>
     <style scoped>@import url("css/catlist.css");</style>
 
-    <button type="button" ng-click="goToState('list.searchbox')">Show search menu</button>
-    <button type="button" ng-click="goToState('list.newbox')">Show add entry menu</button>
-    <button type="button" ng-click="goToState('list')">Hide menus</button>
 
-      <div ui-view="searchbox"></div><div ui-view="newbox"></div>
 
-      <table ng-controller="workslistCtrl">
-      <tr>
-        <th>workID</th>
-        <th>catID</th>
-        <th>contentType</th>
-        <th>url</th>
-        <th>info</th>
-        <th>tags</th>
-      </tr>
-      <tr ng-repeat="x in works">
-        <td>{{x.workID}}</td>
-        <td>{{x.catID}}</td>
-        <td>{{x.contentType}}</td>
-        <td>{{x.url}}</td>
-        <td>{{x.info}}</td>
-        <td>{{x.tags}}</td>
-      </tr>
-
-      </table>
+      <div ui-view="searchbox"></div>
+      <div ui-view="newbox"></div>
+      <div ui-view="table"></div>
 
     </div>
 

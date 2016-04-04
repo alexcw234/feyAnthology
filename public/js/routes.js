@@ -28,6 +28,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state('list.searchbox',{
+      url: '/search',
       views: {
             'searchbox' : {
                 templateUrl: 'templates/list.search.html',
@@ -37,10 +38,20 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state('list.newbox',{
+      url: '/new',
       views: {
             'newbox' : {
                 templateUrl: 'templates/list.new.html',
                 controller: 'newSubmission'
+              }
+        }
+    })
+
+    .state('list.table',{
+      views: {
+            'table' : {
+                templateUrl: 'templates/list.table.html',
+                controller: 'workslistCtrl'
               }
         }
     })

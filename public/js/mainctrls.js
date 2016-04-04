@@ -30,7 +30,7 @@ $http.get("reqs/getcatname/" + $scope.catID)
 
     });
 
-
+$state.go('list.table');
 
 $scope.goToState = function(name){$state.go(name)};
 
