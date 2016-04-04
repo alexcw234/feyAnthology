@@ -11,7 +11,7 @@ app.controller("header", function($scope){
 */
 app.controller("controller_c", function($scope) {
 
-$scope.$parent.header = "List of categories";
+$scope.$parent.header = "Select a category:";
 
 });
 
