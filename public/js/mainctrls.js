@@ -23,6 +23,8 @@ app.controller("controller_l", function($scope, $state, $stateParams, $http) {
 
 $scope.$parent.header = "";
 
+$scope.querystring = null;
+
 $scope.catID = $stateParams.catID;
 
 $http.get("reqs/getcatname/" + $scope.catID)

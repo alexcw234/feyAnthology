@@ -4,14 +4,11 @@ app.controller("searchbox", function($state, $scope) {
 
   $scope.formdata = {};
 
-
-
   $scope.submitSearch = function() {
-
-      // Convert jsons to query strings
 
         var infojson = $scope.formdata;
         var tagarray = $scope.tags;
+
 
         var result = '';
 
@@ -20,7 +17,6 @@ app.controller("searchbox", function($state, $scope) {
           result += key + '=' + infojson[key] + '&';
 
         }
-
           result += 'tags' + '=';
 
         for (i in tagarray) {
@@ -34,6 +30,12 @@ app.controller("searchbox", function($state, $scope) {
         }
 
         console.log(result);
+
+        $scope.$parent.querystring = result;
+
+        $state.go('list.table');
   };
+
+
 
 });
