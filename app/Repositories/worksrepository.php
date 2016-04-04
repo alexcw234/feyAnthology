@@ -32,8 +32,9 @@ class WorksRepository {
     public function retrieve($catID, $infos, $tags)
     {
 
-    return  $worksfromcat = Work::join('types','works.typeID','=','types.typeID')
-      ->select('workID','catID','contentType','expectedFields','url','info','tags')
+    return  $worksfromcat =  Work::join('types','works.typeID','=','types.typeID')
+      ->select('workID','catID','contentType','expectedFields','url','info',
+      DB::raw('akeys(tags) as tags'))
       ->where('catID','=',$catID)
       ->where('approved',true)
       ->where(function($query) use ($infos){
