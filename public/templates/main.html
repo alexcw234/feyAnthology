@@ -17,24 +17,11 @@
 <!-- Begin controll by browseApp -->
         <div ng-app="browseApp">
 
-              <div class="panel panel-default">
-
-                    <!-- Header message -->
-                    <div class="panel-heading"><div ng-controller="header">{{header}}
-
-                      <a ui-sref='allcats'>Categories</a>|
-                      <a ui-sref='new'>New Submission</a>
-                      </div>
-                    </div>
 
 
-                    <!-- Body content -->
-                    <div class="panel-body">
+          <div ui-view></div>
 
-                          <div ui-view></div>
 
-                    </div>
-              </div>
         </div>
 <!-- End control by browseApp -->
 </div>
