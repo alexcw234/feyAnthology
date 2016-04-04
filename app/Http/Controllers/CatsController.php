@@ -24,6 +24,21 @@ class CatsController extends Controller
   }
 
   /**
+   * Display the specified resource.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+  public function show($catID)
+  {
+      $selectcat = DB::table('categories')->select('catID','catName','description')
+      where('catID','=',$catID)->get();
+       return Response::json($selectcat);
+  }
+
+
+
+  /**
    * Show the form for creating a new resource.
    *
    * @return Response
@@ -43,16 +58,6 @@ class CatsController extends Controller
       //
   }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function show($id)
-  {
-      //
-  }
 
   /**
    * Show the form for editing the specified resource.

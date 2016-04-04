@@ -20,7 +20,9 @@ Route::group(array('prefix' => 'reqs'), function() {
   Route::get('cats/showall', 'CatsController@index');
 
   Route::get('list/{catID}', 'WorksController@index');
-  
+
+  Route::get('getcatname/{catID}', 'CatsController@show');
+
 });
 /*
 |--------------------------------------------------------------------------
