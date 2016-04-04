@@ -27,17 +27,21 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'controller_l'
     })
 
-    .state('list.container',{
-      url: '/container',
+    .state('list.searchbox',{
       views: {
             'searchbox' : {
                 templateUrl: 'templates/list.search.html',
                 controller: 'searchbox'
-              },
+              }
+        }
+    })
+
+    .state('list.newbox',{
+      views: {
             'newbox' : {
-                  templateUrl: 'templates/list.search.html',
-                  controller: 'searchbox'
-                  }
+                templateUrl: 'templates/list.new.html',
+                controller: 'newSubmission'
+              }
         }
     })
 

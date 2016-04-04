@@ -1,7 +1,7 @@
 var app = angular.module("browseApp.newsub", []);
 
 
-app.controller = ('permissions', function($scope, $http, $stateParams) {
+app.controller('permissions', function($scope, $http, $stateParams) {
 
   $http.get("reqs/check/")
     .success(function(response)
@@ -16,12 +16,10 @@ app.controller = ('permissions', function($scope, $http, $stateParams) {
 
 });
 
+app.controller('newSubmission',function($scope){
 
 
-app.controller = ('newSubmission',function($scope){
-
-
-
+console.log("NEW");
 
 
 

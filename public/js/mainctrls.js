@@ -25,8 +25,9 @@ $scope.$parent.header = "List";
 
 $scope.catID = $stateParams.catID;
 
-$scope.goToState = function(name){$state.go(name)};
+$scope.goSearchState = function(name){$state.go(name)};
 
+$scope.goNewState = function(name){$state.go(name)};
 
 });
 
