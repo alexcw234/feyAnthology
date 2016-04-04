@@ -2,17 +2,19 @@
 <div class="panel panel-default">
 
       <!-- Header message -->
-      <div class="panel-heading"><div ng-controller="header">{{header}}
+      <div class="panel-heading"><div ng-controller="header">
+        <div ng-repeat="x in catInfo">
+              {{x.catName}}
 
         <a ui-sref='allcats'>Categories</a>|
         <a ui-sref='new'>New Submission</a>
+        </div>
         </div>
       </div>
 
 
 <!-- End outer template begin body content -->
 <div class="panel-body">
-
 
 <h4>List of Works:</h4>
 

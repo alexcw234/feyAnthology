@@ -21,14 +21,12 @@ $scope.$parent.header = "Select a category:";
 */
 app.controller("controller_l", function($scope, $state, $stateParams, $http) {
 
-$scope.$parent.header = "List";
-
 $scope.catID = $stateParams.catID;
 
 $http.get("reqs/getcatname/" + $scope.catID)
   .success(function(response)
     {
-        $scope.works = response;
+        $scope.catInfo = response;
 
     });
 
