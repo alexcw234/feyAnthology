@@ -33,7 +33,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
             'searchbox' : {
                 templateUrl: 'templates/list.search.html',
                 controller: 'searchbox'
-                }
+              },
+            'newbox' : {
+                  templateUrl: 'templates/list.search.html',
+                  controller: 'searchbox'
+                  }
         }
     })
 
