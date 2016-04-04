@@ -17,9 +17,14 @@ app.controller("workslistCtrl", function($scope, $http) {
 
             $scope.works = response;
 
+            for (i in $scope.works)
+            {
+              $scope.works[i].tags = $scope.works[i].tags.slice(1,-1);
+              $scope.works[i].tags = $scope.works[i].tags.split(",");
+
+              $scope.works[i].info = JSON.parse($scope.works[i].info);
+            }
             
-
-
         });
 
 });
