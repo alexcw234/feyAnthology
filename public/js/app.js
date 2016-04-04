@@ -7,5 +7,5 @@ var app = angular.module("browseApp",
     'browseApp.cats',
     'browseApp.newsub',
     'browseApp.workslist',
-    'browseApp.search'
+    'browseApp.search',
   ]);
