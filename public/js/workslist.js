@@ -24,7 +24,7 @@ app.controller("workslistCtrl", function($scope, $http) {
 
               $scope.works[i].info = JSON.parse($scope.works[i].info);
             }
-            
+
         });
 
 });
