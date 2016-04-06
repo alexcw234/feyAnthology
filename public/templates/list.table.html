@@ -1,10 +1,12 @@
 <div ng-controller="workslistCtrl">
 
-<table ng-repeat="item in works">
+<div ng-repeat="itemp in works">
+<table>
 <tr ng-repeat = "(key, value) in item.info">
-{{item.key}}
+  <th>{{key}}</th>
+  <td>{{value}}</td>
 </tr>
 
 </table>
-
+</div>
 </div>
