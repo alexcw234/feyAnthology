@@ -34,7 +34,7 @@ class WorksController extends Controller
 public function index($catID)
 {
 
-  $infos = $this->request->except('tags','type'); //It's an array already, no need for explode
+  $infos = $this->request->except('Type','tags'); //It's an array already, no need for explode
 
   $tags = explode(',', $this->request->get('tags'));
 
