@@ -1,22 +1,10 @@
-<table ng-controller="workslistCtrl">
-<tr>
-  <th>workID</th>
-  <th>catID</th>
-  <th>contentType</th>
-  <th>url</th>
-  <th>info</th>
-  <th>tags</th>
-</tr>
-<tr ng-repeat="x in works">
+<div ng-controller="workslistCtrl">
 
-
-
-  <td>{{x.workID}}</td>
-  <td>{{x.catID}}</td>
-  <td>{{x.contentType}}</td>
-  <td>{{x.url}}</td>
-  <td>{{x.info}}</td>
-  <td>{{x.tags}}</td>
+<table ng-repeat="item in works">
+<tr ng-repeat = "(key, value) in item.info">
+{{item.key}}
 </tr>
 
 </table>
+
+</div>
