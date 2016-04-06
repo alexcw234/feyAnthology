@@ -1,12 +1,15 @@
 <div ng-controller="workslistCtrl">
 
-<div ng-repeat="itemp in works">
-<table>
-<tr ng-repeat = "(key, value) in item.info">
-  <th>{{key}}</th>
-  <td>{{value}}</td>
-</tr>
-
-</table>
+<div ng-repeat="item in works">
+<fieldset>
+<div ng-repeat = "(key, value) in item.info">
+{{key}} : {{value}}
+</div>
+Tags:
+<span ng-repeat = "tag in item.tags">
+{{tag}},
+</span>
+</fieldset>
+<br><br>
 </div>
 </div>
