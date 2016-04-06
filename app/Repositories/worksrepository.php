@@ -29,7 +29,7 @@ class WorksRepository {
     *
     * @return Response
     */
-    public function retrieve($catID, $infos, $tags)
+    public function retrieve($catID, $infos, $type, $tags)
     {
 
     return  $worksfromcat =  Work::join('types','works.typeID','=','types.typeID')
@@ -37,6 +37,7 @@ class WorksRepository {
       DB::raw('akeys(tags) as tags'))
       ->where('catID','=',$catID)
       ->where('approved',true)
+      ->where('contentType', $type)
       ->where(function($query) use ($infos){
 
           foreach($infos as $key => $value)
@@ -45,6 +46,7 @@ class WorksRepository {
 
             $query->where("info->>'$key'",'ilike', $value);
           }
+
 
       })
       ->where(function($query) use ($tags){

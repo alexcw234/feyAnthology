@@ -34,11 +34,13 @@ class WorksController extends Controller
 public function index($catID)
 {
 
-  $infos = $this->request->except('tags'); //It's an array already, no need for explode
+  $infos = $this->request->except('tags','type'); //It's an array already, no need for explode
 
   $tags = explode(',', $this->request->get('tags'));
 
-  $list = $this->work->retrieve($catID, $infos, $tags);
+  $type = $this->request->get('type');
+
+  $list = $this->work->retrieve($catID, $infos, $type, $tags);
 
   return $list->toJson();
 
