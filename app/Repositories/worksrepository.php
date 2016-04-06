@@ -37,7 +37,14 @@ class WorksRepository {
       DB::raw('akeys(tags) as tags'))
       ->where('catID','=',$catID)
       ->where('approved',true)
-      ->where('contentType', $type)
+      ->where(function($query) use ($type){
+
+        if ($type != "")
+        {
+            $query->where("type","=",$type);
+        }
+
+      })
       ->where(function($query) use ($infos){
 
           foreach($infos as $key => $value)
