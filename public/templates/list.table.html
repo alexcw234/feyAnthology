@@ -2,6 +2,7 @@
 
 <div ng-repeat="item in works">
 <fieldset>
+<a ng-href="{{item.url|urlFilter}}">{{item.info.Title}}</a>
 <div ng-repeat = "(key, value) in item.info">
 {{key}} : {{value}}
 </div>
