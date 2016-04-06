@@ -1,6 +1,8 @@
 var app = angular.module("browseApp.workslist", []);
 
-
+/*
+*   Handles sending get request to database with parameters.
+*/
 app.controller("workslistCtrl", function($scope, $http) {
 
 
@@ -27,6 +29,23 @@ app.controller("workslistCtrl", function($scope, $http) {
 
         });
 });
+
+/*
+*   Handles request for current user group to determine
+*   what should be displayed.
+*/
+app.controller("workslist_permissionsCtrl", function($scope, $http) {
+
+  $http.get("check/contributor/")
+    .success(function(response)
+      {
+          $scope.usergroup = response;
+
+
+      });
+
+});
+
 
 /*
 *   URL filter from:

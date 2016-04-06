@@ -13,6 +13,15 @@
       <button type="button" ng-click="goToState('list.newbox')">Show add entry menu</button>
       <button type="button" ng-click="goToState('list.table')">Back to list</button>
 
+  <span ng-controller="workslist_permissionsCtrl">
+   <div ng-if="contributor == true">
+     <button type="button" ng-click="goToState('list.newbox')">Show add entry menu</button>
+   </div>
+   <div ng-if="contributor == false">
+     <button type="button" ng-click="">Request to become a contributor</button>
+   </div>
+ </span>
+
 <!-- End outer template begin body content -->
 <div class="panel-body">
 

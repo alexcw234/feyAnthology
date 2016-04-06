@@ -37,7 +37,7 @@ class WorksRepository {
       DB::raw('akeys(tags) as tags'))
       ->where('catID','=',$catID)
       ->where('approved',true)
-      ->where(function($query) use ($type){
+      ->where(function($query) use ($type) {
 
         if ($type != "")
         {
