@@ -41,7 +41,7 @@ class WorksRepository {
 
         if ($type != "")
         {
-            $query->where("type","=",$type);
+            $query->where("contentType","=",$type);
         }
 
       })
