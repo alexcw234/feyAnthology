@@ -14,13 +14,23 @@
       <button type="button" ng-click="goToState('list.table')">Back to list</button>
 
   <span ng-controller="workslist_permissionsCtrl">
-   <div ng-if="contributor == true">
-     <button type="button" ng-click="goToState('list.newbox')">Show add entry menu</button>
+   <div ng-if="groupID < 6">
+     <button type="button" ng-click="goToState('list.newbox')">Contribute</button>
    </div>
-   <div ng-if="contributor == false">
-     <button type="button" ng-click="">Request to become a contributor</button>
+   <div ng-if="groupID == 6">
+     <button type="button" ng-click="">Request to join this category</button>
    </div>
-   <div ng-if="contributor == null">
+   <div ng-if="groupID == 7">
+     <button type="button" ng-click="goToState('list.newbox')">Contribute</button>
+     Your permissions have been limited in this category.<br>
+   </div>
+   <div ng-if="groupID == 8">
+     <button type="button" ng-click="goToState('list.newbox')">Contribute</button>
+     You have been banned from this category.<br>
+     You no longer are able to contribute or leave comments.<br>
+     Contact a category admin to appeal.
+   </div>
+   <div ng-if="groupID == null">
      Sign in to contribute to the database!
    </div>
  </span>

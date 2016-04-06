@@ -39,8 +39,9 @@ app.controller("workslist_permissionsCtrl", function($scope, $http) {
   $http.get("check/contributor/")
     .success(function(response)
       {
-          $scope.usergroup = response;
+          var usergroup = response;
 
+          if (usergroup =)
 
       });
 
