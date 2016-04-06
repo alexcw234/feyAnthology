@@ -10,7 +10,6 @@
       </div>
 
       <button type="button" ng-click="goToState('list.searchbox')">Show search menu</button>
-      <button type="button" ng-click="goToState('list.newbox')">Show add entry menu</button>
       <button type="button" ng-click="goToState('list.table')">Back to list</button>
 
   <span ng-controller="workslist_permissionsCtrl">
@@ -25,7 +24,6 @@
      Your permissions have been limited in this category.<br>
    </div>
    <div ng-if="groupID == 8">
-     <button type="button" ng-click="goToState('list.newbox')">Contribute</button>
      You have been banned from this category.<br>
      You no longer are able to contribute or leave comments.<br>
      Contact a category admin to appeal.
