@@ -23,7 +23,12 @@ Route::group(array('prefix' => 'reqs'), function() {
 
   Route::get('getcatname/{catID}', 'CatsController@show');
 
+
+
 });
+
+      Route::get('check/group', 'UGCController@show');
+      
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -43,4 +48,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+
+
 });
