@@ -17,8 +17,8 @@ class CreateUsersGroupsCatsTable extends Migration
         {
         $table->increments('ugcID');
         $table->integer('userID')->unsigned();
-        $table->integer('groupID')->unsigned();
-        $table->integer('catID')->unsigned();
+        $table->integer('groupID')->unsigned()->nullable();
+        $table->integer('catID')->unsigned()->nullable();
 
         $table->timestamps();
 
