@@ -16,7 +16,7 @@ class Comment extends Model
   protected $primaryKey = 'commentID';
 
   protected $fillable = array('workID','userID','comment');
-  protected $guarded = array('commentID');
+
   protected $dates = ['deleted_at'];
 
 

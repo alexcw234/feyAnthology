@@ -9,9 +9,8 @@ class UGC extends Model
   protected $table = 'usersgroupscats';
   protected $primaryKey = 'ugcID';
 
-  protected $fillable = array('userID','catID');
+  protected $fillable = array('userID','catID','groupID');
 
-  protected $guarded = array('ugcID', 'groupID');
 
 
   /*

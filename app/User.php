@@ -19,7 +19,6 @@ class User extends Authenticatable
         'username', 'email', 'password',
     ];
 
-    protected $guarded = array('userID');
     protected $dates = ['deleted_at'];
 
     /**

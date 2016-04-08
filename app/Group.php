@@ -19,7 +19,6 @@ class Group extends Model
       protected $primaryKey = 'groupID';
 
       protected $fillable = array('groupName');
-      protected $guarded = array('groupID');
       protected $dates = ['deleted_at'];
 
 

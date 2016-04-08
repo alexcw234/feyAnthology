@@ -18,7 +18,6 @@ class Category extends Model
   protected $primaryKey = 'catID';
 
   protected $fillable = array('catName','description');
-  protected $guarded = array('catID');
   protected $dates = ['deleted_at'];
 
 

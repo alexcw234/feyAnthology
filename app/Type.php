@@ -17,7 +17,6 @@ class Type extends Model
   protected $primaryKey = 'typeID';
 
   protected $fillable = array('contentType','expectedFields');
-  protected $guarded = array('typeID');
 
   protected $dates = ['deleted_at'];
 

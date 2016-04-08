@@ -18,7 +18,6 @@ class Work extends Model
 
   protected $fillable = array('catID','typeID','url','info','tags','approved','subID','appID');
 
-  protected $guarded = array('workID');
 
   protected $dates = ['deleted_at'];
 
