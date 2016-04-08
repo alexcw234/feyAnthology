@@ -11,7 +11,7 @@ class UGCSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('UGC')->insert([
+      DB::table('usersgroupscats')->insert([
 
         'userID' => 1,
         'catID' => 1,
@@ -19,7 +19,7 @@ class UGCSeeder extends Seeder
 
       ]);
 
-      DB::table('UGC')->insert([
+      DB::table('usersgroupscats')->insert([
 
         'userID' => 2,
         'catID' => 1,
