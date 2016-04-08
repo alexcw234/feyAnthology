@@ -15,10 +15,12 @@ class CreateGroupsTable extends Migration
         //
         Schema::create('groups',function(Blueprint $table)
         {
-            $table->int('groupID');
+            $table->integer('groupID');
             $table->string('groupName', 30);
             $table->softDeletes();
             $table->timestamps();
+
+            $table->primary('groupID');
         });
 
     }
