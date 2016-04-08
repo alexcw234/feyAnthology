@@ -8,6 +8,17 @@ use App\Category;
 use DB;
 use Response;
 
+class UGCRepository {
+
+
+
+
+
+
+
+  
+}
+
 
 
 ?>
