@@ -13,9 +13,6 @@
       <button type="button" ng-click="goToState('list.table')">Back to list</button>
 
   <span ng-controller="workslist_permissionsCtrl">
-    Change this to not depend on group ID because <br>
-    the id might not always be what was expected. <br>
-    Or make sure ID column does not autoincrement. <br>
 
    <div ng-if="groupID < 6">
      <button type="button" ng-click="goToState('list.newbox')">Contribute</button>
