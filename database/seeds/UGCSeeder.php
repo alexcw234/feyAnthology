@@ -1,5 +1,5 @@
 <?php
-
+use App\UGC;
 use Illuminate\Database\Seeder;
 
 class UGCSeeder extends Seeder
@@ -11,6 +11,6 @@ class UGCSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

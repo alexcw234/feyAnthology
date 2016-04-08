@@ -1,4 +1,6 @@
 <?php
+
+use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +14,13 @@ class UsersSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        
+
+        User::create([
+            'username' => '$test',
+            'email' => 'test@test.com',
+            'password' => bcrypt('test'),
+        ]);
+
     }
 }
 
