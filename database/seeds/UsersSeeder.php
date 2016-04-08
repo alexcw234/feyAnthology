@@ -14,12 +14,18 @@ class UsersSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+        User::create([
+            'username' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('test'),
+        ]);
 
         User::create([
-            'username' => '$test',
+            'username' => 'test',
             'email' => 'test@test.com',
             'password' => bcrypt('test'),
         ]);
+
 
     }
 }
