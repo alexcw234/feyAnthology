@@ -27,8 +27,8 @@ Route::group(array('prefix' => 'reqs'), function() {
 
 });
 
-      Route::get('check/group', 'UGCController@show');
-      
+      Route::get('check/group/', 'UserController@check');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
