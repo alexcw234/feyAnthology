@@ -78,8 +78,6 @@ class AuthController extends Controller
         $id = $user->getkey();
         $ugc = UGC::create([
             'userID' => $id,
-            'groupID' => 6,
-            'catID' => 1,
         ]);
 
         return $user;
