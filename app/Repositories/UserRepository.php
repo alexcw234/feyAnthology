@@ -11,8 +11,19 @@ use Response;
 
 class UserRepository {
 
+  /**
+  * Retrieves the user's group for the specified category.
+  *
+  */
+  public function getGroup($catID,$userID)
+  {
 
-
+      return User::join('usersgroupscats', 'users.userID', '=', 'usersgroupscats.userID')
+      ->join('groups','usersgroupscats.groupID','=','groups.groupID')
+      ->select('groupID','groupName')
+      ->where('userID','=', $userID)
+      ->where('catID','=',$catID);
+  }
 
 
 

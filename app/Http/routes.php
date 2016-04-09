@@ -27,7 +27,7 @@ Route::group(array('prefix' => 'reqs'), function() {
 
 });
 
-      Route::get('check/group/', 'UserController@check');
+Route::get('check/group/{catID}', 'UserController@check');
 
 /*
 |--------------------------------------------------------------------------

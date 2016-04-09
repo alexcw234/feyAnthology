@@ -27,6 +27,19 @@ class UserController extends Controller
               $this->request = $request;
         }
 
+        /**
+        * For checking what permissions user has in category
+        *
+        */
+        public function check($catID)
+        {
+            $userID = $request->user()->userID;
+
+            $result = $this->user->getGroup($catID,$userID);
+
+            return $result->toJson();
+        }
+
 
 
 }

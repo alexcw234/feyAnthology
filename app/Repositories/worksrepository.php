@@ -6,14 +6,16 @@ use App\Type;
 use DB;
 use Response;
 
-class WorksRepository {
+class WorksRepository
+{
 
 
   /**
   * Queries database for all works based on catID
   *
   */
-    public function getallworks($catID) {
+    public function getallworks($catID)
+    {
 
       return Work::join('types','works.typeID','=','types.typeID')
       ->select('workID','catID','contentType','expectedFields','url','info','tags')
