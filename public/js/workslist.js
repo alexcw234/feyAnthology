@@ -36,9 +36,11 @@ app.controller("workslistCtrl", function($scope, $http) {
 */
 app.controller("workslist_permissionsCtrl", function($scope, $http) {
 
-  $http.get("check/group/")
+  $http.get("check/group/" + $scope.catID)
     .success(function(response)
       {
+          console.log(response);
+
           var usergroup = response;
 
           $scope.groupID = usergroup.groupID;

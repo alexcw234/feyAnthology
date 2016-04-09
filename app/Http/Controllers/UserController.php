@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -33,7 +35,11 @@ class UserController extends Controller
         */
         public function check($catID)
         {
-            $userID = $request->user()->userID;
+            $user = Auth::user();
+
+            $userID = $user->getkey();
+
+              echo $userID;
 
             $result = $this->user->getGroup($catID,$userID);
 
