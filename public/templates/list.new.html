@@ -10,10 +10,11 @@ Category :
   ng-change="display(selectedtype.expectedFields)">
   </select>
 
+  <div ng-repeat="(fieldname,inputfield) in newform">
 
+    {{fieldname}} : {{inputfield}}
 
-
-
+  </div>
 
 
     </div>
