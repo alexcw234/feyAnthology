@@ -23,7 +23,7 @@ Route::group(array('prefix' => 'reqs'), function() {
 
   Route::get('getcatname/{catID}', 'CatsController@show');
 
-
+  Route::get('types/showall', 'TypesController@index');
 
 });
 

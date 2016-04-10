@@ -25,6 +25,14 @@ app.controller('newFormdisplay',function($scope){
 
 });
 
+app.controller('typeSelect',function($scope){
+
+
+
+
+
+
+});
 
 app.controller('newSubmission',function($scope){
 
