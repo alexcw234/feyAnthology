@@ -1,11 +1,17 @@
 
-
+<form ng-controller="newFormCtrl">
 Category :
 <br></br>
-<div ng-controller = "newFormDisplay">
+<div ng-controller = "newFormSelect">
 
 Content Type :
   <select ng-model="selectedtype" ng-options="type.contentType for type in types">
   </select>
 
+  <div ng-controller = "newFormDisplay">
+
+
+  </div>
+
 </div>
+</form>

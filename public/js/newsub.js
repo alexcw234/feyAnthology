@@ -16,7 +16,7 @@ app.controller('permissions', function($scope, $http, $stateParams) {
 
 });
 
-app.controller('newFormCtrl',function($scope){
+app.controller('newFormDisplay',function($scope){
 
     $scope.template = null;
 
@@ -25,7 +25,7 @@ app.controller('newFormCtrl',function($scope){
 
 });
 
-app.controller('newFormDisplay',function($scope, $http){
+app.controller('newFormSelect',function($scope, $http){
 
       $http.get("reqs/types/showall")
       .success(function(response){
@@ -37,7 +37,7 @@ app.controller('newFormDisplay',function($scope, $http){
 
 });
 
-app.controller('newSubmission',function($scope){
+app.controller('newFormCtrl',function($scope){
 
 
 
