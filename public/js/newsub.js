@@ -45,3 +45,12 @@ app.controller('newFormCtrl',function($scope){
 
 
 });
+
+app.controller('newSubmission',function($scope){
+
+
+
+
+
+
+});
