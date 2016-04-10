@@ -23,9 +23,9 @@ class CreateWorksTable extends Migration
             $table->hstore('tags');
             $table->boolean('approved');
             $table->integer('subID')->unsigned();
-            $table->integer('appID')->unsigned();
+            $table->integer('appID')->unsigned()->nullable();
             $table->dateTime('subDate');
-            $table->dateTime('appDate');
+            $table->dateTime('appDate')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
