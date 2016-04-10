@@ -38,9 +38,12 @@ app.controller('newFormDisplay',function($scope) {
 
         $scope.display = function(type) {
 
-            console.log(type);
+          console.log(type);
+          console.log(typeof(type));
 
+          var json = JSON.parse(type);
 
+          console.log(json);
 
         };
 
@@ -52,6 +55,6 @@ app.controller('newFormSelect',function($scope, $http) {
       .success(function(response){
 
         $scope.types = response;
-        
+
       });
 });
