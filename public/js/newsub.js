@@ -25,12 +25,13 @@ app.controller('newFormdisplay',function($scope){
 
 });
 
-app.controller('typeSelect',function($scope){
+app.controller('typeSelect',function($scope, $http){
 
-      $http.get("reqs/")
+      $http.get("reqs/types/showall")
+      .success(function(response){
 
-
-
+        $scope.types = response;
+      });
 
 });
 
