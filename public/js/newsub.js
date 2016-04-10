@@ -16,6 +16,16 @@ app.controller('permissions', function($scope, $http, $stateParams) {
 
 });
 
+app.controller('newFormdisplay',function($scope){
+
+
+
+
+
+
+});
+
+
 app.controller('newSubmission',function($scope){
 
 
