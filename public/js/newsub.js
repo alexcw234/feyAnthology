@@ -16,41 +16,42 @@ app.controller('permissions', function($scope, $http, $stateParams) {
 
 });
 
-app.controller('newFormDisplay',function($scope){
+app.controller('newSubmission',function($scope) {
 
-    $scope.template = null;
+
 
 
 
 
 });
 
-app.controller('newFormSelect',function($scope, $http){
+app.controller('newFormCtrl',function($scope) {
+
+
+
+
+
+
+});
+
+app.controller('newFormDisplay',function($scope) {
+
+        $scope.display = function(type) {
+
+            console.log(type);
+
+
+
+        };
+
+});
+
+app.controller('newFormSelect',function($scope, $http) {
 
       $http.get("reqs/types/showall")
       .success(function(response){
 
         $scope.types = response;
-
-
+        
       });
-
-});
-
-app.controller('newFormCtrl',function($scope){
-
-
-
-
-
-
-});
-
-app.controller('newSubmission',function($scope){
-
-
-
-
-
-
 });

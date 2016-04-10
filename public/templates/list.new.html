@@ -3,15 +3,19 @@
 Category :
 <br></br>
 <div ng-controller = "newFormSelect">
+    <div ng-controller = "newFormDisplay">
 
-Content Type :
-  <select ng-model="selectedtype" ng-options="type.contentType for type in types">
+      Content Type :
+  <select ng-model="selectedtype" ng-options="type.contentType for type in types"
+  ng-change="display(selectedtype.expectedFields)">
   </select>
 
-  <div ng-controller = "newFormDisplay">
 
 
+
+
+
+
+    </div>
   </div>
-
-</div>
 </form>
