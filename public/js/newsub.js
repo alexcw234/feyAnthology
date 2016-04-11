@@ -36,8 +36,18 @@ app.controller('newFormCtrl',function($scope) {
 
 app.controller('newFormDisplay',function($scope) {
 
-        $scope.newform;
+//        $scope.newform;
 
+        $scope.display = function(type) {
+
+          $scope.newformtemplate = type;
+
+
+
+
+        };
+
+/*
         $scope.display = function(type) {
 
           var shortfield = '<input style="width: 200;" ';
@@ -107,6 +117,8 @@ app.controller('newFormDisplay',function($scope) {
           $scope.newform = fields;
 
         };
+*/
+
 
 });
 
