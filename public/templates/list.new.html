@@ -7,16 +7,11 @@ Category :
 
       Content Type :
   <select ng-model="selectedtype" ng-options="type.contentType for type in types"
-  ng-change="display(selectedtype.expectedFields)">
+  ng-change="display(selectedtype.contentType)">
   </select>
 
-  <div ng-repeat="(fieldname,inputfield) in newform">
-
-    {{fieldname}} : {{inputfield}}
-
-  </div>
+  <div ng-include="{{form}}"></div>
 
 
-    </div>
   </div>
 </form>

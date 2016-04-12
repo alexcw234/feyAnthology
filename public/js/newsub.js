@@ -36,11 +36,12 @@ app.controller('newFormCtrl',function($scope) {
 
 app.controller('newFormDisplay',function($scope) {
 
-//        $scope.newform;
-
         $scope.display = function(type) {
 
-          $scope.newformtemplate = type;
+          var templatename = type;
+
+
+          
 
 
 
