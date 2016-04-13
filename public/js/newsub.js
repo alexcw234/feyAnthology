@@ -38,13 +38,19 @@ app.controller('newFormDisplay',function($scope) {
 
         $scope.display = function(type) {
 
+        $scope.newForm;
           var templatename = type;
 
+          if (templatename != null)
+          {
 
-          
+          $scope.newForm = "forms/" + templatename.toLowerCase() + ".html";
 
-
-
+          }
+          else
+          {
+          $scope.newForm = "forms/noselection.html";
+          }
 
         };
 
