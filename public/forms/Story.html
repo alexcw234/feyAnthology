@@ -1,20 +1,22 @@
-<table width = "600" border ="0" cellspacing = "1"
-      cellpadding = "9">
-<tr>
-  <td>Source</td><td>
-  <input type = "text" name="Source" ng-model="formdata.Src"></td>
-</tr>
-  <tr>
-    <td width="98">Title</td><td>
-    <input type = "text" name="Title" ng-model="formdata.Title"
-    style="width: 200;"></td>
-  </tr>
-  <tr>
-    <td>Author</td><td>
-    <input type = "text" name = "Author" ng-model="formdata.Author"></td>
-  </tr>
-  <tr>
-    <td>Tags</td><td>
+<div>
+Source :
+    <input type = "text" name="Source" ng-model="entry.Src">
+</div>    
+<div>
+Title :
+    <input type = "text" name="Title" ng-model="entry.Title"
+    style="width: 200;">
+</div>
+<div>
+Author :
+    <input type = "text" name = "Author" ng-model="entry.Author"></td>
+</div>
+<div>
+Summary :
+    <textarea type = "text" name="Summary" ng-model="entry.Summary"
+    style="width: 600; height: 100;"></textarea>
+</div>
+<div>
+Tags :
     <tags-input ng-model="tags"></tags-input>
-  </tr>
-</table>
+</div>
