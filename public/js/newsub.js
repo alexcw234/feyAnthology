@@ -45,16 +45,12 @@ app.controller('newFormDisplay',function($scope) {
           {
 
           $scope.newForm = "forms/" + templatename.toLowerCase() + ".html";
-
           }
           else
           {
           $scope.newForm = "forms/noselection.html";
           }
-
         };
-
-
 
 });
 
