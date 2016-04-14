@@ -1,7 +1,7 @@
 <div>
 Source :
     <input type = "text" name="Source" ng-model="entry.Src">
-</div>    
+</div>
 <div>
 Title :
     <input type = "text" name="Title" ng-model="entry.Title"
@@ -20,3 +20,7 @@ Summary :
 Tags :
     <tags-input ng-model="tags"></tags-input>
 </div>
+<!-- SUBMIT BUTTON -->
+<button type="button" ng-click="submitEntry()">
+  <span class="glyphicon glyphicon-flash"></span> Submit!
+</button>
