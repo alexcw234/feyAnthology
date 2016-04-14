@@ -1,15 +1,20 @@
 <div>
-Source :
+Source<font color="red">*</font> :
     <input type = "text" name="Source" ng-model="entry.Src">
 </div>
 <div>
-Title :
+URL<font color="red">*</font> :
+  <input type = "text" name="Url" id="entry_url"
+  style="width: 450;">
+</div>
+<div>
+Title<font color="red">*</font> :
     <input type = "text" name="Title" ng-model="entry.Title"
     style="width: 200;">
 </div>
 <div>
-Author :
-    <input type = "text" name = "Author" ng-model="entry.Author"></td>
+Author<font color="red">*</font> :
+    <input type = "text" name = "Author" ng-model="entry.Author">
 </div>
 <div>
 Summary :
@@ -20,7 +25,14 @@ Summary :
 Tags :
     <tags-input ng-model="tags"></tags-input>
 </div>
+
+<!-- I have read the rules -->
+<input type="checkbox" ng-model="entry.Rules">
+I have read the rules for new submissions.
+
 <!-- SUBMIT BUTTON -->
 <button type="button" ng-click="submitEntry()">
   <span class="glyphicon glyphicon-flash"></span> Submit!
 </button>
+
+<br>(<font color="red">*</font>) denotes a required field.
