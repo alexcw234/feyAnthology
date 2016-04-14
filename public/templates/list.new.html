@@ -1,25 +1,19 @@
 
 <form ng-controller="newFormCtrl">
-
-  <table width = "600" border ="0" cellspacing = "1" cellpadding = "9">
-    <tr>
-      <td>Category :</td><td></td>
-    </tr>
-    <div ng-controller = "newFormSelect">
+  <div ng-controller = "newFormSelect">
     <div ng-controller = "newFormDisplay">
-    <tr>
-      <td>
+
+        Category :
+        <br><br>
         Content Type :
-      </td>
-      <td>
         <select ng-model="selectedtype" ng-options="type.contentType for type in types"
         ng-change="display(selectedtype.contentType)"></select>
-      </td>
-    </tr>
 
-  <div ng-include="newForm"></div>
+        <br><br>
+        <div ng-include="newForm"></div>
 
+
+
+    </div>
   </div>
-
-  </table>
 </form>
