@@ -27,12 +27,26 @@ app.controller('newSubmission',function($scope) {
 
 app.controller('newFormCtrl',function($scope) {
 
+    $scope.newentry = {};
+
+    $scope.submitEntry = function() {
+        if ($scope.newentry.Rules == false)
+        {
+
+
+        }
+        else
+        {
 
 
 
-
+        }
+    };
 
 });
+
+
+
 
 app.controller('newFormDisplay',function($scope) {
 

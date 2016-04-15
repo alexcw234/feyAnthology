@@ -1,37 +1,31 @@
 <div>
 Source<font color="red">*</font> :
-    <input type = "text" name="Source" ng-model="entry.Src">
-</div>
-<div>
+    <input type = "text" name="Source" ng-model="newentry.Src" required>
 URL<font color="red">*</font> :
-  <input type = "text" name="Url" id="entry_url"
-  style="width: 450;">
-</div>
+      <input type = "text" name="Url" ng-model="newentry.URL" required>
+</div><br>
 <div>
 Title<font color="red">*</font> :
-    <input type = "text" name="Title" ng-model="entry.Title"
-    style="width: 200;">
-</div>
-<div>
+    <input type = "text" name="Title" ng-model="newentry.Title" required>
 Author<font color="red">*</font> :
-    <input type = "text" name = "Author" ng-model="entry.Author">
-</div>
+    <input type = "text" name = "Author" ng-model="newentry.Author" required>
+</div><br>
 <div>
 Summary :
-    <textarea type = "text" name="Summary" ng-model="entry.Summary"
-    style="width: 600; height: 100;"></textarea>
-</div>
+<br><textarea type = "text" name="Summary" ng-model="newentry.Summary"></textarea>
+</div><br>
 <div>
 Tags :
     <tags-input ng-model="tags"></tags-input>
 </div>
-
 <!-- I have read the rules -->
-<input type="checkbox" ng-model="entry.Rules">
-I have read the rules for new submissions.
-
+<div>
+<input type="checkbox" ng-model="newentry.Rules" required>
+I have read the rules for new submissions.<font color="red">*</font>
+</div><br>
 <!-- SUBMIT BUTTON -->
-<button type="button" ng-click="submitEntry()">
+<button ng-disabled=""
+type="button" ng-click="submitEntry()">
   <span class="glyphicon glyphicon-flash"></span> Submit!
 </button>
 
