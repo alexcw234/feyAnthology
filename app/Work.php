@@ -16,7 +16,7 @@ class Work extends Model
   protected $table = 'works';
   protected $primaryKey = 'workID';
 
-  protected $fillable = array('catID','typeID','url','info','tags','approved','subID','appID');
+  protected $fillable = array('catID','typeID','url','info','tags','approved','subID','subDate');
 
 
   protected $dates = ['deleted_at'];

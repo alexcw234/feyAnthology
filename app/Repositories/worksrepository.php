@@ -1,6 +1,7 @@
 <?php
 namespace App\Repositories;
 
+use Carbon\Carbon;
 use App\Work;
 use App\Type;
 use DB;
@@ -95,7 +96,7 @@ class WorksRepository
     */
     public function newentry($catID, $infos, $address, $type, $tags)
     {
-        foreach ($infos as $key)
+        foreach ($infos as $key => $value)
         {
             $infos[$key] = urldecode($infos[$key]);
         }
@@ -105,10 +106,9 @@ class WorksRepository
 
         foreach ($tags as $tag)
         {
-          $tagstore += '"' + $tag + '" => "other",';
+          $tagstore .= '"' . $tag . '" => "other",';
         }
-
-            DB::table('works')->insert([
+            $workID = Work::create([
               'catID' => $catID,
               'typeID' => $type,
               'url' => $address,
@@ -120,7 +120,7 @@ class WorksRepository
             ]);
 
 
-
+            return $workID;
     }
 
 

@@ -43,7 +43,6 @@ app.controller('newFormCtrl',function($scope, $http) {
 
         }
 
-
           result += 'tags' + '=';
 
         for (i in tagarray) {
