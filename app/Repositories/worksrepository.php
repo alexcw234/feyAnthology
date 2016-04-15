@@ -87,6 +87,45 @@ class WorksRepository
 
     }
 
+
+    /**
+    * Validates and adds new entry.
+    *
+    * @return Response
+    */
+    public function newentry($catID, $infos, $address, $type, $tags)
+    {
+        for ($key in $infos)
+        {
+            $infos[$key] = urldecode($infos[$key]);
+        }
+            $address = urldecode($address);
+
+        $tagstore = '';
+
+        for ($tag in $tags)
+        {
+          $tagstore += '"' + $tag + '" => "other",';
+        }
+
+            DB::table('works')->insert([
+              'catID' => $catID,
+              'typeID' => $type,
+              'url' => $address,
+              'info' => json_encode($infos),
+              'tags' => $tagstore,
+              'approved' => false,
+              'subID' => 1,
+              'subDate' => Carbon::now(),
+            ]);
+
+
+
+    }
+
+
+
+
 }
 
 ?>

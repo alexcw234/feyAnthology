@@ -30,14 +30,16 @@ app.controller('newFormCtrl',function($scope, $http) {
 
         var infojson = $scope.newentry;
         var tagarray = $scope.tags;
+        var typeID = $scope.selectedtype.typeID;
 
-        var result = '';
+        var result = 'Type' + '=' + typeID + '&';
 
         for (key in infojson) {
 
           result += key + '=' + encodeURIComponent(infojson[key]) + '&';
 
         }
+
           result += 'tags' + '=';
 
         for (i in tagarray) {

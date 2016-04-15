@@ -38,11 +38,32 @@ public function index($catID)
 
   $tags = explode(',', $this->request->get('tags'));
 
-  $type = $this->request->get('type');
+  $type = $this->request->get('Type');
 
   $list = $this->work->retrieve($catID, $infos, $type, $tags);
 
   return $list->toJson();
+
+}
+
+/**
+ * Validates and stores a new record in the database.
+ *
+ * @return Response
+ */
+public function store($catID)
+{
+    //
+
+    $infos = $this->request->except('Type','tags', 'URL');
+
+    $address = $this->request->get('URL');
+
+    $tags = explode(',', $this->request->get('tags'));
+
+    $type = $this->request->get('Type');
+
+    $valid = $this->work->newentry($catID, $infos, $address, $type, $tags);
 
 }
 
@@ -57,15 +78,6 @@ public function create()
     //
 }
 
-/**
- * Store a newly created resource in storage.
- *
- * @return Response
- */
-public function store()
-{
-    //
-}
 
 /**
  * Display the specified resource.

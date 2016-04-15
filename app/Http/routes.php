@@ -29,6 +29,14 @@ Route::group(array('prefix' => 'reqs'), function() {
 
 Route::get('check/group/{catID}', 'UserController@check');
 
+
+Route::group(array('prefix' => 'submission'), function() {
+
+  Route::get('new/{catID}', 'WorksController@store');
+
+
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
