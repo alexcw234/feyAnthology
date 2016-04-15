@@ -38,7 +38,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     .state('list.newbox',{
-      url: '/new',
+      url: '/new/',
       views: {
             'newbox' : {
                 templateUrl: 'templates/list.new.html',

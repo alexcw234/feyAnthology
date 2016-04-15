@@ -16,31 +16,49 @@ app.controller('permissions', function($scope, $http, $stateParams) {
 
 });
 
-app.controller('newSubmission',function($scope) {
-
-
-
+app.controller('newSubmission',function($scope, $http) {
 
 
 
 });
 
-app.controller('newFormCtrl',function($scope) {
+app.controller('newFormCtrl',function($scope, $http) {
 
     $scope.newentry = {};
 
     $scope.submitEntry = function() {
-        if ($scope.newentry.Rules == false)
-        {
 
+        var infojson = $scope.newentry;
+        var tagarray = $scope.tags;
+
+        var result = '';
+
+        for (key in infojson) {
+
+          result += key + '=' + encodeURIComponent(infojson[key]) + '&';
 
         }
-        else
-        {
+          result += 'tags' + '=';
 
+        for (i in tagarray) {
 
+          tagjson = tagarray[i];
 
+          for (key in tagjson) {
+
+            result += tagjson[key] + ',';
+          }
         }
+
+        query = '?' + result;
+
+        $http.post("submission/new" + $scope.catInfo[0].catID + query)
+          .success(function(response)
+            {
+
+
+            });
+
     };
 
 });
