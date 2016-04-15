@@ -37,6 +37,8 @@ class UserController extends Controller
         {
             $user = Auth::user();
 
+            echo "User: " . $user;
+
             $userID = $user->userID;
 
             $result = $this->user->getGroup($catID,$userID);
