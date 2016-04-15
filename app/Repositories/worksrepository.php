@@ -102,8 +102,6 @@ class WorksRepository
         }
             $address = urldecode($address);
 
-            echo $tags;
-
             $workID = Work::create([
               'catID' => $catID,
               'typeID' => $typeID,

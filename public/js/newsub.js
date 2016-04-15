@@ -37,18 +37,18 @@ app.controller('newFormCtrl',function($scope, $http) {
 
         var result = {};
 
-        //'catID=' + $scope.catInfo[0].catID + '&type=' + $scope.typeID + '&';
+
         result['catID'] = $scope.catInfo[0].catID;
         result['typeID'] = $scope.typeID;
 
         for (key in infojson) {
 
-      // result += key + '=' + encodeURIComponent(infojson[key]) + '&';
+
 
           result[key] = encodeURIComponent(infojson[key]);
         }
 
-    //      result += 'tags' + '=';
+
 
         var tagstring = '';
 
@@ -58,7 +58,7 @@ app.controller('newFormCtrl',function($scope, $http) {
 
           for (key in tagjson) {
 
-          //  result += tagjson[key] + ',';
+
             tagstring += '"' + tagjson[key] + '" => "default",';
           }
         }
@@ -66,7 +66,6 @@ app.controller('newFormCtrl',function($scope, $http) {
 
         result['tags'] = tagstring;
 
-        console.log(result);
         $http.post("submission/new", result)
           .success(function(response)
             {
