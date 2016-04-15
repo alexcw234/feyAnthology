@@ -35,16 +35,15 @@ app.controller('newFormCtrl',function($scope, $http) {
         var infojson = $scope.newentry;
         var tagarray = tags;
 
-        var result = array('catID' => $scope.catInfo[0].catID,
-                            'type' => $scope.typeID,);
+        var result = 'catID=' + $scope.catInfo[0].catID + '&type=' + $scope.typeID + '&';
 
         for (key in infojson) {
 
-          result.push(key => encodeURIComponent(infojson[key]));
+          result += key + '=' + encodeURIComponent(infojson[key]) + '&';
 
         }
 
-        result.push(tags => array());
+          result += 'tags' + '=';
 
         for (i in tagarray) {
 
@@ -52,9 +51,11 @@ app.controller('newFormCtrl',function($scope, $http) {
 
           for (key in tagjson) {
 
-            result.push.tags(key);
+            result += tagjson[key] + ',';
           }
         }
+
+        result = result.slice(0,-1);
 
         console.log(result);
         $http.post("submission/new", result)

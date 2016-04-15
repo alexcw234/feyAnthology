@@ -53,7 +53,28 @@ public function index($catID)
  */
 public function store()
 {
-    //
+
+    $input = $this->request->getContent();
+
+    $assoc_input = array();
+
+    foreach (explode('&',$input) as $element)
+    {
+      list($key, $val) = explode('=', $element, 2);
+
+      if ($key == 'tags')
+      {
+        $assoc_input[$key] = explode(',', $val);
+      }
+      else
+      {
+        $assoc_input[$key] = $val;
+      }
+      
+    }
+
+    echo var_dump($assoc_input);
+
 
     $infos = $this->request->except('Type','tags', 'URL', 'Rules', 'catID');
 
