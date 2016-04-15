@@ -10,8 +10,11 @@
                 <div class="panel-body">
                     You are logged in!
                 </div>
+
             </div>
         </div>
     </div>
 </div>
+@include('welcome-angular-connector')
+
 @endsection
