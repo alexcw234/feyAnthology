@@ -39,7 +39,7 @@ app.controller('newFormCtrl',function($scope, $http) {
 
         //'catID=' + $scope.catInfo[0].catID + '&type=' + $scope.typeID + '&';
         result['catID'] = $scope.catInfo[0].catID;
-        result['type'] = $scope.typeID;
+        result['typeID'] = $scope.typeID;
 
         for (key in infojson) {
 
@@ -59,13 +59,12 @@ app.controller('newFormCtrl',function($scope, $http) {
           for (key in tagjson) {
 
           //  result += tagjson[key] + ',';
-            tagstring += '"' + tagjson[key] + '" => "default"';
+            tagstring += '"' + tagjson[key] + '" => "default",';
           }
         }
+        tagstring = tagstring.slice(0,-1);
 
         result['tags'] = tagstring;
-
-      //  result = result.slice(0,-1);
 
         console.log(result);
         $http.post("submission/new", result)

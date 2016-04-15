@@ -94,7 +94,7 @@ class WorksRepository
     *
     * @return Response
     */
-    public function newentry($catID, $infos, $address, $type, $tags)
+    public function newentry($catID, $infos, $address, $typeID, $tags)
     {
         foreach ($infos as $key => $value)
         {
@@ -102,18 +102,14 @@ class WorksRepository
         }
             $address = urldecode($address);
 
-        $tagstore = '';
+            echo $tags;
 
-        foreach ($tags as $tag)
-        {
-          $tagstore .= '"' . $tag . '" => "other",';
-        }
             $workID = Work::create([
               'catID' => $catID,
-              'typeID' => $type,
+              'typeID' => $typeID,
               'url' => $address,
               'info' => json_encode($infos),
-              'tags' => $tagstore,
+              'tags' => $tags,
               'approved' => false,
               'subID' => 1,
               'subDate' => Carbon::now(),
