@@ -26,12 +26,14 @@ app.controller('newFormCtrl',function($scope, $http) {
 
     $scope.newentry = {};
 
+
+
     $scope.typeID;
 
-    $scope.submitEntry = function() {
+    $scope.submitEntry = function(tags) {
 
         var infojson = $scope.newentry;
-        var tagarray = $scope.tags;
+        var tagarray = tags;
 
         var result = 'Type' + '=' + $scope.typeID + '&';
 
@@ -68,8 +70,15 @@ app.controller('newFormCtrl',function($scope, $http) {
 
 });
 
+app.controller('newFormSelect',function($scope, $http) {
 
+      $http.get("reqs/types/showall")
+      .success(function(response){
 
+        $scope.types = response;
+
+      });
+});
 
 app.controller('newFormDisplay',function($scope) {
 
@@ -92,14 +101,4 @@ app.controller('newFormDisplay',function($scope) {
           }
         };
 
-});
-
-app.controller('newFormSelect',function($scope, $http) {
-
-      $http.get("reqs/types/showall")
-      .success(function(response){
-
-        $scope.types = response;
-
-      });
 });
