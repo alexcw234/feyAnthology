@@ -51,11 +51,13 @@ public function index($catID)
  *
  * @return Response
  */
-public function store($catID)
+public function store()
 {
     //
 
-    $infos = $this->request->except('Type','tags', 'URL', 'Rules');
+    $infos = $this->request->except('Type','tags', 'URL', 'Rules', 'catID');
+
+    $catID = $this->request->get('catID');
 
     $address = $this->request->get('URL');
 

@@ -32,7 +32,7 @@ Route::get('check/group/{catID}', 'UserController@check');
 
 Route::group(array('prefix' => 'submission'), function() {
 
-  Route::get('new/{catID}', 'WorksController@store');
+  Route::post('new', 'WorksController@store');
 
 
 });
