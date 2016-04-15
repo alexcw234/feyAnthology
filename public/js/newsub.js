@@ -77,14 +77,12 @@ app.controller('newFormDisplay',function($scope) {
 
           $scope.newForm;
           var templatename = type.contentType;
-          $scope.$parent.typeID = type.typeID;
+          $scope.$parent.$parent.typeID = type.typeID;
 
           if (templatename != null)
           {
 
           $scope.newForm = "forms/" + templatename.toLowerCase() + ".html";
-
-          console.log(type);
 
           }
           else
