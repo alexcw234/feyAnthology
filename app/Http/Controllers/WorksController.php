@@ -55,7 +55,7 @@ public function store($catID)
 {
     //
 
-    $infos = $this->request->except('Type','tags', 'URL');
+    $infos = $this->request->except('Type','tags', 'URL', 'Rules');
 
     $address = $this->request->get('URL');
 

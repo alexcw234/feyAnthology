@@ -56,6 +56,7 @@ app.controller('newFormCtrl',function($scope, $http) {
         }
 
         query = '?' + result;
+        query = query.slice(0,-1);
 
         console.log(query);
         $http.post("submission/new" + $scope.catInfo[0].catID + query)
