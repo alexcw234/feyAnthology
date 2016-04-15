@@ -23,7 +23,7 @@ class TypesController extends Controller
    */
    public function index()
    {
-     $types = Type::select('contentType',DB::raw('hstore_to_json("expectedFields") as "expectedFields"'))->get();
+     $types = Type::select('typeID','contentType',DB::raw('hstore_to_json("expectedFields") as "expectedFields"'))->get();
 
 
      return $types->toJson();

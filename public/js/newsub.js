@@ -1,4 +1,4 @@
-var app = angular.module("browseApp.newsub", []);
+var app = angular.module("browseApp.newsub", ['ngTagsInput']);
 
 
 app.controller('permissions', function($scope, $http, $stateParams) {
@@ -26,7 +26,7 @@ app.controller('newFormCtrl',function($scope, $http) {
 
     $scope.newentry = {};
 
-    $scope.typeID = null;
+    $scope.typeID;
 
     $scope.submitEntry = function() {
 
@@ -40,6 +40,7 @@ app.controller('newFormCtrl',function($scope, $http) {
           result += key + '=' + encodeURIComponent(infojson[key]) + '&';
 
         }
+
 
           result += 'tags' + '=';
 
@@ -74,15 +75,17 @@ app.controller('newFormDisplay',function($scope) {
 
         $scope.display = function(type) {
 
-        $scope.newForm;
-          var templatename = type;
+          $scope.newForm;
+          var templatename = type.contentType;
+          $scope.$parent.typeID = type.typeID;
 
           if (templatename != null)
           {
 
           $scope.newForm = "forms/" + templatename.toLowerCase() + ".html";
 
-          $scope.$parent.typeID = type.typeID;
+          console.log(type);
+
           }
           else
           {
