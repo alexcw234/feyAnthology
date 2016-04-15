@@ -26,13 +26,14 @@ app.controller('newFormCtrl',function($scope, $http) {
 
     $scope.newentry = {};
 
+    $scope.typeID = null;
+
     $scope.submitEntry = function() {
 
         var infojson = $scope.newentry;
         var tagarray = $scope.tags;
-        var typeID = $scope.selectedtype.typeID;
 
-        var result = 'Type' + '=' + typeID + '&';
+        var result = 'Type' + '=' + $scope.typeID + '&';
 
         for (key in infojson) {
 
@@ -54,6 +55,7 @@ app.controller('newFormCtrl',function($scope, $http) {
 
         query = '?' + result;
 
+        console.log(query);
         $http.post("submission/new" + $scope.catInfo[0].catID + query)
           .success(function(response)
             {
@@ -79,10 +81,13 @@ app.controller('newFormDisplay',function($scope) {
           {
 
           $scope.newForm = "forms/" + templatename.toLowerCase() + ".html";
+
+          $scope.$parent.typeID = type.typeID;
           }
           else
           {
           $scope.newForm = "forms/noselection.html";
+
           }
         };
 

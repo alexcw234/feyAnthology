@@ -95,7 +95,7 @@ class WorksRepository
     */
     public function newentry($catID, $infos, $address, $type, $tags)
     {
-        for ($key in $infos)
+        foreach ($infos as $key)
         {
             $infos[$key] = urldecode($infos[$key]);
         }
@@ -103,7 +103,7 @@ class WorksRepository
 
         $tagstore = '';
 
-        for ($tag in $tags)
+        foreach ($tags as $tag)
         {
           $tagstore += '"' + $tag + '" => "other",';
         }
