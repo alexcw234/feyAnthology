@@ -58,7 +58,7 @@
 
 
       <div ui-view="searchbox"></div>
-      <div ui-view="newbox"></div>
+      <div ng-if="level > 44" ui-view="newbox"></div>
       <div ui-view="table"></div>
 
     </div>
