@@ -12,21 +12,15 @@ use Response;
 class UserRepository {
 
   /**
-  * Retrieves the user's group for the specified category.
+  * Checks user group for cat (or global cat) against a
+  * specified limit
   *
   */
-  public function getGroup($catID,$userID)
+  public function groupComp($catgroup, $globalgroup, $limit)
   {
+  
 
-      return User::join('usersgroupscats', 'users.userID', '=', 'usersgroupscats.userID')
-      ->join('groups','usersgroupscats.groupID','=','groups.groupID')
-      ->select('group.groupID','groupName')
-      ->where('user.userID','=', $userID)
-      ->where('catID','=',$catID)->get();
   }
-
-
-
 
 
 }

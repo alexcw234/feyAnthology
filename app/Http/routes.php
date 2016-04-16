@@ -42,7 +42,7 @@ Route::group(['middleware' => ['web']], function () {
 
     });
 
-    Route::get('check/group/{catID}', 'UserController@check');
+    Route::get('check/group/{catID}', 'UGCController@check');
 });
 
 
