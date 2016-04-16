@@ -39,7 +39,6 @@ app.controller("workslist_permissionsCtrl", function($scope, $http) {
   $http.get("check/group/" + $scope.catID)
     .success(function(response)
       {
-          console.log(response);
 
           userlevel = response.level;
 
