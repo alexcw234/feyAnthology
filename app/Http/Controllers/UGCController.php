@@ -29,28 +29,22 @@ class UGCController extends Controller
 
 
     /**
-    * For checking what permissions user has in category
-    *
+    * For checking what permissions user has, and returns catgroup, globalgroup
+    * (For purposes of display only, for authentication use in-controller
+    * authentication)
     */
     public function check($catID)
     {
-        if (Auth::check()) {
+        if (Auth::check())
+        {
 
         $userID = Auth::user()->userID;
-
         $catgroup = $this->ugc->getGroup($catID,$userID);
-
         $globalgroup = $this->ugc->getGlobal($userID);
 
+        return array($catgroup, $globalgroup);
 
-
-        return true;
         }
-        else
-        {
-        return false;
-        }
-
     }
 
 

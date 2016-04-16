@@ -17,12 +17,11 @@ class UGCRepository {
   */
   public function getGroup($catID,$userID)
   {
-      return UGC::select('groupID','catID')
+      return UGC::select('groupID')
       ->where('userID','=', $userID)
       ->where('catID','=',$catID)
       ->orderBy('groupID','desc')
-      ->take(1)
-      ->get();
+      ->pluck('groupID');
   }
 
   /**
@@ -37,8 +36,7 @@ class UGCRepository {
       ->where('userID','=', $userID)
       ->where('catName','=','Global')
       ->orderBy('groupID','desc')
-      ->take(1)
-      ->get();
+      ->pluck('groupID');
   }
 
   /**

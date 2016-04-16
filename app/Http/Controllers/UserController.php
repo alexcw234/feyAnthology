@@ -15,8 +15,6 @@ use App\Repositories\UserRepository as UserRepository;
 class UserController extends Controller
 {
     //
-
-
         private $user;
 
         /**
@@ -28,6 +26,9 @@ class UserController extends Controller
               $this->user = $user;
               $this->request = $request;
         }
+
+
+        
 
 
 
