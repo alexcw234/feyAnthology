@@ -11,7 +11,7 @@ app.controller("workslistCtrl", function($scope, $http) {
     if ($scope.querystring != null) {
         query += '?' + encodeURI($scope.querystring);
     }
-    console.log('Query: ' + query);
+
 
     $http.get("reqs/list/" + $scope.catID + query)
       .success(function(response)
