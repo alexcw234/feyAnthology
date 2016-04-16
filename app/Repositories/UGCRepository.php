@@ -48,14 +48,12 @@ class UGCRepository {
   */
   public function comparelvl($catobj, $globalobj)
   {
-      $result = NULL;
+      $result;
 
       if (!$catobj->isEmpty())
       {
-          $catlvl = $catobj->first();
-          $globallvl = $globalobj->first();
-
-          echo "not null cat";
+          $catlvl = $catobj->pluck('level')->first();
+          $globallvl = $globalobj->pluck('level')->first();
 
           if ($globallvl < 44 || $globallvl >= 77)
           {
@@ -68,9 +66,6 @@ class UGCRepository {
       }
       else
       {
-      echo "null cat";
-      echo $globalobj;
-
       $result = $globalobj;
       }
       return $result;
