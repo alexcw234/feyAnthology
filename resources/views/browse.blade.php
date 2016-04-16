@@ -2,6 +2,6 @@
 
 @section('content')
 
-@include('welcome-angular-connector')
+@include('browse-angular-connector')
 
 @endsection
