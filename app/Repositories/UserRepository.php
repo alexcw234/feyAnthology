@@ -20,9 +20,9 @@ class UserRepository {
 
       return User::join('usersgroupscats', 'users.userID', '=', 'usersgroupscats.userID')
       ->join('groups','usersgroupscats.groupID','=','groups.groupID')
-      ->select('groupID','groupName')
-      ->where('userID','=', $userID)
-      ->where('catID','=',$catID);
+      ->select('group.groupID','groupName')
+      ->where('user.userID','=', $userID)
+      ->where('catID','=',$catID)->get();
   }
 
 

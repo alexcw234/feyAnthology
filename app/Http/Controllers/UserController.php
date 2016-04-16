@@ -35,15 +35,19 @@ class UserController extends Controller
         */
         public function check($catID)
         {
-            $user = Auth::user();
+            if (Auth::check()) {
 
-            echo "User: " . $user;
-
-            $userID = $user->userID;
-
+            $userID = Auth::user()->userID;
+  
             $result = $this->user->getGroup($catID,$userID);
 
-            return $result->toJson();
+            return $result;
+            }
+            else
+            {
+            return "No";
+            }
+
         }
 
 

@@ -23,16 +23,6 @@ Route::group(array('prefix' => 'reqs'), function() {
 
 });
 
-Route::get('check/group/{catID}', 'UserController@check');
-
-
-Route::group(array('prefix' => 'submission'), function() {
-
-  Route::post('new', 'WorksController@store');
-
-
-});
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -46,7 +36,15 @@ Route::group(array('prefix' => 'submission'), function() {
 
 Route::group(['middleware' => ['web']], function () {
     //
+    Route::group(array('prefix' => 'submission'), function() {
+
+      Route::post('new', 'WorksController@store');
+
+    });
+
+    Route::get('check/group/{catID}', 'UserController@check');
 });
+
 
 Route::group(['middleware' => 'web' ], function () {
     Route::auth();
