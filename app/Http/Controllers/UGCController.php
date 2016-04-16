@@ -35,18 +35,21 @@ class UGCController extends Controller
     */
     public function check($catID)
     {
+        $result = NULL;
+
         if (Auth::check())
         {
 
         $userID = Auth::user()->userID;
-        $catgroup = $this->ugc->getGroup($catID,$userID);
-        $globalgroup = $this->ugc->getGlobal($userID);
+        $catobj = $this->ugc->getGroup($catID,$userID)->pluck('level');
+        $globalobj = $this->ugc->getGlobal($userID)->pluck('level');
 
-        $result = $catgroup->merge($globalgroup);
+        echo $globalobj . "|||" . $catobj . "||";
 
-        return $result->toJson();
+        $result = $this->ugc->comparelvl($catobj,$globalobj);
 
         }
+        return $result->toJson();
     }
 
 

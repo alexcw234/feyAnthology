@@ -33,12 +33,47 @@ class UGCRepository {
   public function getGlobal($userID)
   {
       return UGC::join('groups','usersgroupscats.groupID','=','groups.groupID')
-      ->select(DB::raw("level as global"))
+      ->select('level')
       ->where('userID','=', $userID)
       ->where('catID','=',1)
-      ->orderBy('global')
+      ->orderBy('level')
       ->take(1)
       ->get();
+  }
+
+  /**
+  * Compares global and category level and returns net level
+  *
+  * @return : The object that is determined to contain net level
+  */
+  public function comparelvl($catobj, $globalobj)
+  {
+      $result = NULL;
+
+      if (!$catobj->isEmpty())
+      {
+          $catlvl = $catobj->first();
+          $globallvl = $globalobj->first();
+
+          echo "not null cat";
+
+          if ($globallvl < 44 || $globallvl >= 77)
+          {
+            $result = $globalobj;
+          }
+          else
+          {
+            $result = $catobj;
+          }
+      }
+      else
+      {
+      echo "null cat";
+      echo $globalobj;
+
+      $result = $globalobj;
+      }
+      return $result;
   }
 
   /**
