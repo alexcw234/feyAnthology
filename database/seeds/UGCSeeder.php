@@ -58,5 +58,13 @@ class UGCSeeder extends Seeder
         'groupID' => 7,
 
       ]);
+
+      DB::table('usersgroupscats')->insert([
+
+        'userID' => 2,
+        'catID' => 5,
+        'groupID' => 5,
+
+      ]);
     }
 }
