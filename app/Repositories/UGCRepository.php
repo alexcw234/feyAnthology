@@ -17,10 +17,11 @@ class UGCRepository {
   */
   public function getGroup($catID,$userID)
   {
-      return UGC::select('groupID')
+      return UGC::join('groups','usersgroupscats.groupID','=','groups.groupID')
+      ->select('level')
       ->where('userID','=', $userID)
       ->where('catID','=',$catID)
-      ->orderBy('groupID','desc')
+      ->orderBy('level')
       ->take(1)
       ->get();
   }
@@ -31,10 +32,11 @@ class UGCRepository {
   */
   public function getGlobal($userID)
   {
-      return UGC::select(DB::raw("'groupID' as 'globalID'"))
+      return UGC::join('groups','usersgroupscats.groupID','=','groups.groupID')
+      ->select(DB::raw("level as global"))
       ->where('userID','=', $userID)
       ->where('catID','=',1)
-      ->orderBy('groupID','desc')
+      ->orderBy('global')
       ->take(1)
       ->get();
   }
