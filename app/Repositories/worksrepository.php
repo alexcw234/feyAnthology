@@ -117,7 +117,33 @@ class WorksRepository
             return $workID;
     }
 
+    /**
+    * Validates and adds new entry, bypasses moderation step
+    *
+    * @return Response
+    */
+    public function forceentry($catID, $infos, $address, $typeID, $tags)
+    {
+        foreach ($infos as $key => $value)
+        {
+            $infos[$key] = urldecode($infos[$key]);
+        }
+            $address = urldecode($address);
 
+            $workID = Work::create([
+              'catID' => $catID,
+              'typeID' => $typeID,
+              'url' => $address,
+              'info' => json_encode($infos),
+              'tags' => $tags,
+              'approved' => true,
+              'subID' => 1,
+              'subDate' => Carbon::now(),
+            ]);
+
+
+            return $workID;
+    }
 
 
 }
