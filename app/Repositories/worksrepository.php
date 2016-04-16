@@ -94,7 +94,7 @@ class WorksRepository
     *
     * @return Response
     */
-    public function newentry($catID, $infos, $address, $typeID, $tags)
+    public function newentry($catID, $infos, $address, $typeID, $tags, $userID)
     {
         foreach ($infos as $key => $value)
         {
@@ -109,7 +109,7 @@ class WorksRepository
               'info' => json_encode($infos),
               'tags' => $tags,
               'approved' => false,
-              'subID' => 1,
+              'subID' => $userID,
               'subDate' => Carbon::now(),
             ]);
 
@@ -122,7 +122,7 @@ class WorksRepository
     *
     * @return Response
     */
-    public function forceentry($catID, $infos, $address, $typeID, $tags)
+    public function forceentry($catID, $infos, $address, $typeID, $tags, $userID)
     {
         foreach ($infos as $key => $value)
         {
@@ -137,7 +137,7 @@ class WorksRepository
               'info' => json_encode($infos),
               'tags' => $tags,
               'approved' => true,
-              'subID' => 1,
+              'subID' => $userID,
               'subDate' => Carbon::now(),
             ]);
 

@@ -77,12 +77,12 @@ public function store()
         $netjson = $this->ugc->comparelvl($catobj,$globalobj)->first();
         if ($netjson->level > 55)
         {
-            $valid = $this->work->forceentry($catID, $infos, $address, $typeID, $tags);
+            $valid = $this->work->forceentry($catID, $infos, $address, $typeID, $tags, $userID);
             $result = json_encode(['status' => 'override']);
         }
         else if ($netjson.level == 55)
         {
-            $valid = $this->work->newentry($catID, $infos, $address, $typeID, $tags);
+            $valid = $this->work->newentry($catID, $infos, $address, $typeID, $tags, $userID);
             $result = json_encode(['status' => 'success']);
         }
       }
