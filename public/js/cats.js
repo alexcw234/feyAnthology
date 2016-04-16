@@ -2,8 +2,7 @@ var app = angular.module("browseApp.cats", []);
 
 
 app.controller("myCtrl", function($scope) {
-    $scope.firstName = "If this is showing,";
-    $scope.lastName = "angular is working.";
+
 });
 
 
