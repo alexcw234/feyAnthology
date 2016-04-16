@@ -80,7 +80,7 @@ public function store()
             $valid = $this->work->forceentry($catID, $infos, $address, $typeID, $tags, $userID);
             $result = json_encode(['status' => 'override']);
         }
-        else if ($netjson.level == 55)
+        else if ($netjson->level == 55)
         {
             $valid = $this->work->newentry($catID, $infos, $address, $typeID, $tags, $userID);
             $result = json_encode(['status' => 'success']);
