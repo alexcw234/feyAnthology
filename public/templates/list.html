@@ -9,12 +9,26 @@
         </div>
       </div>
 
-      <button type="button" ng-click="goToState('list.searchbox')">Show search menu</button>
-      <button type="button" ng-click="goToState('list.table')">Back to list</button>
-      <button type="button" ng-click="goToState('list.newbox')">Contribute</button>
+      <div ng-controller="workslist_permissionsCtrl">
+        <button type="button" ng-click="goToState('list.searchbox')">Show search menu</button>
+        <button type="button" ng-click="goToState('list.table')">Back to list</button>
 
-
-      <div ng-controller="workslist_permissionsCtrl">{{groupID}}</div>
+        <div ng-if="level > 44">
+          <button type="button" ng-click="goToState('list.newbox')">Contribute</button>
+        </div>
+        <div ng-if="level == 44">
+          Request to become a contributor.
+        </div>
+        <div ng-if="level == 33">
+          Your permissions have been limited in this category.
+        </div>
+        <div ng-if="level == 22">
+          You have been banned from contributing to this category.
+        </div>
+        <div ng-if="level == 0">
+          Sign in to contribute to the database!
+        </div>
+      </div>
 
 <!-- End outer template begin body content -->
 <div class="panel-body">

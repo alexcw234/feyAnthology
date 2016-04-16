@@ -41,9 +41,9 @@ app.controller("workslist_permissionsCtrl", function($scope, $http) {
       {
           console.log(response);
 
-          var usergroup = response;
+          userlevel = response.level;
 
-          $scope.groupID = usergroup.groupID;
+          $scope.level = userlevel;
 
       });
 

@@ -55,13 +55,4 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
     })
 
-    .state('new',{
-        url: '/new/:catID',
-        templateUrl: 'templates/new.html',
-        controller: 'controller_n'
-    });
-
-
-
-
 });
