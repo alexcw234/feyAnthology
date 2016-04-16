@@ -42,7 +42,7 @@ class UGCController extends Controller
         $catgroup = $this->ugc->getGroup($catID,$userID);
         $globalgroup = $this->ugc->getGlobal($userID);
 
-        return array($catgroup, $globalgroup);
+        return $globalgroup->toJson();
 
         }
     }

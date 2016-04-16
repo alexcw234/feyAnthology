@@ -21,7 +21,8 @@ class UGCRepository {
       ->where('userID','=', $userID)
       ->where('catID','=',$catID)
       ->orderBy('groupID','desc')
-      ->pluck('groupID');
+      ->take(1)
+      ->get();
   }
 
   /**
@@ -30,13 +31,13 @@ class UGCRepository {
   */
   public function getGlobal($userID)
   {
-      return DB::table('usersgroupscats')
-      ->join('categories','usersgroupscats.catID','=','categories.catID')
+      return UGC::join('categories','usersgroupscats.catID','=','categories.catID')
       ->select('groupID')
       ->where('userID','=', $userID)
       ->where('catName','=','Global')
       ->orderBy('groupID','desc')
-      ->pluck('groupID');
+      ->take(1)
+      ->get();
   }
 
   /**
