@@ -22,7 +22,7 @@ app.controller('newSubmission',function($scope, $http) {
 
 });
 
-app.controller('newFormCtrl',function($scope, $http) {
+app.controller('newFormCtrl',function($scope, $http, $state) {
 
     $scope.newentry = {};
 
@@ -56,7 +56,8 @@ app.controller('newFormCtrl',function($scope, $http) {
 
           tagjson = tagarray[i];
 
-          for (key in tagjson) {
+          for (key in tagjson)
+          {
 
 
             tagstring += '"' + tagjson[key] + '" => "default",';
@@ -69,7 +70,15 @@ app.controller('newFormCtrl',function($scope, $http) {
         $http.post("submission/new", result)
           .success(function(response)
             {
-              console.log('Success!');
+
+              if (response.status == 'success')
+              {
+                  state.go('list.addscreen');
+              }
+              else (response.status == 'failure')
+              {
+                  state.go('list.failscreen');
+              }
 
             });
 
