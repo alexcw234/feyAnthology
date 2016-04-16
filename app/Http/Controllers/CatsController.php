@@ -19,7 +19,8 @@ class CatsController extends Controller
    */
   public function index()
   {
-      $allCats = DB::table('categories')->select('catID','catName','description')->get();
+      $allCats = DB::table('categories')->select('catID','catName','description')
+      ->where('catID', '>', 1)->get();
       return Response::json($allCats);
   }
 
