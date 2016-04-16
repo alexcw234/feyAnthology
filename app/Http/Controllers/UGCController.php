@@ -44,7 +44,7 @@ class UGCController extends Controller
         $catobj = $this->ugc->getGroup($catID,$userID);
         $globalobj = $this->ugc->getGlobal($userID);
 
-        $result = $this->ugc->comparelvl($catobj,$globalobj)->toJson();
+        $result = $this->ugc->comparelvl($catobj,$globalobj)->first()->toJson();
 
         }
         return $result;
