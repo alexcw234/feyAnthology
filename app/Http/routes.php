@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(array('prefix' => 'reqs'), function() {
 
   Route::get('cats/showall', 'CatsController@index');
@@ -52,10 +48,17 @@ Route::group(['middleware' => ['web']], function () {
     //
 });
 
-Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => 'web' ], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
 
+    Route::get('/browse', function () {
+        return view('browse');
+    });
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
 });

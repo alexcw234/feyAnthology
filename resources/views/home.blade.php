@@ -18,6 +18,6 @@
         </div>
     </div>
 </div>
-@include('welcome-angular-connector')
+
 
 @endsection

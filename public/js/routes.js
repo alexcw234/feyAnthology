@@ -12,7 +12,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .otherwise('/categories');
 
-
     $stateProvider
 
     .state('allcats',{
@@ -61,5 +60,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/new.html',
         controller: 'controller_n'
     });
+
+
+
 
 });
