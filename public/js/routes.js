@@ -55,4 +55,28 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
     })
 
+    .state('list.addscreen',{
+      views: {
+              'submitted' : {
+                templateUrl: 'templates/list.addscreen.html',
+              }
+      }
+    })
+
+    .state('list.overscreen',{
+      views: {
+              'submitted' : {
+                templateUrl: 'templates/list.overscreen.html',
+              }
+      }
+    })
+
+    .state('list.failscreen',{
+      views: {
+              'fail' : {
+                templateUrl: 'templates/list.failscreen.html',
+              }
+      }
+    })
+
 });
