@@ -21,6 +21,22 @@ class UGCSeeder extends Seeder
 
       DB::table('usersgroupscats')->insert([
 
+        'userID' => 1,
+        'catID' => 2,
+        'groupID' => 1,
+
+      ]);
+
+      DB::table('usersgroupscats')->insert([
+
+        'userID' => 2,
+        'catID' => 1,
+        'groupID' => 6,
+
+      ]);
+
+      DB::table('usersgroupscats')->insert([
+
         'userID' => 2,
         'catID' => 2,
         'groupID' => 6,

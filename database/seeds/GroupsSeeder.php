@@ -13,43 +13,43 @@ class GroupsSeeder extends Seeder
     public function run()
     {
         DB::table('groups')->insert([
-          'groupID' => 1,
           'groupName' => 'superadmin',
+          'level' => 99,
         ]);
 
         DB::table('groups')->insert([
-          'groupID' => 2,
           'groupName' => 'catadmin',
+          'level' => 88,
         ]);
 
         DB::table('groups')->insert([
-          'groupID' => 3,
           'groupName' => 'moderator',
+          'level' => 77,
         ]);
 
         DB::table('groups')->insert([
-          'groupID' => 4,
           'groupName' => 'contributor+',
+          'level' => 66,
         ]);
 
         DB::table('groups')->insert([
-          'groupID' => 5,
           'groupName' => 'contributor',
+          'level' => 55,
         ]);
 
         DB::table('groups')->insert([
-          'groupID' => 6,
           'groupName' => 'none',
+          'level' => 44,
         ]);
 
         DB::table('groups')->insert([
-          'groupID' => 7,
           'groupName' => 'limited',
+          'level' => 33,
         ]);
 
         DB::table('groups')->insert([
-          'groupID' => 8,
           'groupName' => 'banned',
+          'level' => 22,
         ]);
 
     }
