@@ -24,9 +24,10 @@ class WorksController extends Controller
   * Injects repository
   *
   */
-  public function __construct(WorksRepository $work, Request $request)
+  public function __construct(WorksRepository $work, UGCRepository $ugc, Request $request)
   {
         $this->work = $work;
+        $this->ugc = $ugc;
         $this->request = $request;
   }
 
@@ -73,9 +74,8 @@ public function store()
 
         $catobj = $this->ugc->getGroup($catID,$userID);
         $globalobj = $this->ugc->getGlobal($userID);
-        $netjson = $this->ugc->comparelvl($catobj,$globalobj)->first()->toJson();
-
-        if ($netjson.level > 55)
+        $netjson = $this->ugc->comparelvl($catobj,$globalobj)->first();
+        if ($netjson->level > 55)
         {
             $valid = $this->work->forceentry($catID, $infos, $address, $typeID, $tags);
             $result = json_encode(['status' => 'override']);

@@ -65,7 +65,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .state('list.overscreen',{
       views: {
-              'submitted' : {
+              'approved' : {
                 templateUrl: 'templates/list.overscreen.html',
               }
       }

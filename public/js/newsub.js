@@ -73,15 +73,15 @@ app.controller('newFormCtrl',function($scope, $http, $state) {
 
               if (response.status == 'success')
               {
-                  state.go('list.addscreen');
+                  $state.go('list.addscreen');
               }
               else if (response.status == 'override')
               {
-                  state.go('list.overscreen');
+                  $state.go('list.overscreen');
               }
               else if (response.status == 'failure')
               {
-                  state.go('list.failscreen');
+                  $state.go('list.failscreen');
               }
 
             });
