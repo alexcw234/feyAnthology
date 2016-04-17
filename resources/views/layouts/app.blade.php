@@ -31,7 +31,7 @@
     <style>
         body {
             font-family: 'Lato';
-            padding-top: 80px;
+            padding-top: 70px;
         }
 
         .fa-btn {
