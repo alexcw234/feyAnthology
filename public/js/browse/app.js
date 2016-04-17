@@ -9,4 +9,5 @@ var app = angular.module("browseApp",
     'browseApp.newsub',
     'browseApp.workslist',
     'browseApp.search',
+    'browseApp.sidebar',
   ]);
