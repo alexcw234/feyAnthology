@@ -1,4 +1,4 @@
 <?php
-set_include_path("user");
+set_include_path("usercp");
 include("main.html");
  ?>
