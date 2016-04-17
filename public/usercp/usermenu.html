@@ -1,21 +1,26 @@
-<div class="panel panel-default">
-
-      <!-- Header message -->
-      <div class="panel-heading"><div ng-controller="header">{{header}}
-        </div>
-      </div>
-
-
-<!-- End outer template begin body content -->
-<div class="panel-body">
-
-<button type="button" ng-click="goToState('mod')">View Pending Submissions</button>
-
-
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li><a href="#">Overview</a></li>
+    <li><a href="#">Reports</a></li>
+    <li><a href="#">Analytics</a></li>
+    <li><a href="#">Export</a></li>
+  </ul>
 </div>
+<div class="container">
+<div class="row">
+<div class="col-md-10">
+  <div class="panel panel-default">
 
-<div ui-view="searchbox"></div>
+        <!-- Header message -->
+        <div class="panel-heading">
+          User Control Panel
+        </div>
+
+  <!-- End outer template begin body content -->
+  <div class="panel-body">
 
 
-<!-- End body content begin outer template -->
+    </div>
+</div>
+</div>
 </div>

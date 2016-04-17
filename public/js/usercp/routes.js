@@ -19,21 +19,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'controller_m',
     })
 
-
-    .state('menu.mycats',{
-        url: '/mycats',
-        views: {
-              'mycats' : {
-              
-
-              }
-        }
-
-
-
-    });
-
-
     .state('mod',{
         url: '/mod',
         templateUrl: 'usercp/pendinglist.html',
