@@ -11,21 +11,32 @@
 <!-- angular scripts -->
 
 
-
+<div class="container-fluid">
 <!-- Begin controll by browseApp -->
 <div ng-app="browseApp">
 
-    <div class="container">
-        <div class="row">
-          <div class="col-md-10">
-
+  <div class="col-sm-3 col-md-2 sidebar">
+    <ul class="nav nav-sidebar">
+      <b>User Control Panel</b>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">My Categories</a></li>
+      <li><a href="#">Contributions</a></li>
+      <li><a href="#">Mod Controls</a></li>
+    </ul>
+  </div>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-10">
 
 
           <div ui-view></div>
 
-
+          </div>
         </div>
       </div>
-  </div>
+
+
+
 </div>
 <!-- End control by browseApp -->
+</div>
