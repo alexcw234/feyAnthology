@@ -13,6 +13,8 @@ app.controller("controller_c", function($scope) {
 
 $scope.$parent.header = "Select a category:";
 
+$scope.$parent.sidebar_title = "Categories";
+
 });
 
 /*
@@ -49,6 +51,7 @@ $scope.goToState = function(name){$state.go(name)};
 *
 */
 app.controller("controller_n", function($scope, $stateParams) {
+
 $scope.$parent.header = "Submit something new";
 
 $scope.catID = $stateParams.catID;

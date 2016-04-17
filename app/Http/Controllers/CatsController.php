@@ -33,7 +33,7 @@ class CatsController extends Controller
   public function show($catID)
   {
       $selectcat = DB::table('categories')->select('catID','catName','description')
-      ->where('catID','=',$catID)->get();
+      ->where('catID','=',$catID)->first();
        return Response::json($selectcat);
   }
 
