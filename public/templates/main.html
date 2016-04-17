@@ -15,21 +15,11 @@
 <!-- Begin controll by browseApp -->
 <div ng-app="browseApp">
 
-  <div class="col-sm-3 col-md-2 sidebar">
-    <ul class="nav nav-sidebar">
-      <b>User Control Panel</b>
-      <li><a href="#">Profile</a></li>
-      <li><a href="#">My Categories</a></li>
-      <li><a href="#">Contributions</a></li>
-      <li><a href="#">Mod Controls</a></li>
-    </ul>
-  </div>
-  <div class="container">
-      <div class="row">
-        <div class="col-md-10">
+  <!-- Include sidebar -->
+  <div ng-include="'templates/sidebar.html'"></div>
 
 
-          <div ui-view></div>
+      <span ng-cloak><div ui-view></div></span>
 
           </div>
         </div>
