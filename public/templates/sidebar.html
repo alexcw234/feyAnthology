@@ -1,6 +1,17 @@
 <div class="col-sm-3 col-md-2 sidebar" ng-controller="sidebar">
   <ul class="nav nav-sidebar">
+  <!-- Sidebar title/backtrack -->
+
+    <p ng-if="sidebar_backtrack == true">
+    <a href="" ng-click="goToState('allcats')">Categories</a> ->
+    </p>
     <b>{{sidebar_title}}</b>
+    <p>{{sidebar_text}}</p>
+
+
+
+
+<!-- Sidebar links -->
     <li><a href="#">Profile</a></li>
     <li><a href="#">My Categories</a></li>
     <li><a href="#">Contributions</a></li>

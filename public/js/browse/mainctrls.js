@@ -1,7 +1,13 @@
+/*
+* Controllers that setup things that other parts of the view/state
+* depend on.
+*/
 var app = angular.module("browseApp.mainctrls", []);
 
 app.controller("header", function($scope){
 //    $scope.header = "Welcome to Fey Anthology!";
+
+
 });
 
 
@@ -13,19 +19,22 @@ app.controller("controller_c", function($scope) {
 
 $scope.$parent.header = "Select a category:";
 
+$scope.$parent.sidebar_backtrack = false;
+
 $scope.$parent.sidebar_title = "Categories";
+$scope.$parent.sidebar_text = "Select a category:";
 
 });
 
 /*
-* Main controller for the works list state.
-*
+* Main controller for the works list state. Loads the template and then does
+* state.go() to list.table to load the table.
 */
 app.controller("controller_l", function($scope, $state, $stateParams, $http) {
 
 $scope.$parent.header = "";
 
-$scope.querystring = null;
+$scope.querystring = null; // Kept here for accessability.
 
 $scope.catID = $stateParams.catID;
 
@@ -34,15 +43,17 @@ $http.get("reqs/getcatname/" + $scope.catID)
     {
         $scope.catInfo = response;
 
+        $scope.$parent.sidebar_backtrack = true;
+
+        $scope.$parent.sidebar_title = response.catName;
+        $scope.$parent.sidebar_text = response.description;
+
     });
-
-
 
 $state.go('list.table');
 
 $scope.goToState = function(name){$state.go(name)};
 
-//$scope.goNewState = function(name){$state.go(name)};
 
 });
 
