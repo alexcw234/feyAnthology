@@ -20,6 +20,7 @@ app.controller("controller_c", function($scope) {
 $scope.$parent.header = "Select a category:";
 
 $scope.$parent.sidebar_backtrack = false;
+$scope.$parent.sidebar_onCatlist = true;
 
 $scope.$parent.sidebar_title = "Categories";
 $scope.$parent.sidebar_text = "Select a category:";
@@ -44,6 +45,7 @@ $http.get("reqs/getcatname/" + $scope.catID)
         $scope.catInfo = response;
 
         $scope.$parent.sidebar_backtrack = true;
+        $scope.$parent.sidebar_onCatlist = false;
 
         $scope.$parent.sidebar_title = response.catName;
         $scope.$parent.sidebar_text = response.description;

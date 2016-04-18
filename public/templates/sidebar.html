@@ -1,5 +1,4 @@
 <div class="col-sm-3 col-md-2 sidebar" ng-controller="sidebar">
-  <ul class="nav nav-sidebar">
   <!-- Sidebar title/backtrack -->
 
     <p ng-if="sidebar_backtrack == true">
@@ -7,14 +6,24 @@
     </p>
     <b>{{sidebar_title}}</b>
     <p>{{sidebar_text}}</p>
-
-
-
-
 <!-- Sidebar links -->
-    <li><a href="#">Profile</a></li>
-    <li><a href="#">My Categories</a></li>
-    <li><a href="#">Contributions</a></li>
-    <li><a href="#">Mod Controls</a></li>
+
+
+  <!-- Category list options -->
+  <ul class="nav nav-sidebar" ng-if="sidebar_onCatlist == true">
+    <li><a href="#">Search</a></li>
+    <li><a href="#">Back</a></li>
   </ul>
+  <!-- Works list options -->
+  <ul class="nav nav-sidebar" ng-if="sidebar_onCatlist == false">
+    <li><a href="" ng-click="goToState('list.searchbox')">Search</a></li>
+    <li ng-if="sidebar_level > 44"><a href="" ng-click="goToState('list.newbox')">Contribute</a></li>
+    <li ng-if="sidebar_level > 66"><a href="">Mod Controls</a></li>
+    <li ng-if="sidebar_level == 44"><a href="">Become a contributor.</a></li>
+    <li ng-if="sidebar_level == 33"><font color="red">Your permissions have been limited in this category.</font></li>
+    <li ng-if="sidebar_level == 22"><font color="red">You have been banned from contributing to this category.</font></li>
+    <li ng-if="sidebar_level == 0">Sign in to contribute to the database!</li>
+    <li><a href="">Back</a></li>
+  </ul>
+
 </div>

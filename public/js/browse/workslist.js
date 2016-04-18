@@ -44,6 +44,8 @@ app.controller("workslist_permissionsCtrl", function($scope, $http) {
 
           $scope.level = userlevel;
 
+          $scope.$parent.$parent.sidebar_level = userlevel;
+
       });
 
 });
