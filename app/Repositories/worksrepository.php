@@ -130,7 +130,7 @@ class WorksRepository
         }
             $address = urldecode($address);
 
-            $workID = Work::create([
+            $newwork = Work::create([
               'catID' => $catID,
               'typeID' => $typeID,
               'url' => $address,
@@ -140,9 +140,11 @@ class WorksRepository
               'subID' => $userID,
               'subDate' => Carbon::now(),
             ]);
+            $newwork->appID = $userID;
+            $newwork->appDate = Carbon::now();
+            $newwork->save();
 
-
-            return $workID;
+            return $newwork;
     }
 
 

@@ -1,39 +1,37 @@
-
 <div class="panel panel-default">
-
-<!-- Header message -->
 <div class="panel-heading"><div ng-controller="header">
-        {{header}}
+        <b>Your results...</b>
   </div>
 </div>
-
-<!-- End outer template begin body content -->
-<div class="panel-body">
-
-<div>
-
-
-
+</div>
 
 <div ng-controller="workslistCtrl">
+    <div ng-repeat="item in works">
+      <div class="panel panel-default">
 
-<div ng-repeat="item in works">
-<fieldset>
-<a ng-href="{{item.url|urlFilter}}">{{item.info.Title}}</a>
-<div ng-repeat = "(key, value) in item.info">
-{{key}} : {{value}}
-</div>
-Tags:
-<span ng-repeat = "tag in item.tags">
-{{tag}},
-</span>
-</fieldset>
-<br><br>
-</div>
-</div>
-</div>
+          <div class="panel-heading">
+            <div ng-controller="header">
+              <b><a ng-href="{{item.url|urlFilter}}">{{item.info.Title}}</a></b>
+            </div>
+          </div>
 
 
-</div>
-<!-- End body content begin outer template -->
+          <div class="panel-body">
+            <div>
+
+                <div ng-repeat = "(key, value) in item.info">
+                  {{key}} : {{value}}
+                </div>
+                Tags:
+                <span ng-repeat = "tag in item.tags">
+                  {{tag}},
+                </span>
+
+              <br><br>
+            </div>
+          </div>
+
+
+      </div>
+    </div>
 </div>
