@@ -3,7 +3,7 @@
   <div ng-controller = "newFormSelect">
     <div ng-controller = "newFormDisplay">
 
-        Category :  {{catInfo[0].catName}}
+        Category :  {{catInfo.catName}}
         <br><br>
         Content Type :
         <select ng-model="selectedtype" ng-options="type.contentType for type in types"

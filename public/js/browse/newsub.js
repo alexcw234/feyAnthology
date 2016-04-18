@@ -38,7 +38,7 @@ app.controller('newFormCtrl',function($scope, $http, $state) {
         var result = {};
 
 
-        result['catID'] = $scope.catInfo[0].catID;
+        result['catID'] = $scope.catInfo.catID;
         result['typeID'] = $scope.typeID;
 
         for (key in infojson) {
