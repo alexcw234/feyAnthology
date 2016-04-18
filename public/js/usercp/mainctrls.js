@@ -2,18 +2,16 @@ var app = angular.module("userCP.mainctrls", []);
 
 
 
-app.controller("header", function($scope){
+app.controller("defaultctrl", function($scope){
 
 });
 
 
 /*
-* Main controller for the usercp menu
+* Main controller for the mod categories table
 *
 */
-app.controller("menucontroller", function($scope, $state) {
-
-$scope.$parent.header = "User Control Panel";
+app.controller("modcatstablectrl", function($scope, $state) {
 
 $scope.goToState = function(name){$state.go(name)};
 

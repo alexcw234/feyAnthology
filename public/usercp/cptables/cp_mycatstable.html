@@ -1,1 +1,54 @@
 <!-- Table for categories where I am a contributor-->
+<div class="container">
+    <div class="row">
+      <div class="col-md-10">
+
+<div class="panel panel-default">
+
+      <!-- Header message -->
+      <div class="panel-heading">
+        <b>My Categories:</b>
+      </div>
+
+<!-- End outer template begin body content -->
+<div class="panel-body">
+  <div>
+    <style scoped>@import url("css/catlist.css");</style>
+
+        <form name="catForm">
+
+          <table ng-controller="catstableCtrl">
+          <tr>
+            <th>Category</th>
+            <th>Description</th>
+            <th>My Group</th>
+            <th>Options</th>
+          </tr>
+          <tr ng-repeat="x in cats">
+            <td>
+              {{x.catName}}
+            </td>
+            <td>
+              {{x.description}}
+            </td>
+            <td>
+              {{x.groupName}}
+            </td>
+            <td><div ng-view="useroptions"></div>
+              <div ng-if="{{x.level}} > 66" ng-view="modoptions"></div>
+            </td>
+          </tr>
+
+          </table>
+
+       </form>
+
+     </div>
+
+</div>
+<!-- End body content begin outer template -->
+</div>
+
+</div>
+</div>
+</div>

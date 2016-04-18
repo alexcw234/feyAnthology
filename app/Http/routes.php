@@ -42,6 +42,8 @@ Route::group(['middleware' => ['web']], function () {
 
     });
 
+    Route::get('reqs/cats/showall', 'CatsController@userCP_index');
+
     Route::get('check/group/{catID}', 'UGCController@check');
 
     Route::get('check/global/', 'UGCController@checkGlobal');

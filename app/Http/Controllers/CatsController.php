@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+
+
+use App\Repositories\worksrepository as WorksRepository;
+use App\Repositories\UGCRepository as UGCRepository;
+use App\Repositories\categoryrepository as CategoryRepository;
 
 use DB;
 use Response;
-
 class CatsController extends Controller
 {
     //
@@ -36,6 +42,27 @@ class CatsController extends Controller
       ->where('catID','=',$catID)->first();
        return Response::json($selectcat);
   }
+
+
+  /**
+ * Display a listing of the resource.
+ *
+ * @return Response
+ */
+public function userCP_index()
+{
+
+    if (Auth::check())
+    {
+      $userID = Auth::user()->userID;
+
+
+
+    ->get();
+    return Response::json($allCats);
+
+    }
+}
 
 
 

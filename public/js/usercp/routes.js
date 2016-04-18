@@ -28,26 +28,24 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
 // Shows categories where I am a contributor
-    .state('user',{
-        url: '/user',
+    .state('controls',{
+        url: '/controls',
         templateUrl: 'usercp/cptables/cp_mycatstable.html',
-        controller: 'mycatstablectrl',
+        controller: 'mycatstemplatectrl',
     })
-
-// User menu
-    .state('userops',{
-        url: '/options/:catID',
-        templateUrl: 'usercp/cpmenus/cp_usermenu.html',
-        controller: 'usermenuctrl',
+        .state('controls.menus', {
+          views : {
+                'useroptions' : {
+                    templateUrl: 'usercp/cpmenus/cp_usermenu.html',
+                    controller: 'useroptionsctrl',
+                },
+                'modoptions' : {
+                    templateUrl: 'usercp/cpmenus/cp_modmenu.html',
+                    controller: 'modoptionsctrl',
+                }
+            }
         })
 
-
-// Shows categories where I am a mod
-    .state('mod',{
-        url: '/mod',
-        templateUrl: 'usercp/cptables/cp_modcatstable.html',
-        controller: 'modcatstablectrl',
-    })
 
 // Mod menu
     .state('modops',{

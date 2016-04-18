@@ -1,1 +1,53 @@
 <!-- Table for categories where I am a moderator+-->
+<div class="container">
+    <div class="row">
+      <div class="col-md-10">
+
+<div class="panel panel-default">
+
+      <!-- Header message -->
+      <div class="panel-heading">
+        <div ng-controller="header"><b>My Categories:</b>
+        </div>
+      </div>
+
+<!-- End outer template begin body content -->
+<div class="panel-body">
+
+
+<div ng-controller="myCtrl">
+
+  <div>
+    <style scoped>@import url("css/catlist.css");</style>
+
+        <form name="catForm">
+
+          <table ng-controller="catstableCtrl">
+          <tr>
+            <th>Category</th>
+            <th>Description</th>
+          </tr>
+          <tr ng-repeat="x in cats">
+            <td>
+              <a ui-sref="list({catID: x.catID})">
+              {{x.catName}}
+            </a>
+            </td>
+            <td>{{x.description}}</td>
+          </tr>
+
+          </table>
+
+       </form>
+
+    </div>
+
+</div>
+
+</div>
+<!-- End body content begin outer template -->
+</div>
+
+</div>
+</div>
+</div>
