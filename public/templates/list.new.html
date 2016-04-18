@@ -11,6 +11,7 @@
 
         <br><br>
         <div ng-include="newForm"></div>
+        <button type="button" ng-if="!newForm" ng-click="goToState('list.table')">Cancel</button>
 
     </div>
   </div>

@@ -19,6 +19,7 @@
   <!-- Works list options -->
   <ul class="nav nav-sidebar" ng-if="sidebar_onCatlist == false">
     <li ng-if="sidebar_level == 0">Sign in to contribute!</li>
+    <li><a href="" ng-click="reloadPage()">Index</a></li>
     <li><a href="" ng-click="goToState('list.searchbox')">Search</a></li>
     <li ng-if="sidebar_level > 44"><a href="" ng-click="goToState('list.newbox')">Contribute</a></li>
     <li ng-if="sidebar_level > 66"><a href="">Mod Controls</a></li>
@@ -26,7 +27,6 @@
     <li ng-if="sidebar_level == 33"><font color="red">Your permissions have been limited in this category.</font></li>
     <li ng-if="sidebar_level == 22"><font color="red">You have been banned from contributing to this category.</font></li>
 
-    <li><a href="">Back</a></li>
   </ul>
 
 </div>
