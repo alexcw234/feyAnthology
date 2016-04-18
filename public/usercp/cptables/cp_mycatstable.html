@@ -34,8 +34,8 @@
             <td>
               {{x.groupName}}
             </td>
-            <td><div ng-view="useroptions"></div>
-              <div ng-if="{{x.level}} > 66" ng-view="modoptions"></div>
+            <td><span ng-include="'usercp/cpmenus/cp_usermenu.html'"></span>
+              <span ng-if="x.level > 66" ng-include="'usercp/cpmenus/cp_modmenu.html'"></span>
             </td>
           </tr>
 

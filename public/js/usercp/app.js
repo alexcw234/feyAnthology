@@ -8,4 +8,5 @@ var app = angular.module("userCP",
     'userCP.moderation',
     'userCP.sidebar',
     'userCP.tablectrls',
+    'userCP.optionsctrls',
   ]);
