@@ -51,6 +51,22 @@ class UGCController extends Controller
     }
 
 
+    /**
+    * For specifically checking the user's global level.
+    * (For purposes of display only)
+    */
+    public function checkGlobal()
+    {
+        $result = json_encode(['level' => 0]);
+
+        if (Auth::check())
+        {
+        $userID = Auth::user()->userID;
+        $result = $this->ugc->getGlobal($userID)->first()->toJson();
+        }
+        return $result;
+    }
+
 
 
     /**

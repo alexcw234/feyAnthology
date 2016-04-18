@@ -43,6 +43,8 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     Route::get('check/group/{catID}', 'UGCController@check');
+
+    Route::get('check/global/', 'UGCController@checkGlobal');
 });
 
 

@@ -21,12 +21,11 @@ app.controller("catstableCtrl", function($scope, $http) {
 *   Handles request for current user group to determine
 *   what should be displayed.
 */
-app.controller("catlist_permissionsCtrl", function($scope, $http) {
+app.controller("cats_permissionsCtrl", function($scope, $http) {
 
-  $http.get("check/group/1")
+  $http.get("check/global")
     .success(function(response)
       {
-
           userlevel = response.level;
 
           $scope.level = userlevel;

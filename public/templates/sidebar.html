@@ -12,6 +12,7 @@
   <!-- Category list options -->
   <ul class="nav nav-sidebar" ng-if="sidebar_onCatlist == true">
     <li><a href="#">Search</a></li>
+    <li ng-if="sidebar_level == 0">Sign in to contribute</li>
     <li><a href="#">Back</a></li>
   </ul>
   <!-- Works list options -->
@@ -22,7 +23,7 @@
     <li ng-if="sidebar_level == 44"><a href="">Become a contributor.</a></li>
     <li ng-if="sidebar_level == 33"><font color="red">Your permissions have been limited in this category.</font></li>
     <li ng-if="sidebar_level == 22"><font color="red">You have been banned from contributing to this category.</font></li>
-    <li ng-if="sidebar_level == 0">Sign in to contribute to the database!</li>
+    <li ng-if="sidebar_level == 0">Sign in to contribute</li>
     <li><a href="">Back</a></li>
   </ul>
 
