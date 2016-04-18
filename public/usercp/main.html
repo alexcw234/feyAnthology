@@ -4,15 +4,18 @@
 <script src="js/usercp/app.js"></script>
 <script src="js/usercp/routes.js"></script>
 <script src="js/usercp/mainctrls.js"></script>
+<script src="js/usercp/sidebar.js"></script>
 <script src="js/usercp/moderation.js"></script>
 <script src="js/usercp/mysubs.js"></script>
+
 <!-- angular scripts -->
 
 
 <div class="container-fluid">
 <!-- Begin controll by userCP -->
         <div ng-app="userCP">
-
+          <!-- Include sidebar -->
+          <div ng-include="'usercp/sidebar.html'"></div>
 
 
           <div ui-view></div>

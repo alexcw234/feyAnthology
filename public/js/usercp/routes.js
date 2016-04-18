@@ -9,28 +9,38 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider
 
-    .otherwise('/menu');
+    .otherwise('/cp');
 
     $stateProvider
 
+    .state('default',{
+        url: '/cp',
+        templateUrl: 'usercp/default.html',
+        controller: 'defaultcontroller',
+    })
+
     .state('menu',{
         url: '/menu',
-        templateUrl: 'usercp/usermenu.html',
-        controller: 'controller_m',
+        templateUrl: 'usercp/menu.html',
+        controller: 'mainmenucontroller',
     })
 
-    .state('mod',{
-        url: '/mod',
-        templateUrl: 'usercp/pendinglist.html',
-        controller: 'controller_p',
-    })
-
-    .state('mod.one',{
-      url: '/:workID',
+    .state('menu.userops',{
+      url: '/menu/user',
       views: {
-            'entry' : {
-                templateUrl: 'usercp/pendinglist.entry.html',
-                controller: 'entry',
+            'profileops' : {
+                templateUrl: 'usercp/menu.userops.html',
+                controller: 'useropsmenucontroller'
+              }
+        }
+    })
+
+    .state('menu.profileops',{
+      url: '/menu/profile',
+      views: {
+            'profileops' : {
+                templateUrl: 'usercp/menu.userops.html',
+                controller: 'useropsmenucontroller'
               }
         }
     })
