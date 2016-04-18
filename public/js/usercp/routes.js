@@ -13,36 +13,57 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
 
+// Default state, shows profile and other stats
     .state('default',{
         url: '/cp',
         templateUrl: 'usercp/default.html',
-        controller: 'defaultcontroller',
+        controller: 'defaultctrl',
     })
 
-    .state('menu',{
-        url: '/menu',
-        templateUrl: 'usercp/menu.html',
-        controller: 'mainmenucontroller',
+// User menu, shows options at the top and views at the bottom
+    .state('usermenu',{
+        url: '/usermenu',
+        templateUrl: 'usercp/cpmenus/cp_usermenu.html',
+        controller: 'usermenuctrl',
+        views: {
+              'mycats' : {
+                  templateUrl: 'usercp/cptables/cp_mycatstable.html',
+                  controller: 'mycatstablectrl'
+                }
+              'profileedit' : {
+                  templateUrl: 'usercp/cpforms/cp_profileedit.html',
+                  controller: 'profileeditctrl'
+                }
+
+          }
     })
 
-    .state('menu.userops',{
-      url: '/menu/user',
+    .state('usermenu.submissions',{
+      url: '/usermenu/:catID',
       views: {
-            'profileops' : {
-                templateUrl: 'usercp/menu.userops.html',
-                controller: 'useropsmenucontroller'
+            'mysubs' : {
+                templateUrl: 'usercp/cptables/cp_mysubstable.html',
+                controller: 'mysubstablectrl'
               }
         }
     })
 
-    .state('menu.profileops',{
-      url: '/menu/profile',
-      views: {
-            'profileops' : {
-                templateUrl: 'usercp/menu.userops.html',
-                controller: 'useropsmenucontroller'
-              }
-        }
+// Moderator menu
+    .state('modmenu',{
+        url: '/modmenu',
+        templateUrl: 'usercp/cpmenus/cp_modmenu.html',
+        controller: 'modmenuctrl',
+        views: {
+              'modcats' : {
+                  templateUrl: 'usercp/cptables/cp_modcatstable.html',
+                  controller: 'modcatstablectrl'
+                }
+              'profileedit' : {
+                  templateUrl: 'usercp/cpforms/cp_profileedit.html',
+                  controller: 'profileeditctrl'
+                }
+
     })
+
 
 });
