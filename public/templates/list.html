@@ -3,24 +3,9 @@
 <div class="container">
     <div class="row">
       <div class="col-md-10">
-
-<div class="panel panel-default">
-
-      <!-- Header message -->
-      <div class="panel-heading"><div ng-controller="header">
-              {{header}}
-        </div>
-      </div>
-
-<!-- End outer template begin body content -->
-<div class="panel-body">
-
-  <div>
-    <style scoped>@import url("css/catlist.css");</style>
-    <style scoped>@import url("bower_components/ng-tags-input/ng-tags-input.min.css");</style>
-    <style scoped>@import url("bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css");</style>
-
-
+      <style scoped>@import url("css/catlist.css");</style>
+      <style scoped>@import url("bower_components/ng-tags-input/ng-tags-input.min.css");</style>
+      <style scoped>@import url("bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css");</style>
 
       <div ui-view="searchbox"></div>
       <div ng-if="level > 44" ui-view="newbox"></div>
@@ -29,12 +14,7 @@
       <div ui-view="approved"></div>
       <div ui-view="failure"></div>
 
-    </div>
 
-
-  </div>
-  <!-- End body content begin outer template -->
-</div>
 
 </div>
 </div>
