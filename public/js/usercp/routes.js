@@ -20,50 +20,91 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'defaultctrl',
     })
 
-// User menu, shows options at the top and views at the bottom
-    .state('usermenu',{
-        url: '/usermenu',
+// Edit profile
+    .state('editprofile',{
+        url: '/editprofile',
+        templateUrl: 'usercp/cpforms/cp_profileedit.html',
+        controller: 'editprofilectrl',
+    })
+
+// Shows categories where I am a contributor
+    .state('user',{
+        url: '/user',
+        templateUrl: 'usercp/cptables/cp_mycatstable.html',
+        controller: 'mycatstablectrl',
+    })
+
+// User menu
+    .state('userops',{
+        url: '/options/:catID',
         templateUrl: 'usercp/cpmenus/cp_usermenu.html',
         controller: 'usermenuctrl',
-        views: {
-              'mycats' : {
-                  templateUrl: 'usercp/cptables/cp_mycatstable.html',
-                  controller: 'mycatstablectrl'
-                }
-              'profileedit' : {
-                  templateUrl: 'usercp/cpforms/cp_profileedit.html',
-                  controller: 'profileeditctrl'
-                }
+        })
 
-          }
+
+// Shows categories where I am a mod
+    .state('mod',{
+        url: '/mod',
+        templateUrl: 'usercp/cptables/cp_modcatstable.html',
+        controller: 'modcatstablectrl',
     })
 
-    .state('usermenu.submissions',{
-      url: '/usermenu/:catID',
-      views: {
-            'mysubs' : {
-                templateUrl: 'usercp/cptables/cp_mysubstable.html',
-                controller: 'mysubstablectrl'
-              }
-        }
-    })
-
-// Moderator menu
-    .state('modmenu',{
-        url: '/modmenu',
+// Mod menu
+    .state('modops',{
+        url: '/controls/:catID',
         templateUrl: 'usercp/cpmenus/cp_modmenu.html',
         controller: 'modmenuctrl',
-        views: {
-              'modcats' : {
-                  templateUrl: 'usercp/cptables/cp_modcatstable.html',
-                  controller: 'modcatstablectrl'
-                }
-              'profileedit' : {
-                  templateUrl: 'usercp/cpforms/cp_profileedit.html',
-                  controller: 'profileeditctrl'
-                }
-
     })
+
+        .state('modops.actions',{
+          url: '/actions',
+          views: {
+                'actionlog' : {
+                    templateUrl: 'usercp/cptables/cp_actionlogtable.html',
+                    controller: 'actionlogctrl'
+                  }
+            }
+        })
+
+        .state('modops.users',{
+          url: '/users',
+          views: {
+                'userstable' : {
+                    templateUrl: 'usercp/cptables/cp_userstable.html',
+                    controller: 'userstablectrl'
+                  }
+            }
+        })
+
+        .state('modops.requests',{
+          url: '/requests',
+          views: {
+                'requeststable' : {
+                    templateUrl: 'usercp/cptables/cp_pendingrequeststable.html',
+                    controller: 'requeststablectrl'
+                  }
+            }
+        })
+
+        .state('modops.submissions',{
+          url: '/submissions',
+          views: {
+                'submissionstable' : {
+                    templateUrl: 'usercp/cptables/cp_submissionstable.html',
+                    controller: 'submissionstablectrl'
+                  }
+            }
+        })
+
+        .state('modops.reports',{
+          url: '/reports',
+          views: {
+                'reportstable' : {
+                    templateUrl: 'usercp/cptables/cp_reportstable.html',
+                    controller: 'reportstablectrl'
+                  }
+            }
+          })
 
 
 });
