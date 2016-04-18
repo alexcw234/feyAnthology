@@ -8,15 +8,28 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 
-use App\Repositories\worksrepository as WorksRepository;
 use App\Repositories\UGCRepository as UGCRepository;
 use App\Repositories\categoryrepository as CategoryRepository;
 
 use DB;
 use Response;
+
 class CatsController extends Controller
 {
     //
+
+
+    /**
+    * Injects repository
+    *
+    */
+    public function __construct(CategoryRepository $category, UGCRepository $ugc, Request $request)
+    {
+          $this->ugc = $ugc;
+          $this->category = $category;
+          $this->request = $request;
+    }
+
 
     /**
    * Display a listing of the resource.
@@ -56,10 +69,9 @@ public function userCP_index()
     {
       $userID = Auth::user()->userID;
 
+      $result = $this->category->getuserCPTable($userID);
 
-
-    ->get();
-    return Response::json($allCats);
+    return $result->toJson();
 
     }
 }
