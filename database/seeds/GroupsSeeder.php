@@ -18,7 +18,12 @@ class GroupsSeeder extends Seeder
         ]);
 
         DB::table('groups')->insert([
-          'groupName' => 'catadmin',
+          'groupName' => 'administrator',
+          'level' => 94,
+        ]);
+
+        DB::table('groups')->insert([
+          'groupName' => 'archive manager',
           'level' => 88,
         ]);
 
