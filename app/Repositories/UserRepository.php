@@ -17,7 +17,7 @@ class UserRepository {
   */
   public function getGlobal($userID)
   {
-      return User::join('groups','user.globalID','=','groups.groupID')
+      return User::join('groups','users.globalID','=','groups.groupID')
       ->select('level')
       ->where('userID','=', $userID)
       ->orderBy('level')

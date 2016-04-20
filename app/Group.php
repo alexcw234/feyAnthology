@@ -29,4 +29,10 @@ class Group extends Model
           return $this->hasMany('UGC','groupID','groupID');
       }
 
+      /*
+      *     Relationship: Belongs to 1 user for global
+      */
+      public function user() {
+          return $this->belongsTo('User','globalID','groupID');
+      }
 }

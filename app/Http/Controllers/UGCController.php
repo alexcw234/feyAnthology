@@ -62,7 +62,7 @@ class UGCController extends Controller
         if (Auth::check())
         {
         $userID = Auth::user()->userID;
-        $result = $this->ugc->getGlobal($userID)->first()->toJson();
+        $result = $this->user->getGlobal($userID)->first()->toJson();
         }
         return $result;
     }

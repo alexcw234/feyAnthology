@@ -59,4 +59,11 @@ class User extends Authenticatable
         return $this->hasMany('UGC','userID','userID');
     }
 
+    /*
+    *     Relationship: Has one globalID
+    */
+    public function group() {
+        return $this->hasOne('Group','groupID','globalID');
+    }
+
 }
