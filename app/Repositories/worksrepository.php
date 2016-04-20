@@ -30,14 +30,15 @@ class WorksRepository
     }
 
     /**
-    * Queries database for all pending works based on catID,
-    * also authenticates user for group.
+    * Queries database for all pending works based on catID
     *
     */
-      public function getpendingworks($catID, $userID)
+      public function getpendingworks($catID)
       {
 
         return Work::join('types','works.typeID','=','types.typeID')
+        ->join('users','works.subID','=','users.userID')
+        ->select('workID','contentType','url','info','tags','username','subID','subDate')
         ->where('catID','=',$catID)
         ->where('approved',false)
         ->get();

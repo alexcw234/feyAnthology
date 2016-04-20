@@ -15,12 +15,20 @@
 
           <table>
             <tr>
+              <th>Submission ID</th>
+              <th>     </th>
               <th>Title</th>
-              <th>SubID</th>
+              <th>Submitted By</th>
+              <th>Date</th>
             </tr>
             <tr ng-repeat="x in pending">
+
+              <td>{{x.workID}}</td>
+              <td>View Details</td>
               <td>{{x.info.Title}}</td>
-              <td>{{x.subID}}</td>
+              <td>{{x.username}}</td>
+              <td>{{x.subDate}}</td>
+
             </tr>
 
 

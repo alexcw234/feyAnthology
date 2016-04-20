@@ -103,9 +103,9 @@ public function pending($catID)
 
           if ($this->ugc->getNetlvl($catID, $userID) > 55)
           {
-              $result = $this->work->getpendingworks($catID, $userID);
+              $result = $this->work->getpendingworks($catID);
           }
-          return $result;
+          return $result->toJson();
       }
 }
 

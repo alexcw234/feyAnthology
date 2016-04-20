@@ -20,10 +20,10 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'title' => 'Title 1',
-              'author' => 'Author 1',
-              'source' => 'Source 1',
-              'summary' => 'This is a sample summary.',
+              'Title' => 'Title 1',
+              'Author' => 'Author 1',
+              'Source' => 'Source 1',
+              'Summary' => 'This is a sample summary.',
           )
         ),
           'tags' => '
@@ -46,10 +46,10 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'title' => 'Title 2',
-              'author' => 'Author 2',
-              'source' => 'Source 2',
-              'summary' => 'This is a sample summary.',
+              'Title' => 'Title 2',
+              'Author' => 'Author 2',
+              'Source' => 'Source 2',
+              'Summary' => 'This is a sample summary.',
           )
         ),
           'tags' => '
@@ -71,10 +71,10 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'title' => 'Title 3',
-              'author' => 'Author 3',
-              'source' => 'Source 3',
-              'summary' => 'This is a sample summary.',
+              'Title' => 'Title 3',
+              'Author' => 'Author 3',
+              'Source' => 'Source 3',
+              'Summary' => 'This is a sample summary.',
           )
         ),
           'tags' => '
@@ -96,10 +96,10 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'title' => 'Title 4',
-              'author' => 'Author 4',
-              'source' => 'Source 4',
-              'summary' => 'This is a sample summary.',
+              'Title' => 'Title 4',
+              'Author' => 'Author 4',
+              'Source' => 'Source 4',
+              'Summary' => 'This is a sample summary.',
           )
         ),
           'tags' => '
@@ -121,10 +121,10 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'title' => 'Title 5',
-              'author' => 'Author 5',
-              'source' => 'Source 5',
-              'summary' => 'This is a sample summary.',
+              'Title' => 'Title 5',
+              'Author' => 'Author 5',
+              'Source' => 'Source 5',
+              'Summary' => 'This is a sample summary.',
           )
         ),
           'tags' => '
@@ -147,10 +147,10 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'title' => 'Pending Title 1',
-              'author' => 'Pending Author 1',
-              'source' => 'Pending Source 1',
-              'summary' => 'This is a sample summary.',
+              'Title' => 'Pending Title 1',
+              'Author' => 'Pending Author 1',
+              'Source' => 'Pending Source 1',
+              'Summary' => 'This is a sample summary.',
           )
         ),
           'tags' => '
@@ -169,10 +169,10 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'title' => 'Pending Title 2',
-              'author' => 'Pending Author 2',
-              'source' => 'Pending Source 2',
-              'summary' => 'This is a sample summary.',
+              'Title' => 'Pending Title 2',
+              'Author' => 'Pending Author 2',
+              'Source' => 'Pending Source 2',
+              'Summary' => 'This is a sample summary.',
           )
         ),
           'tags' => '
@@ -191,10 +191,10 @@ class WorksSeeder extends Seeder
           'url' => 'www.google.com',
           'info' => json_encode(array
           (
-              'title' => 'Pending Title 3',
-              'author' => 'Pending Author 3',
-              'source' => 'Pending Source 3',
-              'summary' => 'This is a sample summary.',
+              'Title' => 'Pending Title 3',
+              'Author' => 'Pending Author 3',
+              'Source' => 'Pending Source 3',
+              'Summary' => 'This is a sample summary.',
           )
         ),
           'tags' => '

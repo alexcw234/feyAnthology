@@ -27,6 +27,14 @@ app.controller("submissionstablectrl", function($scope, $state, $stateParams, $h
         {
             $scope.pending = response;
 
+            for (i in $scope.pending)
+            {
+              $scope.pending[i].tags = $scope.pending[i].tags.slice(1,-1);
+              $scope.pending[i].tags = $scope.pending[i].tags.split(",");
+
+              $scope.pending[i].info = JSON.parse($scope.pending[i].info);
+            }
+
           });
 
 
