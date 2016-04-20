@@ -40,3 +40,26 @@ app.controller("submissionstablectrl", function($scope, $state, $stateParams, $h
 
 
 });
+
+/*
+*   URL filter from:
+*  http://stackoverflow.com/questions/21623967/how-to-use-ng-href-with-absolute-url/27546112
+*/
+'use strict';
+app.filter("urlFilter", function () {
+return function (link) {
+    var result;
+    var startingUrl = "http://";
+    var httpsStartingUrl = "https://";
+    if(link.startWith(startingUrl)||link.startWith(httpsStartingUrl)){
+        result = link;
+    }
+    else {
+    result = startingUrl + link;
+    }
+    return result;
+}
+});
+String.prototype.startWith = function (str) {
+return this.indexOf(str) == 0;
+};

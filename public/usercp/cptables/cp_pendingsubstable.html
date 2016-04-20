@@ -14,27 +14,31 @@
         <form name="submissionsForm">
 
           <table>
-            <tr>
-              <th>Submission ID</th>
-              <th>     </th>
-              <th>Title</th>
-              <th>Submitted By</th>
-              <th>Date</th>
-            </tr>
-            <tr ng-repeat="x in pending">
-
-              <td>{{x.workID}}</td>
-              <td>View Details</td>
-              <td>{{x.info.Title}}</td>
-              <td>{{x.username}}</td>
-              <td>{{x.subDate}}</td>
-
-            </tr>
-
-
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>     </th>
+                <th>Content Type</th>
+                <th>Title</th>
+                <th>Submitted By</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody ng-repeat="item in pending">
+              <tr>
+                <td>{{item.workID}}</td>
+                <td>View Details</td>
+                <td>{{item.contentType}}</td>
+                <td><a ng-href="{{item.url|urlFilter}}">{{item.info.Title}}</a></td>
+                <td>{{item.username}}</td>
+                <td>{{item.subDate}}</td>
+              </tr>
+              <tr>
+                <!-- put details in here -->
+                
+              </tr>
+            </tbody>
           </table>
-
-
 
        </form>
 
