@@ -15,6 +15,10 @@ class CategoryRepository {
 
   public function getuserCPTable($userID)
   {
+
+
+
+
 /// Currently broken fix this
       return Category::join('usersgroupscats','categories.catID','=','usersgroupscats.catID', 'left outer')
       ->join('groups','usersgroupscats.groupID','=','groups.groupID', 'left outer')

@@ -12,15 +12,30 @@ use Response;
 class UserRepository {
 
   /**
-  * Checks user group for cat (or global cat) against a
-  * specified limit
+  * Retrieves the user's group for global.
   *
   */
-  public function groupComp($catgroup, $globalgroup, $limit)
+  public function getGlobal($userID)
   {
-  
-
+      return User::join('groups','user.globalID','=','groups.groupID')
+      ->select('level')
+      ->where('userID','=', $userID)
+      ->orderBy('level')
+      ->take(1)
+      ->get();
   }
+
+
+
+    /**
+    * Sets the user's group for global.
+    *
+    */
+    public function setGlobal($userID)
+    {
+
+    }
+
 
 
 }

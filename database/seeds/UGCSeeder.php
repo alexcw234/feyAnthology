@@ -17,7 +17,7 @@ class UGCSeeder extends Seeder
 
         'userID' => 1,
         'catID' => 1,
-        'groupID' => 1,
+        'groupID' => 7,
 
       ]);
 
@@ -26,7 +26,7 @@ class UGCSeeder extends Seeder
 
         'userID' => 2,
         'catID' => 1,
-        'groupID' => 2,
+        'groupID' => 7,
 
       ]);
 
@@ -35,7 +35,7 @@ class UGCSeeder extends Seeder
 
         'userID' => 3,
         'catID' => 1,
-        'groupID' => 3,
+        'groupID' => 7,
 
       ]);
 
@@ -62,7 +62,7 @@ class UGCSeeder extends Seeder
 
         'userID' => 5,
         'catID' => 1,
-        'groupID' => 4,
+        'groupID' => 7,
 
       ]);
       //5supermoderator, category
@@ -133,7 +133,7 @@ class UGCSeeder extends Seeder
 
         'userID' => 9,
         'catID' => 1,
-        'groupID' => 8,
+        'groupID' => 7,
 
       ]);
 
@@ -169,7 +169,7 @@ class UGCSeeder extends Seeder
 
         'userID' => 11,
         'catID' => 1,
-        'groupID' => 9,
+        'groupID' => 7,
 
       ]);
 

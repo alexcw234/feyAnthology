@@ -13,8 +13,8 @@ class CatsSeeder extends Seeder
     {
 
       DB::table('categories')->insert([
-        'catName' => 'Global',
-        'description' => 'Global',
+        'catName' => 'Default',
+        'description' => 'Default',
         'options' => json_encode(array
         (
           'public' => 1,

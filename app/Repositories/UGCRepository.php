@@ -26,20 +26,6 @@ class UGCRepository {
       ->get();
   }
 
-  /**
-  * Retrieves the user's group for global.
-  *
-  */
-  public function getGlobal($userID)
-  {
-      return UGC::join('groups','usersgroupscats.groupID','=','groups.groupID')
-      ->select('level')
-      ->where('userID','=', $userID)
-      ->where('catID','=',1)
-      ->orderBy('level')
-      ->take(1)
-      ->get();
-  }
 
   /**
   * Compares global and category level and returns net level
@@ -80,16 +66,6 @@ class UGCRepository {
 
   }
 
-
-
-  /**
-  * Sets the user's group for global.
-  *
-  */
-  public function setGlobal($userID)
-  {
-
-  }
 
 
 

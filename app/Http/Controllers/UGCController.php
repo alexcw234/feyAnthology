@@ -42,7 +42,7 @@ class UGCController extends Controller
 
         $userID = Auth::user()->userID;
         $catobj = $this->ugc->getGroup($catID,$userID);
-        $globalobj = $this->ugc->getGlobal($userID);
+        $globalobj = $this->user->getGlobal($userID);
 
         $result = $this->ugc->comparelvl($catobj,$globalobj)->first()->toJson();
 
