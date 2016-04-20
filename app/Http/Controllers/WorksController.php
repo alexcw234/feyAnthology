@@ -11,7 +11,7 @@ use Illuminate\Routing\Controller;
 
 use App\Repositories\worksrepository as WorksRepository;
 use App\Repositories\UGCRepository as UGCRepository;
-use App\Repositories\UserRepository as UserRepository;
+
 
 use DB;
 use Response;
@@ -25,12 +25,10 @@ class WorksController extends Controller
   * Injects repository
   *
   */
-  public function __construct(WorksRepository $work, UGCRepository $ugc,
-  UserRepository $user, Request $request)
+  public function __construct(WorksRepository $work, UGCRepository $ugc, Request $request)
   {
         $this->work = $work;
         $this->ugc = $ugc;
-        $this->user = $user;
         $this->request = $request;
   }
 
@@ -75,15 +73,13 @@ public function store()
         $tags = $this->request->get('tags');
         $typeID = $this->request->get('typeID');
 
-        $catobj = $this->ugc->getGroup($catID,$userID);
-        $globalobj = $this->user->getGlobal($userID);
-        $netjson = $this->ugc->comparelvl($catobj,$globalobj)->first();
-        if ($netjson->level > 55)
+        $netlvl = $this->ugc->getNetlvl($catID, $userID);
+        if ($netlvl > 55)
         {
             $valid = $this->work->forceentry($catID, $infos, $address, $typeID, $tags, $userID);
             $result = json_encode(['status' => 'override']);
         }
-        else if ($netjson->level == 55)
+        else if ($netlvl == 55)
         {
             $valid = $this->work->newentry($catID, $infos, $address, $typeID, $tags, $userID);
             $result = json_encode(['status' => 'success']);
@@ -95,13 +91,22 @@ public function store()
 
 
 /**
- * Show the form for creating a new resource.
+ * Retreives pending works for the category.
  *
  * @return Response
  */
-public function create()
+public function pending($catID)
 {
-    //
+      if (Auth::check())
+      {
+          $userID = Auth::user()->userID;
+
+          if ($this->ugc->getNetlvl($catID, $userID) > 55)
+          {
+              $result = $this->work->getpendingworks($catID, $userID);
+          }
+          return $result;
+      }
 }
 
 

@@ -18,14 +18,12 @@ class UserRepository {
   public function getGlobal($userID)
   {
       return User::join('groups','users.globalID','=','groups.groupID')
-      ->select('level')
+      ->select('groupName','level')
       ->where('userID','=', $userID)
       ->orderBy('level')
       ->take(1)
       ->get();
   }
-
-
 
     /**
     * Sets the user's group for global.

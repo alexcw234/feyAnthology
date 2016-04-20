@@ -28,17 +28,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
 // Shows categories where I am a contributor
+    .state('mycats',{
+        url: '/mycategories',
+        templateUrl: 'usercp/cptables/cp_mycatstable.html',
+        controller: 'mycatsctrl',
+      })
+
     .state('controls',{
         abstract : true,
-        template: '<ui-view/>',
+        templateUrl: 'usercp/controls.html',
 
     })
-
-        .state('controls.mycats',{
-          url: '/mycategories',
-          templateUrl: 'usercp/cptables/cp_mycatstable.html',
-          controller: 'mycatsctrl',
-        })
 
         .state('controls.actions',{
           url: '/actions/:catID',
@@ -73,9 +73,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('controls.submissions',{
           url: '/submissions/:catID',
           views: {
-                'submissionstable' : {
+                  'table' : {
                     templateUrl: 'usercp/cptables/cp_pendingsubstable.html',
                     controller: 'submissionstablectrl'
+                  },
+                  'detail' : {
+                    templateUrl: 'usercp/cpforms/cp_subview.html',
+                    controller: 'submissionsviewctrl'
                   }
             }
         })

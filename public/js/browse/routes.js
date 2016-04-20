@@ -73,7 +73,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .state('list.failscreen',{
       views: {
-              'fail' : {
+              'failure' : {
                 templateUrl: 'templates/list.failscreen.html',
               }
       }

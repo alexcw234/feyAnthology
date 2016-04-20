@@ -4,6 +4,9 @@ namespace App\Repositories;
 use Carbon\Carbon;
 use App\Work;
 use App\Type;
+use App\User;
+use App\UGC;
+use App\Group;
 use DB;
 use Response;
 
@@ -25,6 +28,21 @@ class WorksRepository
       ->get();
 
     }
+
+    /**
+    * Queries database for all pending works based on catID,
+    * also authenticates user for group.
+    *
+    */
+      public function getpendingworks($catID, $userID)
+      {
+
+        return Work::join('types','works.typeID','=','types.typeID')
+        ->where('catID','=',$catID)
+        ->where('approved',false)
+        ->get();
+
+      }
 
 
     /**

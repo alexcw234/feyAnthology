@@ -1,7 +1,4 @@
 <!-- Table for submissions pending approval -->
-<div class="container">
-    <div class="row">
-      <div class="col-md-10">
 
 <div class="panel panel-default">
 
@@ -16,6 +13,20 @@
 
         <form name="submissionsForm">
 
+          <table>
+            <tr>
+              <th>Title</th>
+              <th>SubID</th>
+            </tr>
+            <tr ng-repeat="x in pending">
+              <td>{{x.info.Title}}</td>
+              <td>{{x.subID}}</td>
+            </tr>
+
+
+          </table>
+
+
 
        </form>
 
@@ -23,8 +34,4 @@
 
 </div>
 
-</div>
-
-</div>
-</div>
 </div>

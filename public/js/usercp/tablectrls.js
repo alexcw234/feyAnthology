@@ -22,7 +22,13 @@ app.controller("catstabledisplayctrl", function($scope, $http) {
 
 app.controller("submissionstablectrl", function($scope, $state, $stateParams, $http){
 
+    $http.get("reqs/pending/" + $stateParams.catID)
+      .success(function(response)
+        {
+            $scope.pending = response;
 
-console.log("TEST");
+          });
+
+
 
 });
