@@ -29,6 +29,8 @@ class ConstrainUsersTable extends Migration
     public function down()
     {
         //
-        $table->dropForeign('comments_globalid_foreign');
+        Schema::table('users', function ($table) {
+        $table->dropForeign('users_globalid_foreign');
+        });
     }
 }

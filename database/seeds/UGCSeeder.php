@@ -21,6 +21,16 @@ class UGCSeeder extends Seeder
 
       ]);
 
+      //1superadmin, Category 2 to see if modcptable loads correctly
+      DB::table('usersgroupscats')->insert([
+
+        'userID' => 1,
+        'catID' => 2,
+        'groupID' => 4,
+
+      ]);
+
+
       //2administrator, global
       DB::table('usersgroupscats')->insert([
 

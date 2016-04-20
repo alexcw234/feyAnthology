@@ -11,6 +11,7 @@ use Illuminate\Routing\Controller;
 
 use App\Repositories\worksrepository as WorksRepository;
 use App\Repositories\UGCRepository as UGCRepository;
+use App\Repositories\UserRepository as UserRepository;
 
 use DB;
 use Response;
@@ -24,10 +25,12 @@ class WorksController extends Controller
   * Injects repository
   *
   */
-  public function __construct(WorksRepository $work, UGCRepository $ugc, Request $request)
+  public function __construct(WorksRepository $work, UGCRepository $ugc,
+  UserRepository $user, Request $request)
   {
         $this->work = $work;
         $this->ugc = $ugc;
+        $this->user = $user;
         $this->request = $request;
   }
 
@@ -73,7 +76,7 @@ public function store()
         $typeID = $this->request->get('typeID');
 
         $catobj = $this->ugc->getGroup($catID,$userID);
-        $globalobj = $this->ugc->getGlobal($userID);
+        $globalobj = $this->user->getGlobal($userID);
         $netjson = $this->ugc->comparelvl($catobj,$globalobj)->first();
         if ($netjson->level > 55)
         {

@@ -12,6 +12,18 @@ class UGCRepository {
 
 
   /**
+  * Sets the user's group for the specified category.
+  *
+  */
+  public function setGroup($catID,$userID)
+  {
+
+  }
+
+
+
+
+  /**
   * Retrieves the user's group for the specified category.
   *
   */
@@ -56,16 +68,6 @@ class UGCRepository {
       }
       return $result;
   }
-
-  /**
-  * Sets the user's group for the specified category.
-  *
-  */
-  public function setGroup($catID,$userID)
-  {
-
-  }
-
 
 
 

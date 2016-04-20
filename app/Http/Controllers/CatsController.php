@@ -10,6 +10,7 @@ use Illuminate\Routing\Controller;
 
 use App\Repositories\UGCRepository as UGCRepository;
 use App\Repositories\categoryrepository as CategoryRepository;
+use App\Repositories\UserRepository as UserRepository;
 
 use DB;
 use Response;
@@ -23,11 +24,12 @@ class CatsController extends Controller
     * Injects repository
     *
     */
-    public function __construct(CategoryRepository $category, UGCRepository $ugc, Request $request)
+    public function __construct(CategoryRepository $category, UGCRepository $ugc, UserRepository $user, Request $request)
     {
           $this->ugc = $ugc;
           $this->category = $category;
           $this->request = $request;
+          $this->user = $user;
     }
 
 
@@ -69,7 +71,26 @@ public function userCP_index()
     {
       $userID = Auth::user()->userID;
 
-      $result = $this->category->getuserCPTable($userID);
+      $level = $this->user->getGlobal($userID)->pluck('level')->first();
+
+      $result;
+
+      if($level >= 77)
+      {
+          $result = $this->category->getglobalCPTable($userID);
+
+          foreach($result as $item)
+          {
+            if(!$item->level)
+            {
+              $item->level = $level;
+            }
+          }
+      }
+      else
+      {
+        $result = $this->category->getuserCPTable($userID);
+      }
 
     return $result->toJson();
 
