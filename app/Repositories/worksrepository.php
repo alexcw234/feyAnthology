@@ -38,7 +38,7 @@ class WorksRepository
 
         return Work::join('types','works.typeID','=','types.typeID')
         ->join('users','works.subID','=','users.userID')
-        ->select('workID','contentType','url','info','tags','username','subID','subDate')
+        ->select('workID','contentType','url','info',DB::raw('akeys(tags) as tags'),'username','subID','subDate')
         ->where('catID','=',$catID)
         ->where('approved',false)
         ->get();

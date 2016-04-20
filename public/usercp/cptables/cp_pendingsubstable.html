@@ -24,6 +24,7 @@
                 <th>Date</th>
               </tr>
             </thead>
+
             <tbody ng-repeat="item in pending">
               <tr>
                 <td>{{item.workID}}</td>
@@ -35,7 +36,15 @@
               </tr>
               <tr>
                 <!-- put details in here -->
-                
+                <td colspan="6">
+                  <div ng-repeat = "(key, value) in item.info">
+                    {{key}} : {{value}}
+                  </div>
+                  Tags:
+                  <span ng-repeat = "tag in item.tags">
+                    {{tag}},
+                  </span>
+                </td>
               </tr>
             </tbody>
           </table>
