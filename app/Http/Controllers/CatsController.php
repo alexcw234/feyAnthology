@@ -71,26 +71,9 @@ public function userCP_index()
     {
       $userID = Auth::user()->userID;
 
-      $level = $this->user->getGlobal($userID)->pluck('level')->first();
 
-      $result;
-
-      if($level >= 77)
-      {
-          $result = $this->category->getglobalCPTable($userID);
-
-          foreach($result as $item)
-          {
-            if(!$item->level)
-            {
-              $item->level = $level;
-            }
-          }
-      }
-      else
-      {
         $result = $this->category->getuserCPTable($userID);
-      }
+      
 
     return $result->toJson();
 

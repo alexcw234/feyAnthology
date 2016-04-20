@@ -28,9 +28,13 @@ class CategoryRepository {
   {
 
 
+/// Currently broken fix this
+    return Category::where('categories.catID','>',1)
+    ->get();
 
-    return Category::select('catID','catName','description')
-    ->where('categories.catID','>',1)->get();;
+
+//    ->select('categories.catID','catName','description','groups.groupName','level')
+//    ->where('userID','=',$userID)->where('categories.catID','>',1)->get();
 
 
 
