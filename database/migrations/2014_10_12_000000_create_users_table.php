@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->softDeletes();
             $table->timestamps();
 
+            $table->hstore('profile')->nullable();
 
 
         });
