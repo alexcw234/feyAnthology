@@ -21,7 +21,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
 // Edit profile
-    .state('editprofile',{
+    .state('editprofile', {
         url: '/editprofile',
         templateUrl: 'usercp/cpforms/cp_profileedit.html',
         controller: 'editprofilectrl',
@@ -29,33 +29,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 // Shows categories where I am a contributor
     .state('controls',{
-        url: '/controls',
-        templateUrl: 'usercp/cptables/cp_mycatstable.html',
-        controller: 'mycatstemplatectrl',
+        abstract : true,
+        template: '<ui-view/>',
+
     })
-        .state('controls.menus', {
-          views : {
-                'useroptions' : {
-                    templateUrl: 'usercp/cpmenus/cp_usermenu.html',
-                    controller: 'useroptionsctrl',
-                },
-                'modoptions' : {
-                    templateUrl: 'usercp/cpmenus/cp_modmenu.html',
-                    controller: 'modoptionsctrl',
-                }
-            }
+
+        .state('controls.mycats',{
+          url: '/mycategories',
+          templateUrl: 'usercp/cptables/cp_mycatstable.html',
+          controller: 'mycatsctrl',
         })
 
-
-// Mod menu
-    .state('modops',{
-        url: '/controls/:catID',
-        templateUrl: 'usercp/cpmenus/cp_modmenu.html',
-        controller: 'modmenuctrl',
-    })
-
-        .state('modops.actions',{
-          url: '/actions',
+        .state('controls.actions',{
+          url: '/actions/:catID',
           views: {
                 'actionlog' : {
                     templateUrl: 'usercp/cptables/cp_actionlogtable.html',
@@ -64,8 +50,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
         })
 
-        .state('modops.users',{
-          url: '/users',
+        .state('controls.users',{
+          url: '/users/:catID',
           views: {
                 'userstable' : {
                     templateUrl: 'usercp/cptables/cp_userstable.html',
@@ -74,8 +60,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
         })
 
-        .state('modops.requests',{
-          url: '/requests',
+        .state('controls.requests',{
+          url: '/requests/:catID',
           views: {
                 'requeststable' : {
                     templateUrl: 'usercp/cptables/cp_pendingrequeststable.html',
@@ -84,18 +70,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
         })
 
-        .state('modops.submissions',{
-          url: '/submissions',
+        .state('controls.submissions',{
+          url: '/submissions/:catID',
           views: {
                 'submissionstable' : {
-                    templateUrl: 'usercp/cptables/cp_submissionstable.html',
+                    templateUrl: 'usercp/cptables/cp_pendingsubstable.html',
                     controller: 'submissionstablectrl'
                   }
             }
         })
 
-        .state('modops.reports',{
-          url: '/reports',
+        .state('controls.reports',{
+          url: '/reports/:catID',
           views: {
                 'reportstable' : {
                     templateUrl: 'usercp/cptables/cp_reportstable.html',

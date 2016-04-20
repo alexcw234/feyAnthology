@@ -7,12 +7,16 @@ app.controller("defaultctrl", function($scope){
 });
 
 
+
 /*
-* Main controller for the mod categories table
+* Main controller for the my categories table
 *
 */
-app.controller("modcatstablectrl", function($scope, $state) {
+app.controller("mycatsctrl",function($scope, $state) {
 
-$scope.goToState = function(name){$state.go(name)};
+
+
+
+
 
 });
