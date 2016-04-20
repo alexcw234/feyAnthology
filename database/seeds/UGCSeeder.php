@@ -26,7 +26,7 @@ class UGCSeeder extends Seeder
 
         'userID' => 1,
         'catID' => 2,
-        'groupID' => 4,
+        'groupID' => 3,
 
       ]);
 

@@ -21,8 +21,8 @@
           <tr>
             <th>Category</th>
             <th>Description</th>
-            <th>My Group</th>
-            <th>Options</th>
+            <th>Group</th>
+            <th>Menu</th>
           </tr>
           <tr ng-repeat="x in cats">
             <td>
@@ -35,7 +35,8 @@
               {{x.groupName}}
             </td>
             <td><span ng-include="'usercp/cpmenus/cp_usermenu.html'"></span>
-              <span ng-if="x.level > 66" ng-include="'usercp/cpmenus/cp_modmenu.html'"></span>
+              <span ng-if="x.level >= 77" ng-include="'usercp/cpmenus/cp_modmenu.html'"></span>
+              <span ng-if="x.level >= 88" ng-include="'usercp/cpmenus/cp_archivistmenu.html'"></span>
             </td>
           </tr>
 
