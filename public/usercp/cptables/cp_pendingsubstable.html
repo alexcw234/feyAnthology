@@ -48,14 +48,14 @@
                     {{tag}},
                   </span>
                 </td>
-                <!-- put buttons here -->
+                <!-- put form here -->
                     <td colspan="2" ng-if="$parent.selected == item.workID">
-                      <div>Comment: <input type="text" ng-model="comment[item.workID]"></div>
+                      <div>Comment: <input type="text" ng-model="comment[item.workID]" required></div>
                           <br>
                       <input type="button" value="Approve" class="btn btn-primary"
-                      ng-click="approve(item.workID, comment[item.workID])"/>
-                      <input type="button" value="Reject" class="btn btn-primary"
-                      ng-click="reject(item.workID, comment[item.workID])"/>
+                      ng-click="approve(item.workID, comment[item.workID]);removeRow(item.workID, comment[item.workID])"/>
+                      <input type="button" ng-disabled="submissionsForm.$invalid" value="Reject" class="btn btn-primary"
+                      ng-click="reject(item.workID, comment[item.workID]);removeRow(item.workID, comment[item.workID])"/>
                 </td>
               </tr>
             </tbody>
