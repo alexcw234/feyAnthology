@@ -21,7 +21,7 @@ class CreateWorksTable extends Migration
             $table->string('url',1000);
             $table->jsonb('info');
             $table->hstore('tags');
-            $table->boolean('approved');
+            $table->boolean('approved')->nullable();
             $table->integer('subID')->unsigned();
             $table->integer('appID')->unsigned()->nullable();
             $table->dateTime('subDate');

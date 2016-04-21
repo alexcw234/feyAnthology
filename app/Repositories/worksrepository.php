@@ -40,7 +40,7 @@ class WorksRepository
         ->join('users','works.subID','=','users.userID')
         ->select('workID','contentType','url','info',DB::raw('akeys(tags) as tags'),'username','subID','subDate')
         ->where('catID','=',$catID)
-        ->where('approved',false)
+        ->where('approved',null)
         ->get();
 
       }
@@ -113,7 +113,7 @@ class WorksRepository
               'url' => $address,
               'info' => json_encode($infos),
               'tags' => $tags,
-              'approved' => false,
+              'approved' => null,
               'subID' => $userID,
               'subDate' => Carbon::now(),
             ]);
