@@ -28,7 +28,7 @@
             <tbody ng-repeat="item in pending">
               <tr>
                 <td>{{item.workID}}</td>
-                <td>View Details</td>
+                <td><a href="" ng-click="$parent.selected = item.workID">View Details</td>
                 <td>{{item.contentType}}</td>
                 <td><a ng-href="{{item.url|urlFilter}}">{{item.info.Title}}</a></td>
                 <td>{{item.username}}</td>
@@ -36,7 +36,7 @@
               </tr>
               <tr>
                 <!-- put details in here -->
-                <td colspan="6">
+                <td colspan="6" ng-if="$parent.selected == item.workID">
                   <div ng-repeat = "(key, value) in item.info">
                     {{key}} : {{value}}
                   </div>

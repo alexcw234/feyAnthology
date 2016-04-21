@@ -22,6 +22,9 @@ app.controller("catstabledisplayctrl", function($scope, $http) {
 
 app.controller("submissionstablectrl", function($scope, $state, $stateParams, $http){
 
+    $scope.selected;
+
+
     $http.get("reqs/pending/" + $stateParams.catID)
       .success(function(response)
         {
@@ -37,9 +40,9 @@ app.controller("submissionstablectrl", function($scope, $state, $stateParams, $h
 
           });
 
-
-
 });
+
+
 
 /*
 *   URL filter from:
