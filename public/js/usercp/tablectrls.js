@@ -40,12 +40,22 @@ app.controller("submissionstablectrl", function($scope, $state, $stateParams, $h
 
           });
 
+    $scope.comment = {};
 
-    $scope.removeRow = function(name){
+    $scope.approve = function(id, comment){
+
+          var toSend = {};
+
+          toSend['workID'] = id;
+
+          toSend['comment'] = comment;
+
+          $http.post("submission/approve", toSend);
+
       		var index = -1;
       		var comArr = eval( $scope.pending );
       		for( var i = 0; i < comArr.length; i++ ) {
-      			if( comArr[i].workID === name ) {
+      			if( comArr[i].workID === id ) {
       				index = i;
       				break;
       			}
@@ -55,6 +65,30 @@ app.controller("submissionstablectrl", function($scope, $state, $stateParams, $h
       		}
       		$scope.pending.splice( index, 1 );
       	};
+
+        $scope.reject = function(id, comment){
+
+              var toSend = {};
+
+              toSend['workID'] = id;
+
+              toSend['comment'] = comment;
+
+              $http.post("submission/reject", toSend);
+
+              var index = -1;
+              var comArr = eval( $scope.pending );
+              for( var i = 0; i < comArr.length; i++ ) {
+                if( comArr[i].workID === id ) {
+                  index = i;
+                  break;
+                }
+              }
+              if( index === -1 ) {
+                console.log("Error");
+              }
+              $scope.pending.splice( index, 1 );
+            };
 
 });
 
