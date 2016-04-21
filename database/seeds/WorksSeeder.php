@@ -159,7 +159,7 @@ class WorksSeeder extends Seeder
             "test3" => "other",
             "test4" => "other",
           ',
-          'approved' => false,
+          'approved' => null,
           'subID' => 2,
           'subDate' => Carbon::now(),
         ]);
@@ -181,7 +181,7 @@ class WorksSeeder extends Seeder
             "test3" => "other",
             "test4" => "other",
           ',
-          'approved' => false,
+          'approved' => null,
           'subID' => 2,
           'subDate' => Carbon::now(),
         ]);
@@ -203,7 +203,7 @@ class WorksSeeder extends Seeder
             "test3" => "other",
             "test4" => "other",
           ',
-          'approved' => false,
+          'approved' => null,
           'subID' => 2,
           'subDate' => Carbon::now(),
         ]);
