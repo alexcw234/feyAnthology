@@ -21,6 +21,8 @@ Route::group(array('prefix' => 'reqs'), function() {
 
   Route::get('types/showall', 'TypesController@index');
 
+  Route::get('users/{catID}','UserController@indexbyID');
+
 });
 
 /*
