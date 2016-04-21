@@ -53,9 +53,12 @@
                       <div>Comment: <input type="text" ng-model="comment[item.workID]" required></div>
                           <br>
                       <input type="button" value="Approve" class="btn btn-primary"
-                      ng-click="approve(item.workID, comment[item.workID]);removeRow(item.workID, comment[item.workID])"/>
-                      <input type="button" ng-disabled="submissionsForm.$invalid" value="Reject" class="btn btn-primary"
-                      ng-click="reject(item.workID, comment[item.workID]);removeRow(item.workID, comment[item.workID])"/>
+                      ng-click="setworkapproval(item.workID, comment[item.workID],true);
+                      removeRow(item.workID, comment[item.workID])"/>
+                      <input type="button" ng-disabled="submissionsForm.$invalid"
+                      value="Reject" class="btn btn-primary"
+                      ng-click="setworkapproval(item.workID, comment[item.workID],false);
+                      removeRow(item.workID)"/>
                 </td>
               </tr>
             </tbody>

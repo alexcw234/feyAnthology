@@ -42,7 +42,8 @@ app.controller("submissionstablectrl", function($scope, $state, $stateParams, $h
 
     $scope.comment = {};
 
-    $scope.approve = function(id, comment){
+    $scope.setworkapproval = function(id, comment, isapproved)
+    {
 
           var toSend = {};
 
@@ -50,23 +51,15 @@ app.controller("submissionstablectrl", function($scope, $state, $stateParams, $h
 
           toSend['comment'] = comment;
 
-          $http.post("submission/approve", toSend);
+          toSend['isapproved'] = isapproved;
+
+          toSend['catID'] = $stateParams.catID;
+
+          $http.post("submission/setworkapproval", toSend);
 
       	};
 
-        $scope.reject = function(id, comment){
-
-              var toSend = {};
-
-              toSend['workID'] = id;
-
-              toSend['comment'] = comment;
-
-              $http.post("submission/reject", toSend);
-
-            };
-
-    $scope.removeRow = function(id, comment){
+    $scope.removeRow = function(id){
       var index = -1;
       var comArr = eval( $scope.pending );
       for( var i = 0; i < comArr.length; i++ ) {

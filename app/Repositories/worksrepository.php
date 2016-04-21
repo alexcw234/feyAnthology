@@ -94,20 +94,6 @@ class WorksRepository
 
     }
 
-
-    /**
-    * Retrieve Tags from parameters.
-    *
-    * @return Response
-    */
-    public function parsetags($params)
-    {
-
-    return $params['tags'];
-
-    }
-
-
     /**
     * Validates and adds new entry.
     *
@@ -165,6 +151,25 @@ class WorksRepository
 
             return $newwork;
     }
+
+
+    /**
+    * Sets work approval based on ID
+    *
+    *
+    */
+    public function setApproval($workID,$userID,$approval,$comment)
+    {
+          $work = Work::find($workID);
+
+          $work->approved = $approval;
+          $work->appID = $userID;
+          $work->appDate = Carbon::now();
+          $work->save();
+
+    }
+
+
 
 
 }

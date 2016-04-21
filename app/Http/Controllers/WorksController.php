@@ -91,7 +91,7 @@ public function store()
 
 
 /**
- * Retreives pending works for the category.
+ * Retrieves pending works for the category.
  *
  * @return Response
  */
@@ -107,6 +107,33 @@ public function pending($catID)
           }
           return $result->toJson();
       }
+}
+
+/**
+ * Sets work approval status.
+ *
+ * @param  int  $id
+ * @return Response
+ */
+public function setApproval()
+{
+    if (Auth::check())
+    {
+        $userID = Auth::user()->userID;
+        $input = $this->request->getContent();
+        $catID = $this->request->get('catID');
+
+        if ($this->ugc->getNetlvl($catID, $userID) > 55)
+        {
+            $approval = $this->request->get('isapproved');
+            $workID = $this->request->get('workID');
+            $comment = $this->request->get('comment');
+
+
+            $this->work->setApproval($workID,$userID,$approval,$comment);
+        }
+    }
+
 }
 
 

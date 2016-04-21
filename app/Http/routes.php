@@ -40,9 +40,7 @@ Route::group(['middleware' => ['web']], function () {
 
       Route::post('new', 'WorksController@store');
 
-      Route::post('approve', 'WorksController@setapptrue');
-
-      Route::post('reject', 'WorksController@setappfalse');
+      Route::post('setworkapproval', 'WorksController@setApproval');
 
     });
 

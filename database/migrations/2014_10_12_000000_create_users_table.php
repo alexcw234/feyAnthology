@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             $table->hstore('profile')->nullable();
-            $table->integer('globalID')->default(7);
+            $table->integer('globalID')->unsigned()->default(7);
 
 
         });
