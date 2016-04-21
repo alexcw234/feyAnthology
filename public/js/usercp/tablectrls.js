@@ -40,7 +40,24 @@ app.controller("submissionstablectrl", function($scope, $state, $stateParams, $h
 
           });
 
+
+    $scope.removeRow = function(name){
+      		var index = -1;
+      		var comArr = eval( $scope.pending );
+      		for( var i = 0; i < comArr.length; i++ ) {
+      			if( comArr[i].workID === name ) {
+      				index = i;
+      				break;
+      			}
+      		}
+      		if( index === -1 ) {
+      		  console.log("Error");
+      		}
+      		$scope.pending.splice( index, 1 );
+      	};
+
 });
+
 
 
 

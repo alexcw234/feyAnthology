@@ -16,8 +16,8 @@
           <table width="800">
             <thead>
               <tr>
-                <th width="40">ID</th>
-                <th width="100">     </th>
+                <th width="50">ID</th>
+                <th width="90">     </th>
                 <th width="80">Content Type</th>
                 <th width="200">Title</th>
                 <th width="100">Submitted By</th>
@@ -28,7 +28,7 @@
             <tbody ng-repeat="item in pending">
               <tr>
                 <td>{{item.workID}}</td>
-                <td ng-if=""><a href="" ng-click="$parent.selected = item.workID">View Details</td>
+                <td><a href="" ng-click="$parent.selected = item.workID">View Details</td>
                 <td>{{item.contentType}}</td>
                 <td><a ng-href="{{item.url|urlFilter}}">{{item.info.Title}}</a></td>
                 <td>{{item.username}}</td>
@@ -54,7 +54,8 @@
                           <br>
                       <div><input type="radio" name="{{item.info.Title}}"> Approve
                       <input type="radio" name="{{item.info.Title}}"> Reject</div>
-
+                      <input type="button" value="Remove" class="btn btn-primary"
+                      ng-click="removeRow(item.workID)"/>
                 </td>
               </tr>
             </tbody>
