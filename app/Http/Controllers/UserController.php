@@ -8,6 +8,8 @@ use App\User;
 use App\Group;
 use App\Category;
 
+use DB;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -39,10 +41,16 @@ class UserController extends Controller
        */
       public function indexbyID($catID)
       {
-          return User::join('usersgroupscats','users.userID','=','usersgroupscats.userID')
+          return User::select('users.userID','username',DB::raw("COUNT('works.subID') as contributions"),'groups.groupID','groupName')
+          ->leftJoin('works',function($join)
+          {
+              $join->on('users.userID','=','works.subID')
+              ->where('works.approved','=',true);
+          })
+          ->join('usersgroupscats','users.userID','=','usersgroupscats.userID')
           ->join('categories','usersgroupscats.catID','=','categories.catID')
           ->join('groups','usersgroupscats.groupID','=','groups.groupID')
-          ->select('users.userID','userName','groups.groupID','groupName')
+          ->groupBy('users.userID','username','groups.groupID','groupName')
           ->where('usersgroupscats.catID','=',$catID)
           ->get()->toJson();
 

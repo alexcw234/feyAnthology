@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+
+      <!-- Header message -->
+      <div class="panel-heading">
+        <b>Member List</b>
+      </div>
+
+<div class="panel-body">
+  <div>
+    <style scoped>@import url("css/catlist.css");</style>
+
+        <form name="memberForm">
+
+          <table width="700">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Group</th>
+                <th>Contributions</th>
+              </tr>
+            </thead>
+
+            <tbody ng-repeat="user in users">
+              <tr>
+                <td>{{user.username}}</td>
+                <td>{{user.groupName}}</td>
+                <td>{{user.contributions}}</td>
+              </tr>
+              <tr>
+            </tbody>
+          </table>
+
+       </form>
+
+     </div>
+
+</div>
+
+</div>
