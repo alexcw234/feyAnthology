@@ -42,9 +42,10 @@ class UserController extends Controller
       public function indexbyID($catID)
       {
           return User::select('users.userID','username',DB::raw("COUNT('works.subID') as contributions"),'groups.groupID','groupName')
-          ->leftJoin('works',function($join)
+          ->leftJoin('works',function($join) use ($catID)
           {
               $join->on('users.userID','=','works.subID')
+              ->where('works.catID','=', $catID)
               ->where('works.approved','=',true);
           })
           ->join('usersgroupscats','users.userID','=','usersgroupscats.userID')
