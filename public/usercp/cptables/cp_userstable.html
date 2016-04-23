@@ -22,7 +22,7 @@
 
             <tbody ng-repeat="user in users">
               <tr>
-                <td>{{user.username}}</td>
+                <td><a href="" ui-sref="controls.memberprofile({id: user.userID})">{{user.username}}</a></td>
                 <td>{{user.groupName}}</td>
                 <td>{{user.contributions}}</td>
               </tr>
@@ -37,3 +37,4 @@
 </div>
 
 </div>
+  <div ui-view="userprofile"></div>

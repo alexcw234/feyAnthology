@@ -60,6 +60,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
         })
 
+        .state('controls.memberprofile',{
+          url: '/users?:id',
+          views: {
+                  'userprofile' : {
+                    templateUrl: 'usercp/cpforms/cp_notmyprofile.html',
+                    controller: 'memberprofilectrl'
+                  }
+            }
+        })
+
         .state('controls.requests',{
           url: '/requests/:catID',
           views: {

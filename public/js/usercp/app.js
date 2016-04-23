@@ -9,4 +9,5 @@ var app = angular.module("userCP",
     'userCP.sidebar',
     'userCP.tablectrls',
     'userCP.optionsctrls',
+    'userCP.formctrls',
   ]);
