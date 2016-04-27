@@ -25,7 +25,8 @@
                   </p>
                   <a href="{{ url('/browse') }}">Browse the database</a>
 
-                    <p>Currently features related to changing user roles are not yet implemented.</p>
+                    <p>Currently features related to changing user roles are not yet implemented.<br>
+                    There is only 1 category available at this time.</p>
                     <b><p>For the time being, please use the following login info to test contributor and moderator functionalities:</p>
                     </b><ul>
                       <li>Username: Contributor, Password: Contributor</li>
