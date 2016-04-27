@@ -13,6 +13,17 @@ class TestUsersSeeder extends Seeder
     public function run()
     {
         //
+
+
+        User::create([
+            'username' => 'superadmin',
+            'email' => 'feyanthology@gmail.com',
+            'password' => bcrypt('test'),
+            'globalID' => 1,
+        ]);
+
+
+
         User::create([
             'username' => 'administrator',
             'email' => 'catadmin@catadmin.com',

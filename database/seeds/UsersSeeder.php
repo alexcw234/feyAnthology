@@ -21,6 +21,19 @@ class UsersSeeder extends Seeder
             'globalID' => 1,
         ]);
 
+        User::create([
+            'username' => 'Moderator',
+            'email' => 'mod@mod.com',
+            'password' => bcrypt('Moderator'),
+            'globalID' => 7,
+        ]);
+
+        User::create([
+            'username' => 'Contributor',
+            'email' => 'contributor@contributor.com',
+            'password' => bcrypt('Contributor'),
+            'globalID' => 7,
+        ]);
 
 
     }

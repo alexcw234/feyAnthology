@@ -22,6 +22,18 @@ class CatsSeeder extends Seeder
         ),
       ]);
 
+      DB::table('categories')->insert([
+        'catName' => 'Stories we found Online',
+        'description' => 'A collection of stories that we found online',
+        'options' => json_encode(array
+        (
+          'public' => 1,
+          'allow_new_contributors' => 1,
+          )
+        ),
+      ]);
+
+
     }
 }
 

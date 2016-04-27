@@ -13,6 +13,15 @@ class TestUGCSeeder extends Seeder
     public function run()
     {
 
+            //1superadmin, global
+            DB::table('usersgroupscats')->insert([
+
+              'userID' => 1,
+              'catID' => 1,
+              'groupID' => 7,
+
+            ]);
+
             //1superadmin, Category 2 to see if modcptable loads correctly
             DB::table('usersgroupscats')->insert([
 
