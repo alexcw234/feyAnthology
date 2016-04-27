@@ -16,12 +16,12 @@
                   <ul>
                     <li><b>Guests</b> and <b>Registered Users</b> can view and search the database.</li>
                     <li><b>Contributors</b> to a category can submit new links for approval.</li>
-                    <li><b>Moderators</b> can approve or reject user submissions</li>
+                    <li><b>Moderators</b> can approve or reject user submissions and contributor requests</li>
                     <li><b>Archivists</b> can promote new moderators.</li>
                     <li><b>Global Archivists</b> (not yet implemented) will be able to create new categories.
                     </ul>
-                  
                   </p>
+                  <a href="{{ url('/browse') }}">Browse the database</a>
                 </div>
             </div>
         </div>
