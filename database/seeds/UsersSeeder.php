@@ -15,7 +15,7 @@ class UsersSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         User::create([
-            'username' => 'superadmin',
+            'username' => 'Admin',
             'email' => 'feyanthology@gmail.com',
             'password' => bcrypt('test'),
             'globalID' => 1,

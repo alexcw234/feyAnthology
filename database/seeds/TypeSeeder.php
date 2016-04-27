@@ -41,7 +41,7 @@ class TypeSeeder extends Seeder
 
           'contentType' => 'Blog',
           'expectedFields' =>  '
-            "Blog Name" => "short,true,none",
+            "BlogName" => "short,true,none",
             "Owner" => "short,true,none",
             "Description" => "box,false,bottom",
           ',
@@ -51,7 +51,7 @@ class TypeSeeder extends Seeder
 
           'contentType' => 'Website',
           'expectedFields' =>  '
-            "Site Name" => "short,true,none",
+            "SiteName" => "short,true,none",
             "Owner" => "short,false,none",
             "Description" => "box,false,bottom",
           ',
