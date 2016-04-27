@@ -1,6 +1,7 @@
 <?php
-
+use App\UGC;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class TestUGCSeeder extends Seeder
 {

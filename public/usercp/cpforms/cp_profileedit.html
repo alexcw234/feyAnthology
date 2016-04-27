@@ -1,1 +1,54 @@
 <!-- Form for editing user profile -->
+
+
+<div class="panel panel-default">
+
+<!-- Header message -->
+<div class="panel-heading">
+  <div><b>My Profile:</b>
+  </div>
+</div>
+
+<!-- End outer template begin body content -->
+<div class="panel-body">
+<style scoped>@import url("css/profile.css");</style>
+
+<form name="memberProfile">
+
+          <table width="100%" cellspacing="1">
+            <tr>
+              <td>
+                <h4>User Info</h4>
+                <table>
+                  <tr>
+                    <td>
+                    Username:
+                    </td>
+                    <td>
+                      {{username}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Email:
+                    </td>
+                    <td ng-if="$parent.selected == false">
+                    {{email}} <a href="" ng-click="$parent.emailform=true">Change</a>
+                    </td>
+                    <td ng-if="$parent.selected == true">
+                    <input type="text" value="{{email}}" ng-model="email"> <input type="button" value="Submit"
+                    ng-click="changeEmail(email)">;
+                    removeRow(item.workID, comment[item.workID])"/>
+                    </td>
+
+                  </tr>
+                </table>
+              </td>
+              <td>
+                <h4>Contact</h4>
+              </td>
+            </tr>
+          </table>
+</form>
+</div>
+</div>

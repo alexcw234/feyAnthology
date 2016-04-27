@@ -1,6 +1,8 @@
 <?php
 
+use App\Category;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class TestCatsSeeder extends Seeder
 {

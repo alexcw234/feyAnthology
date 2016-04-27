@@ -6,7 +6,9 @@ app.controller("defaultctrl", function($scope){
 
 });
 
+app.controller("editprofilectrl", function($scope){
 
+});
 
 /*
 * Main controller for the my categories table
