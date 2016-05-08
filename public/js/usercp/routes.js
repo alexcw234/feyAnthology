@@ -56,7 +56,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 'userstable' : {
                     templateUrl: 'usercp/cptables/cp_userstable.html',
                     controller: 'userstablectrl'
-                  }
+                  },
+                'userstablesearch' : {
+                    templateUrl:'usercp/cptables/cp_userstablesearch.html'
+                    controller: 'userstablesearctrl'
+                }
             }
         })
 
