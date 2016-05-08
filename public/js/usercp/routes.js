@@ -57,9 +57,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
                     templateUrl: 'usercp/cptables/cp_userstable.html',
                     controller: 'userstablectrl'
                   },
-                'userstablesearch' : {
-                    templateUrl:'usercp/cptables/cp_userstablesearch.html'
-                    controller: 'userstablesearctrl'
+                'userstable_search' : {
+                    templateUrl: 'usercp/cpforms/cp_userstable_search.html',
+                    controller: 'userstablesearchctrl'
                 }
             }
         })
