@@ -111,7 +111,7 @@ app.controller('newFormDisplay',function($scope) {
           if (templatename != null)
           {
 
-          $scope.newForm = "forms/" + templatename.toLowerCase() + ".html";
+          $scope.newForm = "forms/" + templatename + ".html";
 
           }
           else
