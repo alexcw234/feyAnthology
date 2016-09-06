@@ -51,7 +51,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
 
         .state('controls.users',{
-          url: '/users/:catID',
+          url: '/users/:catID/pg:page',
           views: {
                 'userstable' : {
                     templateUrl: 'usercp/cptables/cp_userstable.html',
@@ -108,5 +108,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
           })
 
+
+          .state('controls.managestaff',{
+            url: '/managestaff/:catID',
+            views: {
+                  'staffmanagermenu' : {
+                      templateUrl: 'usercp/cpscaffold/cp_staffmanagermenu.html',
+                      controller: 'staffmanagerctrl'
+                    }
+              }
+            })
 
 });
