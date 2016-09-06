@@ -8,7 +8,10 @@
       </div>
 
 <div class="panel-body">
-  <div>
+  <div ng-if="level < 77">
+    You don't have permission to view this.
+  </div>
+  <div ng-if="level >= 77">
     <style scoped>@import url("css/catlist.css");</style>
 
         <form name="submissionsForm">
