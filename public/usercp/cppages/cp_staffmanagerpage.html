@@ -1,0 +1,97 @@
+
+<div class="col-md-6">
+<div class="panel panel-default">
+
+      <!-- Header message -->
+      <div class="panel-heading">
+        <b>Category Moderators:</b>
+      </div>
+
+<div class="panel-body">
+  <div ng-if="level < 77">
+    You don't have permission to view this.
+  </div>
+  <div ng-if="level >= 77">
+
+    <div ng-controller="userstablectrl">
+      <style scoped>@import url("css/catlist.css");</style>
+
+          <form name="staffform">
+
+            <table width="90%">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Group</th>
+                  <th>Options</th>
+                </tr>
+              </thead>
+
+              <tbody ng-repeat="user in users">
+                <tr>
+                  <td><a href="" ui-sref="controls.memberprofile({id: user.userID})">{{user.username}}</a></td>
+                  <td>{{user.groupName}}</td>
+                  <td>
+                    <select>
+                        <option value="none">No action</option>
+                        <option value="remove">Demote</option>
+                      </select>
+                  </td>
+                </tr>
+                <tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button type="button" ng-click="remMod()">
+                    Submit Changes
+                    </button>
+                  </td>
+
+                </tr>
+              </tbody>
+
+            </table>
+         </form>
+       </div>
+     </div>
+
+
+
+
+   </div>
+  </div>
+</div>
+
+<div class="col-md-6">
+<div class="panel panel-default">
+
+      <!-- Header message -->
+      <div class="panel-heading">
+        <b>Promote New Moderator</b>
+      </div>
+
+<div class="panel-body">
+  <div ng-if="level < 77">
+    You don't have permission to view this.
+  </div>
+  <div ng-if="level >= 77">
+
+    <div ng-controller="userstablectrl">
+      <style scoped>@import url("css/catlist.css");</style>
+
+          <form name="newmodform">
+
+            
+
+
+
+         </form>
+
+       </div>
+     </div>
+   </div>
+  </div>
+</div>

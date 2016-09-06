@@ -1,6 +1,6 @@
 var app = angular.module("userCP.archivemanagerctrls", []);
 
-app.controller("staffmanagerctrl", function($scope, $state, $stateParams, $http){
+app.controller("managestaffctrl", function($scope, $state, $stateParams, $http){
 
   /**
   * Gets user level for the category (display purposes only, do actual validation on backend).
