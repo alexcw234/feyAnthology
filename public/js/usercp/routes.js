@@ -51,7 +51,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
 
         .state('controls.users',{
-          url: '/users/:catID/:page',
+          url: '/users/:catID',
           views: {
                 'userstable' : {
                     templateUrl: 'usercp/cptables/cp_userstable.html',

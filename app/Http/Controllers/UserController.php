@@ -41,6 +41,9 @@ class UserController extends Controller
        */
       public function indexbyID($catID)
       {
+        $upperlimit = 90;
+        $lowerlimit = 0;
+
         return User::select('users.userID','username',DB::raw('COUNT("subID") as contributions'),'groups.groupID','groupName')
               ->join('usersgroupscats','users.userID','=','usersgroupscats.userID')
               ->join('categories','usersgroupscats.catID','=','categories.catID')
@@ -54,11 +57,31 @@ class UserController extends Controller
               ->groupBy('users.userID','username','groups.groupID','groupName')
               ->where('usersgroupscats.catID','=',$catID)
               ->where('groupName', '!=', 'none')
+              ->where('level', '>', $lowerlimit)
+              ->where('level', '<', $upperlimit)
               ->orderBy('level','DESC')
               ->orderBy('contributions','DESC')
               ->get()->toJson();
 
       }
+
+      public function findUserInCat($catID)
+      {
+        $upperlimit = 90;
+        $lowerlimit = 50;
+
+        return User::select('users.userID', 'username', 'level')
+        ->join('usersgroupscats','users.userID','=','usersgroupscats.userID')
+        ->join('categories','usersgroupscats.catID','=','categories.catID')
+        ->join('groups','usersgroupscats.groupID','=','groups.groupID')
+        ->where('groupName', '!=', 'none')
+        ->where('level', '>', $lowerlimit)
+        ->where('level', '<', $upperlimit)
+        ->where('username', '=', $this->request->get('username'))
+        ->get()->toJson();
+
+      }
+
 
 
 

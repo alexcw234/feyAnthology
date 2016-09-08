@@ -48,6 +48,7 @@ class UGCRepository {
       $netjson = $this->comparelvl($catobj,$globalobj)->first();
 
 
+
       return $netjson->level;
 
 
@@ -58,8 +59,17 @@ class UGCRepository {
   * Sets the user's group for the specified category.
   *
   */
-  public function setGroup($catID,$userID)
+  public function setGroup($catID,$userID, $newgroupID)
   {
+
+    $ugcOfUser = UGC::where('catID',$catID)->where('userID',$userID)
+    ->update(array(
+      'groupID' => $newgroupID
+    ));
+
+    return json_encode(['success' => true]);;
+
+
 
   }
 

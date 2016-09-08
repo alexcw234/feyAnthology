@@ -23,6 +23,8 @@ Route::group(array('prefix' => 'reqs'), function() {
 
   Route::get('users/{catID}','UserController@indexbyID');
 
+  Route::get('finduser/{catID}', 'UserController@findUserInCat');
+
 });
 
 /*
@@ -53,7 +55,20 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('check/group/{catID}', 'UGCController@check');
 
     Route::get('check/global/', 'UGCController@checkGlobal');
+
+
+
+    Route::group(array('prefix' => 'role'), function() {
+
+      Route::get('promote/{catID}/{userID}', 'UGCController@ContributortoMod');
+
+      Route::get('demote/{catID}/{userID}', 'UGCController@ModtoContributor');
+
+
+    });
+
 });
+
 
 
 Route::group(['middleware' => 'web' ], function () {

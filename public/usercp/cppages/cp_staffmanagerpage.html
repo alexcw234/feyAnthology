@@ -13,7 +13,7 @@
   </div>
   <div ng-if="level >= 77">
 
-    <div ng-controller="userstablectrl">
+    <div>
       <style scoped>@import url("css/catlist.css");</style>
 
           <form name="staffform">
@@ -23,7 +23,7 @@
                 <tr>
                   <th>Username</th>
                   <th>Group</th>
-                  <th>Options</th>
+                  <th></th>
                 </tr>
               </thead>
 
@@ -31,21 +31,23 @@
                 <tr>
                   <td><a href="" ui-sref="controls.memberprofile({id: user.userID})">{{user.username}}</a></td>
                   <td>{{user.groupName}}</td>
-                  <td>
-                    <select>
-                        <option value="none">No action</option>
-                        <option value="remove">Demote</option>
-                      </select>
-                  </td>
+                  <td></td>
                 </tr>
                 <tr>
               </tbody>
+            </table>
+            <div style="margin:20px"></div>
+
+            <label>Demote Moderator?</label>
+            <table width="90%">
               <tbody>
                 <tr>
-                  <td></td>
-                  <td></td>
+                  <td>Select:</td>
+                  <td><select ng-model="selection.moderator" ng-options="user.username for user in users track by user.userID">
+                    <option value="">-----</option>
+                    </select></td>
                   <td>
-                    <button type="button" ng-click="remMod()">
+                    <button type="button" ng-click="demote(selection.moderator.userID); selection.moderator = '0'">
                     Submit Changes
                     </button>
                   </td>
@@ -81,14 +83,28 @@
 
     <div ng-controller="userstablectrl">
       <style scoped>@import url("css/catlist.css");</style>
-
+      Enter a user name:
           <form name="newmodform">
 
-            
+            <input type = "text" name = "username" ng-model="formdata.username" required>
+            <button type="button" ng-click="finduser()">Search</button>
+
+            <div style="margin:10px">
+
+            <div ng-if="userFound == 1">
+              Promote {{usernamesearchresult}} to moderator?
+              <button type="button" ng-click="promote()">Confirm</button>
+              <button type="button" ng-click="cancel()">Cancel</button>
+            </div>
+            <div ng-if="userFound == 0">
+              {{NotFoundMsg}}<br>
+              <button type="button" ng-click="cancel()">Cancel</button>
+            </div>
+
+          </div>
 
 
-
-         </form>
+          </form>
 
        </div>
      </div>
