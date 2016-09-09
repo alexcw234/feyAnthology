@@ -16,6 +16,7 @@ class CatsSeeder extends Seeder
         'description' => 'Default',
         'options' => json_encode(array
         (
+          'type' => 'None',
           'public' => 1,
           'allow_new_contributors' => 1,
           )
@@ -23,10 +24,56 @@ class CatsSeeder extends Seeder
       ]);
 
       DB::table('categories')->insert([
-        'catName' => 'Stories we found Online',
-        'description' => 'A collection of stories that we found online',
+        'catName' => 'Stories',
+        'description' => 'Narumayo Stories',
         'options' => json_encode(array
         (
+          'type' => 'Story',
+          'public' => 1,
+          'allow_new_contributors' => 1,
+          )
+        ),
+      ]);
+      DB::table('categories')->insert([
+        'catName' => 'Art',
+        'description' => 'Narumayo Art',
+        'options' => json_encode(array
+        (
+          'type' => 'Art',
+          'public' => 1,
+          'allow_new_contributors' => 1,
+          )
+        ),
+      ]);
+      DB::table('categories')->insert([
+        'catName' => 'Blogs',
+        'description' => 'Narumayo Blogs',
+        'options' => json_encode(array
+        (
+          'type' => 'Blog',
+          'public' => 1,
+          'allow_new_contributors' => 1,
+          )
+        ),
+      ]);
+      DB::table('categories')->insert([
+        'catName' => 'Websites',
+        'description' => 'Narumayo Sites',
+        'options' => json_encode(array
+        (
+          'type' => 'Website',
+          'public' => 1,
+          'allow_new_contributors' => 1,
+          )
+        ),
+      ]);
+
+      DB::table('categories')->insert([
+        'catName' => 'Videos',
+        'description' => 'Narumayo Videos',
+        'options' => json_encode(array
+        (
+          'type' => 'Video',
           'public' => 1,
           'allow_new_contributors' => 1,
           )

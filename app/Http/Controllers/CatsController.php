@@ -40,7 +40,7 @@ class CatsController extends Controller
    */
   public function index()
   {
-      $allCats = DB::table('categories')->select('catID','catName','description')
+      $allCats = DB::table('categories')->select('catID','catName','description','options')
       ->where('catID', '>', 1)->get();
       return Response::json($allCats);
   }
@@ -53,7 +53,7 @@ class CatsController extends Controller
    */
   public function show($catID)
   {
-      $selectcat = DB::table('categories')->select('catID','catName','description')
+      $selectcat = DB::table('categories')->select('catID','catName','description','options')
       ->where('catID','=',$catID)->first();
        return Response::json($selectcat);
   }
@@ -73,7 +73,7 @@ public function userCP_index()
 
 
         $result = $this->category->getuserCPTable($userID);
-      
+
 
     return $result->toJson();
 

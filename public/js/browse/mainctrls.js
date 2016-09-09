@@ -44,6 +44,8 @@ $http.get("reqs/getcatname/" + $scope.catID)
     {
         $scope.catInfo = response;
 
+        $scope.catOptions = JSON.parse(response.options);
+
         $scope.$parent.sidebar_backtrack = true;
         $scope.$parent.sidebar_onCatlist = false;
 
