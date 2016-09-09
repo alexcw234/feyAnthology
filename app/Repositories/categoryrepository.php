@@ -24,21 +24,36 @@ class CategoryRepository {
 
   }
 
-  public function getglobalCPTable($userID)
+  public function getglobalCPTable($userID, $globalobject)
   {
-
-
-/// Currently broken fix this
-    return Category::where('categories.catID','>',1)
+    $categorylisting = Category::join('usersgroupscats','categories.catID','=','usersgroupscats.catID', 'left outer')
+    ->join('groups','usersgroupscats.groupID','=','groups.groupID', 'left outer')
+    ->select('categories.catID','catName','description','groups.groupName','level')
+    ->wherenull('userID')->orwhere('userID','=',$userID)->where('categories.catID','>',1)
+    ->orderBy('groups.groupName','ASC')->orderBy('categories.catID','ASC')
     ->get();
 
+    $globallevel = $globalobject->pluck('level')->first();
+
+    $modifiedlisting = $categorylisting->map(function ($row, $key) use ($globallevel)
+    {
+
+          if ($row['groupName'] != null)
+          {
+              $row['groupName'] = "(" . $row['groupName'] . ")";
+          }
+
+          $row['level'] = $globallevel;
+
+          return $row;
+    });
+
+    return $modifiedlisting;
 
 //    ->select('categories.catID','catName','description','groups.groupName','level')
 //    ->where('userID','=',$userID)->where('categories.catID','>',1)->get();
 
-
-
-  }
+    }
 
 
 
