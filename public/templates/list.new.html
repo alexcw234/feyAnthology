@@ -21,8 +21,8 @@
 
         Category :  {{catInfo.catName}}
         <br><br>
-        Content Type :
-        <select ng-model="selectedtype" ng-options="type.contentType for type in types"
+        Content Type : {{categoryType}}
+        <select ng-if="anytype == true" ng-model="selectedtype" ng-options="type.contentType for type in types"
         ng-change="display(selectedtype)"></select>
 
         <br><br>

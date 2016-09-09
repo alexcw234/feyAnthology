@@ -92,12 +92,39 @@ app.controller('newFormCtrl',function($scope, $http, $state) {
 
 app.controller('newFormSelect',function($scope, $http) {
 
+
+      $scope.categoryType = $scope.catOptions.type;
+
       $http.get("reqs/types/showall")
       .success(function(response){
 
         $scope.types = response;
 
+        var foundmatchingtype = false;
+        var matchedtype;
+        for (i = 0; i < $scope.types.length; i++)
+        {
+            if ($scope.types[i].contentType == $scope.categoryType)
+            {
+              foundmatchingtype = true;
+              matchedtype = $scope.types[i].typeID;
+
+            }
+        }
+        if (foundmatchingtype == true)
+        {
+          $scope.anytype = false;
+          $scope.$parent.typeID = matchedtype;
+          $scope.newForm = "forms/" + $scope.categoryType + ".html";
+
+        }
+        else
+        {
+          $scope.anytype = true;
+        }
+
       });
+
 });
 
 app.controller('newFormDisplay',function($scope) {
