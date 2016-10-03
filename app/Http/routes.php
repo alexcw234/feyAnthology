@@ -57,7 +57,15 @@ Route::group(['middleware' => ['web']], function () {
 
     });
 
-
+    /*
+    |--------------------------------------------------------------------------
+    | Auth Routes
+    |--------------------------------------------------------------------------
+    | These are routes that require user to at least be logged in.
+    | 
+    |
+    |
+    */
 
     Route::group(['middleware' => ['auth']], function() {
 
