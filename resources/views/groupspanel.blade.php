@@ -13,6 +13,11 @@ table {
   width: 100%;
   border-spacing: 15px;
 }
+
+.ScrollyDropDown{
+overflow-y: scroll;
+width: 95%;
+}
 </style>
 
 <div class="container">
@@ -26,8 +31,8 @@ table {
                     If they are not part of that category yet, they will be added to that category.
                     To change global permissions, select category 1 : Default.
                   </p>
-                <form>
-
+                <form method="POST" action="{{ url('super/confirmthis') }}">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <table border="1" >
                     <tr >
                       <th >
@@ -42,7 +47,7 @@ table {
                     </tr>
                     <tr>
                       <td>
-                        <select>
+                        <select size="10" class="ScrollyDropDown">
                         <option value="">--------</option>
                           @foreach ($users as $user)
                         <option value="{{$user->userID}}">{{$user->userID}} : {{$user->username}}</option>
@@ -50,7 +55,7 @@ table {
                         </select>
                       </td>
                       <td>
-                        <select>
+                        <select size="10" class="ScrollyDropDown">
                         <option value="">--------</option>
                         @foreach ($categories as $category)
                         <option value="{{$category->catID}}">{{$category->catID}} : {{$category->catName}}</option>
@@ -58,7 +63,7 @@ table {
                         </select>
                       </td>
                       <td>
-                        <select>
+                        <select size="10" class="ScrollyDropDown">
                         <option value="">--------</option>
                         @foreach ($groups as $group)
                         <option value="{{$group->groupID}}">{{$group->groupID}} : {{$group->groupName}}</option>
@@ -66,7 +71,7 @@ table {
                         </select>
                       </td>
                       <td>
-                      <button>Submit</button>
+                      <input type="submit">
                     </td>
                     </tr>
 

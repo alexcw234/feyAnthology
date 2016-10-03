@@ -122,15 +122,11 @@ Route::group(['middleware' => ['web']], function () {
           Route::get('/superpanel', function() {
               return view('superpanel');
           });
-          Route::get('/userperms', function () {
+          Route::get('/userperms', 'AdminPanelController@userperms_getmenu');
 
-              $users = DB::table('users')->select('userID','username', 'globalID')->orderBy('username')->get();
-              $categories = DB::table('categories')->select('catID','catName')->get();
-              $groups = DB::table('groups')->select('groupID','groupName','level')->where('groupName','!=','superadmin')->get();
+          Route::post('/super/confirmthis', 'AdminPanelController@userperms_getselection');
 
-              return view('groupspanel')->with('users',$users)->with('categories', $categories)->with('groups',$groups);
-          });
-          Route::post('super/change/user/role', 'UGCController@SuperAlterUGC');
+          Route::post('/super/change/user/role', 'UGCController@SuperAlterUGC');
 
         });
 
