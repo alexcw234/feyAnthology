@@ -18,6 +18,8 @@ table {
 overflow-y: scroll;
 width: 95%;
 }
+
+
 </style>
 
 <div class="container">
@@ -47,7 +49,7 @@ width: 95%;
                     </tr>
                     <tr>
                       <td>
-                        <select size="10" class="ScrollyDropDown">
+                        <select name="userID" size="10" class="ScrollyDropDown">
                         <option value="">--------</option>
                           @foreach ($users as $user)
                         <option value="{{$user->userID}}">{{$user->userID}} : {{$user->username}}</option>
@@ -55,7 +57,7 @@ width: 95%;
                         </select>
                       </td>
                       <td>
-                        <select size="10" class="ScrollyDropDown">
+                        <select name="catID" size="10" class="ScrollyDropDown">
                         <option value="">--------</option>
                         @foreach ($categories as $category)
                         <option value="{{$category->catID}}">{{$category->catID}} : {{$category->catName}}</option>
@@ -63,7 +65,7 @@ width: 95%;
                         </select>
                       </td>
                       <td>
-                        <select size="10" class="ScrollyDropDown">
+                        <select name="groupID" size="10" class="ScrollyDropDown">
                         <option value="">--------</option>
                         @foreach ($groups as $group)
                         <option value="{{$group->groupID}}">{{$group->groupID}} : {{$group->groupName}}</option>

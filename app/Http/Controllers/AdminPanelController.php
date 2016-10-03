@@ -8,7 +8,12 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-use App\Http\Requests;
+
+use App\UGC;
+use App\Group;
+use App\User;
+use App\Category;
+
 use DB;
 use Response;
 
@@ -50,16 +55,111 @@ class AdminPanelController extends Controller
   */
   public function userperms_getselection()
   {
+    $selectedInfo;
 
-    $ugcInfo = DB::table('usersgroupscats')->join('categories','categories.catID','=','usersgroupscats.catID')
-    ->join('users','users.userID','=','usersgroupscats.userID')
-    ->join('groups','groups.groupID','=','usersgroupscats.groupID')
-    ->select('users.userName','users.userID','users.globalID','categories.catID','categories.catName','groups.groupID','groups.groupName')
-    ->where('users.userID','=',)->get();
+    $userID_select = $this->request->get('userID');
+    $catID_select = $this->request->get('catID');
+    $groupID_select = $this->request->get('groupID');
 
-    $confirmThisString = "Current role for User: $username in Category: $catName is $groupName_current";
+    $username_select;
+    $catName_select;
+    $groupName_select;
 
-      return view('groupspanel');
+    $catName_current;
+    $groupID_current;
+    $groupName_current;
+
+    $confirmThisString;
+
+    //Error handling
+    if ($userID_select == 1)
+    {
+      $confirmThisString = "Error: Cannot change permissions of superadmin account.";
+      return view('groupspanel')->with('confirmThisString',$confirmThisString);
+    }
+
+    if ($groupID_select < 2)
+    {
+      $confirmThisString = "Error: Only 1 superadmin allowed.";
+      return view('groupspanel')->with('confirmThisString',$confirmThisString);
+    }
+
+
+    if ($catID_select == 1) //If global category
+    {
+
+      $selectedInfo = User::select('userID','username','globalID as groupID')->where('userID','=',$userID_select)->get();
+
+      $username_select = $selectedInfo->pluck('username')->first();
+      $catName_select = "Global";
+      $groupName_select = Group::select('groups.groupID','groups.groupName')->where('groups.groupID','=',$groupID_select)
+                                            ->get()->pluck('groupName')->first();
+
+      $catName_current = "Global";
+      $groupID_current = $selectedInfo->pluck('groupID')->first();
+
+      $groupName_current = Group::select('groups.groupID','groups.groupName')->where('groups.groupID','=',$groupID_current)
+                                 ->get()->pluck('groupName')->first();
+
+      $confirmThisString = "Confirm change of group for user globally?";
+
+    }
+    else if ($catID_select > 1) //If not global category
+    {
+        $selectedInfo  = UGC::join('categories','categories.catID','=','usersgroupscats.catID')
+        ->join('users','users.userID','=','usersgroupscats.userID')
+        ->join('groups','groups.groupID','=','usersgroupscats.groupID')
+        ->select('users.username','users.userID','users.globalID','categories.catID','categories.catName','groups.groupID','groups.groupName')
+        ->where('users.userID','=',$userID_select)->where('categories.catID','=',$catID_select)->get();
+
+        if(!$selectedInfo->isEmpty()) // User is in category.
+        {
+          $username_select = $selectedInfo->pluck('username')->first();
+          $catName_select = $selectedInfo->pluck('catName')->first();
+          $groupName_select = Group::select('groups.groupID','groups.groupName')->where('groups.groupID','=',$groupID_select)
+                                                ->get()->pluck('groupName')->first();
+
+          $groupID_current = $selectedInfo->pluck('groupID')->first();
+          $groupName_current = $selectedInfo->pluck('groupName')->first();
+
+          $confirmThisString = "Confirm change of group for this user in $catName_select?";
+       }
+       else // User not in category
+       {
+          $username_select = User::select('users.userID','users.username')->where('users.userID','=',$userID_select)
+                            ->get()->pluck('username')->first();
+          $catName_select = Category::select('categories.catID','categories.catName')->where('categories.catID','=',$catID_select)
+                            ->get()->pluck('catName')->first();
+          $groupName_current = Group::select('groups.groupID','groups.groupName')->where('groups.groupID','=',$groupID_current)
+                                     ->get()->pluck('groupName')->first();
+
+          $groupName_select = Group::select('groups.groupID','groups.groupName')->where('groups.groupID','=',$groupID_select)
+                                                ->get()->pluck('groupName')->first();
+          $groupID_current = 7;
+          $groupName_current = 'None';
+
+          $confirmThisString = "Add user to $catName_select at the specified level?"
+       }
+
+
+       $returnarr = json_encode(array(
+                       'userID_select'=>$userID_select,
+                       'catID_select' => $catID_select,
+                       'groupID_select' => $groupID_select,
+                       'username_select'=>$username_select,
+                       'catName_select' => $catName_select,
+                       'groupName_select' => $groupName_select,
+                       'groupID_current' => $groupID_current,
+                       'groupName_current' => $groupName_current,
+                       ));
+       return view('groupspanel_confirmation')->with('returnarr',$returnarr)->with('confirmThisString',$confirmThisString);
+    }
+    else
+    {
+      $confirmThisString = "Error, invalid category specified.";
+      return view('groupspanel')->with('confirmThisString',$confirmThisString);
+    }
+
 
   }
 
