@@ -5,7 +5,7 @@ app.controller("managestaffctrl", function($scope, $state, $stateParams, $http){
   /**
   * Gets user level for the category (display purposes only, do actual validation on backend).
   */
-  $http.get("check/group/" + $stateParams.catID)
+  $http.get("displaycheck/group/" + $stateParams.catID)
     .success(function(response)
       {
           $scope.level = response.level;

@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -62,26 +61,78 @@ Route::group(['middleware' => ['web']], function () {
     | Auth Routes
     |--------------------------------------------------------------------------
     | These are routes that require user to at least be logged in.
-    | 
+    |
     |
     |
     */
-
     Route::group(['middleware' => ['auth']], function() {
-
-        Route::post('submission/new', 'WorksController@store');
-
-        Route::post('submission/setworkapproval', 'WorksController@setApproval');
-
-        Route::get('reqs/pending/{catID}', 'WorksController@pending');
 
         Route::get('reqs/cats/mycats', 'CatsController@userCP_index');
 
 
 
+        /*
+        |--------------------------------------------------------------------------
+        | Contributor Routes
+        |--------------------------------------------------------------------------
+        | Controllers called by these routes will include permission check for
+        | contributor (or higher) status
+        |
+        |
+        */
+        Route::post('submission/new', 'WorksController@store');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Moderator Routes
+        |--------------------------------------------------------------------------
+        | Controllers called by these routes will include permission check for
+        | moderator (or higher) status
+        |
+        |
+        */
+        Route::get('reqs/pending/{catID}', 'WorksController@pending');
+
+        Route::post('submission/setworkapproval', 'WorksController@setApproval');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Archive Manager Routes
+        |--------------------------------------------------------------------------
+        | Controllers called by these routes will include permission check for
+        | archive manager (or higher) status
+        |
+        |
+        */
         Route::get('role/promote/{catID}/{userID}', 'UGCController@ContributortoMod');
 
         Route::get('role/demote/{catID}/{userID}', 'UGCController@ModtoContributor');
+
+        /*
+        |--------------------------------------------------------------------------
+        | SuperAdministrator Routes
+        |--------------------------------------------------------------------------
+        | Controllers called by these routes are only available to a superadmin.
+        | This is where the real sneaky stuff happens!
+        |
+        */
+        Route::group(['middleware' => ['authSuperAdmin']], function() {
+
+          Route::get('/superpanel', function() {
+              return view('superpanel');
+          });
+          Route::get('/userperms', function () {
+
+              $users = DB::table('users')->select('userID','username', 'globalID')->orderBy('username')->get();
+              $categories = DB::table('categories')->select('catID','catName')->get();
+              $groups = DB::table('groups')->select('groupID','groupName','level')->where('groupName','!=','superadmin')->get();
+
+              return view('groupspanel')->with('users',$users)->with('categories', $categories)->with('groups',$groups);
+          });
+          Route::post('super/change/user/role', 'UGCController@SuperAlterUGC');
+
+        });
 
     });
 
