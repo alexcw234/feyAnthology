@@ -21,7 +21,7 @@ app.controller("submissionstablectrl", function($scope, $state, $stateParams, $h
     /**
     * Gets user level for the category (display purposes only).
     */
-    $http.get("check/group/" + $stateParams.catID)
+    $http.get("displaycheck/group/" + $stateParams.catID)
       .success(function(response)
         {
             $scope.level = response.level;

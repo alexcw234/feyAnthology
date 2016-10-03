@@ -30,20 +30,21 @@ class UGCController extends Controller
 
     /**
     * For checking what permissions user has, and returns catgroup, globalgroup
-    * (For purposes of display only, for authentication use in-controller
-    * authentication)
+    * (For purposes of display only)
+    * (Yes that Auth::chekc() is necessary since is public route)
     */
     public function check($catID)
     {
         $result = json_encode(['level' => 0]);
 
-
+        if (Auth::check())
+        {
         $userID = Auth::user()->userID;
         $catobj = $this->ugc->getGroup($catID,$userID);
         $globalobj = $this->user->getGlobal($userID);
 
         $result = $this->ugc->comparelvl($catobj,$globalobj)->first()->toJson();
-
+        }
 
         return $result;
     }
@@ -52,14 +53,17 @@ class UGCController extends Controller
     /**
     * For specifically checking the user's global level.
     * (For purposes of display only)
+    * (Yes that Auth::check() is necessary since is public route)
     */
     public function checkGlobal()
     {
         $result = json_encode(['level' => 0]);
 
+        if (Auth::check())
+        {
         $userID = Auth::user()->userID;
         $result = $this->user->getGlobal($userID)->first()->toJson();
-
+        }
         return $result;
     }
 
@@ -70,7 +74,6 @@ class UGCController extends Controller
     */
     public function ContributortoMod($catID, $userID)
     {
-
 
             $myID = Auth::user()->userID;
             $result = json_encode(['success' => "false"]);

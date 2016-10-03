@@ -23,7 +23,7 @@ app.controller("catstableCtrl", function($scope, $http) {
 */
 app.controller("cats_permissionsCtrl", function($scope, $http) {
 
-  $http.get("check/global")
+  $http.get("displaycheck/global")
     .success(function(response)
       {
           userlevel = response.level;

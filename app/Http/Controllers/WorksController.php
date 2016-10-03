@@ -127,7 +127,7 @@ public function setApproval()
 
             $this->work->setApproval($workID,$userID,$approval,$comment);
         }
-    
+
 
 }
 

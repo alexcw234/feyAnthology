@@ -38,24 +38,42 @@ Route::group(array('prefix' => 'reqs'), function() {
 */
 
 Route::group(['middleware' => ['web']], function () {
+    /*
+    |--------------------------------------------------------------------------
+    | Displaycheck routes
+    |--------------------------------------------------------------------------
+    | Routes with the displaycheck prefix are for returning the users' global
+    | or category group to the front end, where depending on what is needed
+    | will show/hide parts of the page. Note that this is NOT to be used for
+    | anything sensitive (see how it's not even in an 'auth' middleware?)
+    | and actual validation is still needed for any features.
+    |
+    */
+    Route::group(array('prefix' => 'displaycheck'), function() {
+
+        Route::get('group/{catID}', 'UGCController@check');
+
+        Route::get('global/', 'UGCController@checkGlobal');
+
+    });
+
+
 
     Route::group(['middleware' => ['auth']], function() {
 
-      Route::post('submission/new', 'WorksController@store');
+        Route::post('submission/new', 'WorksController@store');
 
-      Route::post('submission/setworkapproval', 'WorksController@setApproval');
+        Route::post('submission/setworkapproval', 'WorksController@setApproval');
 
-      Route::get('reqs/pending/{catID}', 'WorksController@pending');
+        Route::get('reqs/pending/{catID}', 'WorksController@pending');
 
-      Route::get('reqs/cats/mycats', 'CatsController@userCP_index');
+        Route::get('reqs/cats/mycats', 'CatsController@userCP_index');
 
-      Route::get('check/group/{catID}', 'UGCController@check');
 
-      Route::get('check/global/', 'UGCController@checkGlobal');
 
-      Route::get('role/promote/{catID}/{userID}', 'UGCController@ContributortoMod');
+        Route::get('role/promote/{catID}/{userID}', 'UGCController@ContributortoMod');
 
-      Route::get('role/demote/{catID}/{userID}', 'UGCController@ModtoContributor');
+        Route::get('role/demote/{catID}/{userID}', 'UGCController@ModtoContributor');
 
     });
 
