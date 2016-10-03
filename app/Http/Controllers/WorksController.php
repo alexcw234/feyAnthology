@@ -61,9 +61,6 @@ public function store()
 {
       $result = json_encode(['status' => 'failure']);
 
-      if (Auth::check())
-      {
-
         $userID = Auth::user()->userID;
 
         $input = $this->request->getContent();
@@ -84,7 +81,7 @@ public function store()
             $valid = $this->work->newentry($catID, $infos, $address, $typeID, $tags, $userID);
             $result = json_encode(['status' => 'success']);
         }
-      }
+
 
     return $result;
 }
@@ -97,8 +94,7 @@ public function store()
  */
 public function pending($catID)
 {
-      if (Auth::check())
-      {
+
           $userID = Auth::user()->userID;
 
           if ($this->ugc->getNetlvl($catID, $userID) > 55)
@@ -106,7 +102,7 @@ public function pending($catID)
               $result = $this->work->getpendingworks($catID);
           }
           return $result->toJson();
-      }
+
 }
 
 /**
@@ -117,8 +113,7 @@ public function pending($catID)
  */
 public function setApproval()
 {
-    if (Auth::check())
-    {
+
         $userID = Auth::user()->userID;
         $input = $this->request->getContent();
         $catID = $this->request->get('catID');
@@ -132,7 +127,7 @@ public function setApproval()
 
             $this->work->setApproval($workID,$userID,$approval,$comment);
         }
-    }
+    
 
 }
 

@@ -37,8 +37,6 @@ class UGCController extends Controller
     {
         $result = json_encode(['level' => 0]);
 
-        if (Auth::check())
-        {
 
         $userID = Auth::user()->userID;
         $catobj = $this->ugc->getGroup($catID,$userID);
@@ -46,7 +44,7 @@ class UGCController extends Controller
 
         $result = $this->ugc->comparelvl($catobj,$globalobj)->first()->toJson();
 
-        }
+
         return $result;
     }
 
@@ -59,11 +57,9 @@ class UGCController extends Controller
     {
         $result = json_encode(['level' => 0]);
 
-        if (Auth::check())
-        {
         $userID = Auth::user()->userID;
         $result = $this->user->getGlobal($userID)->first()->toJson();
-        }
+
         return $result;
     }
 
@@ -75,8 +71,7 @@ class UGCController extends Controller
     public function ContributortoMod($catID, $userID)
     {
 
-        if (Auth::check())
-        {
+
             $myID = Auth::user()->userID;
             $result = json_encode(['success' => "false"]);
 
@@ -92,15 +87,6 @@ class UGCController extends Controller
                 return $result;
             }
 
-
-        }
-        else
-        {
-          return "failure";
-        }
-
-
-
     }
 
     /**
@@ -110,8 +96,6 @@ class UGCController extends Controller
     public function ModtoContributor($catID, $userID)
     {
 
-        if (Auth::check())
-        {
             $myID = Auth::user()->userID;
             $result = json_encode(['success' => "false"]);
 
@@ -126,15 +110,6 @@ class UGCController extends Controller
 
                 return $result;
             }
-
-
-        }
-        else
-        {
-          return "failure";
-        }
-
-
 
     }
 
