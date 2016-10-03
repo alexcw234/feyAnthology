@@ -19,6 +19,11 @@ Route::group(array('prefix' => 'reqs'), function() {
 
   Route::get('getcatname/{catID}', 'CatsController@show');
 
+  Route::get('types/showall', 'TypesController@index');
+
+  Route::get('users/{catID}','UserController@indexbyID');
+
+  Route::get('finduser/{catID}', 'UserController@findUserInCat');
 });
 
 /*
@@ -33,41 +38,24 @@ Route::group(array('prefix' => 'reqs'), function() {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
-    Route::group(array('prefix' => 'reqs'), function() {
 
-      Route::get('types/showall', 'TypesController@index');
+    Route::group(['middleware' => ['auth']], function() {
 
-      Route::get('users/{catID}','UserController@indexbyID');
+      Route::post('submission/new', 'WorksController@store');
 
-      Route::get('finduser/{catID}', 'UserController@findUserInCat');
+      Route::post('submission/setworkapproval', 'WorksController@setApproval');
 
-    });
+      Route::get('reqs/pending/{catID}', 'WorksController@pending');
 
-    Route::group(array('prefix' => 'submission'), function() {
+      Route::get('reqs/cats/mycats', 'CatsController@userCP_index');
 
-      Route::post('new', 'WorksController@store');
+      Route::get('check/group/{catID}', 'UGCController@check');
 
-      Route::post('setworkapproval', 'WorksController@setApproval');
+      Route::get('check/global/', 'UGCController@checkGlobal');
 
-    });
+      Route::get('role/promote/{catID}/{userID}', 'UGCController@ContributortoMod');
 
-    Route::get('reqs/cats/mycats', 'CatsController@userCP_index');
-
-    Route::get('reqs/pending/{catID}', 'WorksController@pending');
-
-    Route::get('check/group/{catID}', 'UGCController@check');
-
-    Route::get('check/global/', 'UGCController@checkGlobal');
-
-
-
-    Route::group(array('prefix' => 'role'), function() {
-
-      Route::get('promote/{catID}/{userID}', 'UGCController@ContributortoMod');
-
-      Route::get('demote/{catID}/{userID}', 'UGCController@ModtoContributor');
-
+      Route::get('role/demote/{catID}/{userID}', 'UGCController@ModtoContributor');
 
     });
 

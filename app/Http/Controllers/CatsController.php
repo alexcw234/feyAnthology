@@ -34,7 +34,7 @@ class CatsController extends Controller
 
 
     /**
-   * Display a listing of the resource.
+   * Display a listing of all categories.
    *
    * @return Response
    */
@@ -46,7 +46,7 @@ class CatsController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Display the information about one category.
    *
    * @param  int  $id
    * @return Response
@@ -60,15 +60,13 @@ class CatsController extends Controller
 
 
   /**
- * Display a listing of the resource.
+ * Display a listing of all categories for the user.
  *
  * @return Response
  */
 public function userCP_index()
 {
 
-    if (Auth::check())
-    {
       $userID = Auth::user()->userID;
 
         $globalobject = $this->user->getGlobal($userID);
@@ -85,7 +83,6 @@ public function userCP_index()
 
     return $result->toJson();
 
-    }
 }
 
 
