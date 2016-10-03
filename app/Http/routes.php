@@ -19,12 +19,6 @@ Route::group(array('prefix' => 'reqs'), function() {
 
   Route::get('getcatname/{catID}', 'CatsController@show');
 
-  Route::get('types/showall', 'TypesController@index');
-
-  Route::get('users/{catID}','UserController@indexbyID');
-
-  Route::get('finduser/{catID}', 'UserController@findUserInCat');
-
 });
 
 /*
@@ -40,6 +34,16 @@ Route::group(array('prefix' => 'reqs'), function() {
 
 Route::group(['middleware' => ['web']], function () {
     //
+    Route::group(array('prefix' => 'reqs'), function() {
+
+      Route::get('types/showall', 'TypesController@index');
+
+      Route::get('users/{catID}','UserController@indexbyID');
+
+      Route::get('finduser/{catID}', 'UserController@findUserInCat');
+
+    });
+
     Route::group(array('prefix' => 'submission'), function() {
 
       Route::post('new', 'WorksController@store');
