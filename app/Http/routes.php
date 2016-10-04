@@ -44,7 +44,7 @@ Route::group(['middleware' => ['web']], function () {
     | Routes with the displaycheck prefix are for returning the users' global
     | or category group to the front end, where depending on what is needed
     | will show/hide parts of the page. Note that this is NOT to be used for
-    | anything sensitive (see how it's not even in an 'auth' middleware?)
+    | anything sensitive (see how it's not even in an 'auth'?)
     | and actual validation is still needed for any features.
     |
     */
@@ -109,11 +109,13 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::get('role/demote/{catID}/{userID}', 'UGCController@ModtoContributor');
 
+        Route::get('category_settings/{catID}', 'ArchiveManagerController@LoadCatSettings');
+  
         /*
         |--------------------------------------------------------------------------
         | SuperAdministrator Routes
         |--------------------------------------------------------------------------
-        | Controllers called by these routes are only available to a superadmin.
+        | Controllers called by these routes are only available to the superadmin.
         | This is where the real sneaky stuff happens!
         |
         */
