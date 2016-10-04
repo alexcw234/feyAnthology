@@ -126,7 +126,7 @@ Route::group(['middleware' => ['web']], function () {
 
           Route::post('/super/confirmthis', 'AdminPanelController@userperms_getselection');
 
-          Route::post('/super/change/user/role', 'UGCController@SuperAlterUGC');
+          Route::post('/super/change/user/role', 'AdminPanelController@SuperAlterUGC');
 
         });
 

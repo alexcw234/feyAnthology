@@ -115,6 +115,7 @@ class AdminPanelController extends Controller
                       'username_select'=>$username_select,
                       'catName_select' => $catName_select,
                       'groupName_select' => $groupName_select,
+                      'catName_current' => $catName_current,
                       'groupID_current' => $groupID_current,
                       'groupName_current' => $groupName_current,
                     );
@@ -128,15 +129,18 @@ class AdminPanelController extends Controller
         ->select('users.username','users.userID','users.globalID','categories.catID','categories.catName','groups.groupID','groups.groupName')
         ->where('users.userID','=',$userID_select)->where('categories.catID','=',$catID_select)->get();
 
-        if(!$selectedInfo->isEmpty()) // User is in category.
+        if(!$selectedInfo->isEmpty() && $selectedInfo->pluck('groupID')->first() != 7) // User is in category.
         {
           $username_select = $selectedInfo->pluck('username')->first();
           $catName_select = $selectedInfo->pluck('catName')->first();
           $groupName_select = Group::select('groups.groupID','groups.groupName')->where('groups.groupID','=',$groupID_select)
                                                 ->get()->pluck('groupName')->first();
 
+
           $groupID_current = $selectedInfo->pluck('groupID')->first();
           $groupName_current = $selectedInfo->pluck('groupName')->first();
+
+          $catName_current = $catName_select;
 
           $confirmThisString = "Confirm change of group for this user in $catName_select?";
        }
@@ -151,6 +155,8 @@ class AdminPanelController extends Controller
 
           $groupName_select = Group::select('groups.groupID','groups.groupName')->where('groups.groupID','=',$groupID_select)
                                                 ->get()->pluck('groupName')->first();
+          $catName_current = "N/A";
+
           $groupID_current = 7;
           $groupName_current = 'None';
 
@@ -165,6 +171,7 @@ class AdminPanelController extends Controller
                        'username_select'=>$username_select,
                        'catName_select' => $catName_select,
                        'groupName_select' => $groupName_select,
+                       'catName_current' => $catName_current,
                        'groupID_current' => $groupID_current,
                        'groupName_current' => $groupName_current,
                      );
@@ -173,7 +180,7 @@ class AdminPanelController extends Controller
     else
     {
       $confirmThisString = "Error, invalid category specified.";
-      return view('groupspanel')->with('confirmThisString',$confirmThisString);
+      return view('groupspanel_error')->with('confirmThisString',$confirmThisString);
     }
 
 
@@ -181,6 +188,66 @@ class AdminPanelController extends Controller
 
 
 
+    /**
+    * Alters the user's permissions based on the parameters
+    *
+    * @return Response
+    */
+    public function SuperAlterUGC()
+    {
 
+      $userID_select = $this->request->get('userID_select');
+      $catID_select = $this->request->get('catID_select');
+      $groupID_select = $this->request->get('groupID_select');
+      $confirmThisString = "";
+
+      if ($userID_select < 2 || $groupID_select < 2)
+      {
+        $confirmThisString = "Oops, something went wrong, please try again.";
+        return view('groupspanel_error')->with('confirmThisString',$confirmThisString);
+      }
+
+      if ($catID_select == 1) // Alters user's global permissions
+      {
+        $user_current = User::find($userID_select);
+        $user_current->globalID = $groupID_select;
+        $user_current->save();
+        $confirmThisString = "Successfully modified user permissions.";
+        return view('groupspanel_success')->with('confirmThisString',$confirmThisString);
+      }
+      else
+      {
+        $selectedInfo  = UGC::join('categories','categories.catID','=','usersgroupscats.catID')
+        ->join('users','users.userID','=','usersgroupscats.userID')
+        ->join('groups','groups.groupID','=','usersgroupscats.groupID')
+        ->select('usersgroupscats.ugcID','users.username','users.userID','users.globalID','categories.catID','categories.catName','groups.groupID','groups.groupName')
+        ->where('users.userID','=',$userID_select)->where('categories.catID','=',$catID_select)->get();
+
+
+        if(!$selectedInfo->isEmpty()) //Alters user's permissions in category
+        {
+          $ugcID = $selectedInfo->pluck('ugcID')->first();
+          $ugc_current = UGC::find($ugcID);
+          $ugc_current->groupID = $groupID_select;
+          $ugc_current->save();
+          $confirmThisString = "Successfully modified user permissions.";
+          return view('groupspanel_success')->with('confirmThisString',$confirmThisString);
+
+        }
+        else // Adds user to category with selected permissions.
+        {
+          $newUGC = UGC::create([
+            'userID' => $userID_select,
+            'catID' => $catID_select,
+          ]);
+          $newUGC->groupID = $groupID_select;
+          $newUGC->save();
+          $confirmThisString = "Successfully modified user permissions (new UGC entry added).";
+          return view('groupspanel_success')->with('confirmThisString',$confirmThisString);
+        }
+
+      }
+
+    }
 
 }
