@@ -72,17 +72,22 @@ class AdminPanelController extends Controller
     $confirmThisString;
 
     //Error handling
+    if ($userID_select < 1 || $groupID_select < 1 || $catID_select < 1)
+    {
+      $confirmThisString = "Error: Not all fields specified.";
+      return view('groupspanel_error')->with('confirmThisString',$confirmThisString);
+    }
     if ($userID_select == 1)
     {
       $confirmThisString = "Error: Cannot change permissions of superadmin account.";
-      return view('groupspanel')->with('confirmThisString',$confirmThisString);
+      return view('groupspanel_error')->with('confirmThisString',$confirmThisString);
     }
-
     if ($groupID_select < 2)
     {
       $confirmThisString = "Error: Only 1 superadmin allowed.";
-      return view('groupspanel')->with('confirmThisString',$confirmThisString);
+      return view('groupspanel_error')->with('confirmThisString',$confirmThisString);
     }
+
 
 
     if ($catID_select == 1) //If global category
@@ -103,6 +108,17 @@ class AdminPanelController extends Controller
 
       $confirmThisString = "Confirm change of group for user globally?";
 
+      $returnarr = array(
+                      'userID_select'=>$userID_select,
+                      'catID_select' => $catID_select,
+                      'groupID_select' => $groupID_select,
+                      'username_select'=>$username_select,
+                      'catName_select' => $catName_select,
+                      'groupName_select' => $groupName_select,
+                      'groupID_current' => $groupID_current,
+                      'groupName_current' => $groupName_current,
+                    );
+      return view('groupspanel_confirmation')->with($returnarr)->with('confirmThisString',$confirmThisString);
     }
     else if ($catID_select > 1) //If not global category
     {
@@ -130,7 +146,7 @@ class AdminPanelController extends Controller
                             ->get()->pluck('username')->first();
           $catName_select = Category::select('categories.catID','categories.catName')->where('categories.catID','=',$catID_select)
                             ->get()->pluck('catName')->first();
-          $groupName_current = Group::select('groups.groupID','groups.groupName')->where('groups.groupID','=',$groupID_current)
+          $groupName_select = Group::select('groups.groupID','groups.groupName')->where('groups.groupID','=',$groupID_select)
                                      ->get()->pluck('groupName')->first();
 
           $groupName_select = Group::select('groups.groupID','groups.groupName')->where('groups.groupID','=',$groupID_select)
@@ -138,11 +154,11 @@ class AdminPanelController extends Controller
           $groupID_current = 7;
           $groupName_current = 'None';
 
-          $confirmThisString = "Add user to $catName_select at the specified level?"
+          $confirmThisString = "Add user to $catName_select at the specified level?";
        }
 
 
-       $returnarr = json_encode(array(
+       $returnarr = array(
                        'userID_select'=>$userID_select,
                        'catID_select' => $catID_select,
                        'groupID_select' => $groupID_select,
@@ -151,8 +167,8 @@ class AdminPanelController extends Controller
                        'groupName_select' => $groupName_select,
                        'groupID_current' => $groupID_current,
                        'groupName_current' => $groupName_current,
-                       ));
-       return view('groupspanel_confirmation')->with('returnarr',$returnarr)->with('confirmThisString',$confirmThisString);
+                     );
+       return view('groupspanel_confirmation')->with($returnarr)->with('confirmThisString',$confirmThisString);
     }
     else
     {

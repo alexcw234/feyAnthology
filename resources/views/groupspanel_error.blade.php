@@ -26,17 +26,9 @@ width: 95%;
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Confirm?</div>
+                <div class="panel-heading">Error</div>
                 <div class="panel-body">
                   {{$confirmThisString}}
-                  <div>
-                  <div class="col-md-6">
-                    {{$username_select}}
-
-                  </div>
-                  <div class="col-md-6">
-                </div>
-              </div>
                 </div>
             </div>
         </div>

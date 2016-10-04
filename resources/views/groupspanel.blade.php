@@ -50,7 +50,7 @@ width: 95%;
                     <tr>
                       <td>
                         <select name="userID" size="10" class="ScrollyDropDown">
-                        <option value="">--------</option>
+                        <option value="0">--------</option>
                           @foreach ($users as $user)
                         <option value="{{$user->userID}}">{{$user->userID}} : {{$user->username}}</option>
                           @endforeach
@@ -58,7 +58,7 @@ width: 95%;
                       </td>
                       <td>
                         <select name="catID" size="10" class="ScrollyDropDown">
-                        <option value="">--------</option>
+                        <option value="0">--------</option>
                         @foreach ($categories as $category)
                         <option value="{{$category->catID}}">{{$category->catID}} : {{$category->catName}}</option>
                         @endforeach
@@ -66,7 +66,7 @@ width: 95%;
                       </td>
                       <td>
                         <select name="groupID" size="10" class="ScrollyDropDown">
-                        <option value="">--------</option>
+                        <option value="0">--------</option>
                         @foreach ($groups as $group)
                         <option value="{{$group->groupID}}">{{$group->groupID}} : {{$group->groupName}}</option>
                         @endforeach
