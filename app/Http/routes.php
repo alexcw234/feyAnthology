@@ -95,6 +95,11 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::post('submission/setworkapproval', 'WorksController@setApproval');
 
+        Route::get('edit/work/{workID}','ModerationController@loadWorkToEdit');
+
+        Route::post('edit/work/alter','ModerationController@editThisWork');
+
+        Route::post('edit/work/delete','ModerationController@deleteThisWork');
 
         /*
         |--------------------------------------------------------------------------
