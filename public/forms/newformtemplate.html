@@ -3,16 +3,16 @@
 <div ng-controller="generateFormController">
   <div class="Form_Elem"><div class="Form_Elem_Title">
     URL<font color="red">*</font> : </div>
-  <div class="Form_Elem_Input Form_Elem_Input_Long">
-    <input type = "text" name="Url" ng-model="newentry.URL" required>
+  <div class="Form_Elem_Wrapper Form_Elem_Wrapper_Long">
+    <input class="Form_Elem_Input" type = "text" name="Url" ng-model="newentry.URL" required>
   </div>
   </div>
   <div compile-html="generatedForm"></div>
   <div class="Form_Elem"><div class="Form_Elem_Title">
   Tags :</div>
-    <div class="Form_Elem_Input_Tags"><tags-input ng-model="tags"></tags-input></div>
+    <div class="Form_Elem_Wrapper Form_Elem_Wrapper_Long"><tags-input class="Form_Elem_Tags" ng-model="tags"></tags-input></div>
   </div>
-  
+
 <!-- I have read the rules -->
 <div>
 <input type="checkbox" ng-model="newentry.Rules" required>

@@ -6,22 +6,37 @@
 
 }
 
-.Form_Elem_Input {
+.Form_Elem_Wrapper {
 margin-left:10px;
+}
+
+.Form_Elem_Input {
+width:100%;
 }
 
 .Form_Elem_Static {
 margin-left:10px;
 }
 
-.Form_Elem_Input_Short {
-
+.Form_Elem_Wrapper_Short {
+width:20%
 }
 
-.Form_Elem_Input_Long {
-
+.Form_Elem_Wrapper_Long {
+width:50%
 }
 
-.Form_Elem_Input_Box {
+.Form_Elem_Wrapper_Box {
+  width: 600px;
+  height: 120px;
+}
+
+.Form_Elem_Text_Area {
+width:100%;
+height:100%;
+}
+
+.Form_Elem_Tags {
+
 
 }

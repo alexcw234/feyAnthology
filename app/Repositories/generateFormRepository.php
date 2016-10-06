@@ -17,6 +17,36 @@ class generateFormRepository {
       $fieldNames = explode(',',substr($sType_decoded[0]['fieldnames'],1,-1));
       $fieldVals = explode('","',substr($sType_decoded[0]['fieldvals'],2,-2));
 
+      $precounter = 0;
+      foreach ($fieldVals as $val)
+      {
+        $valArray_temp = explode(',',$fieldVals[$precounter]);
+        if ($valArray_temp[2] == 'top')
+        {
+          $tempval = $fieldVals[$precounter];
+          unset($fieldVals[$precounter]);
+          $fieldVals = array_values($fieldVals);
+          array_unshift($fieldVals,$tempval);
+          $tempname = $fieldNames[$precounter];
+          unset($fieldNames[$precounter]);
+          $fieldNames = array_values($fieldNames);
+          array_unshift($fieldNames,$tempname);
+        }
+        else if ($valArray_temp[2] == 'bottom')
+        {
+          $tempval = $fieldVals[$precounter];
+          unset($fieldVals[$precounter]);
+          $fieldVals = array_values($fieldVals);
+          array_push($fieldVals,$tempval);
+          $tempname = $fieldNames[$precounter];
+          unset($fieldNames[$precounter]);
+          $fieldNames = array_values($fieldNames);
+          array_push($fieldNames,$tempname);
+        }
+        $precounter++;
+      }
+
+
       $form = "";
 
       $counter = 0;
@@ -35,16 +65,16 @@ class generateFormRepository {
         {
           $form = $form . " : </div>";
         }
-        $form = $form . "<div class='Form_Elem_Input ";
+        $form = $form . "<div class='Form_Elem_Wrapper ";
         switch($valArray[0]){
               case 'short':
-                $form = $form . "Form_Elem_Input_Short'>";
+                $form = $form . "Form_Elem_Wrapper_Short'>";
                 break;
               case 'long':
-                $form = $form . "Form_Elem_Input_Long'>";
+                $form = $form . "Form_Elem_Wrapper_Long'>";
                 break;
               case 'box':
-                $form = $form . "Form_Elem_Input_Box'>";
+                $form = $form . "Form_Elem_Wrapper_Box'>";
                 break;
               default:
                 break;
@@ -65,11 +95,11 @@ class generateFormRepository {
           {
                 if ($valArray[1] == 'true')
                 {
-                  $form = $form . "<input type = 'text' name='$name' ng-model='newentry.$name' required>";
+                  $form = $form . "<input class='Form_Elem_Input' type = 'text' name='$name' ng-model='newentry.$name' required>";
                 }
                 else
                 {
-                  $form = $form . "<input type = 'text' name='$name' ng-model='newentry.$name'>";
+                  $form = $form . "<input class='Form_Elem_Input' type = 'text' name='$name' ng-model='newentry.$name'>";
                 }
 
           }
