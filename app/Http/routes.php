@@ -81,6 +81,7 @@ Route::group(['middleware' => ['web']], function () {
         |
         */
         Route::post('submission/new', 'WorksController@store');
+        Route::get('reqs/construct/form/{typeID}','ContributorController@newWorkFormBlank');
 
         /*
         |--------------------------------------------------------------------------
@@ -95,11 +96,11 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::post('submission/setworkapproval', 'WorksController@setApproval');
 
-        Route::get('edit/work/{workID}','ModerationController@loadWorkToEdit');
+        Route::get('edit/work/{workID}','ModerationController@LoadWorkToEdit');
 
-        Route::post('edit/work/alter','ModerationController@editThisWork');
+        Route::post('edit/work/alter','ModerationController@EditThisWork');
 
-        Route::post('edit/work/delete','ModerationController@deleteThisWork');
+        Route::post('edit/work/delete','ModerationController@DeleteThisWork');
 
         /*
         |--------------------------------------------------------------------------

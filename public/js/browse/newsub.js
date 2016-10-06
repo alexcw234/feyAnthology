@@ -26,8 +26,6 @@ app.controller('newFormCtrl',function($scope, $http, $state) {
 
     $scope.newentry = {};
 
-
-
     $scope.typeID;
 
     $scope.submitEntry = function(tags) {
@@ -92,7 +90,6 @@ app.controller('newFormCtrl',function($scope, $http, $state) {
 
 app.controller('newFormSelect',function($scope, $http) {
 
-
       $scope.categoryType = $scope.catOptions.type;
 
       $http.get("reqs/types/showall")
@@ -115,7 +112,7 @@ app.controller('newFormSelect',function($scope, $http) {
         {
           $scope.anytype = false;
           $scope.$parent.typeID = matchedtype;
-          $scope.newForm = "forms/" + $scope.categoryType + ".html";
+          $scope.newForm = "forms/" + "newformtemplate" + ".html";
 
         }
         else
@@ -131,21 +128,50 @@ app.controller('newFormDisplay',function($scope) {
 
         $scope.display = function(type) {
 
-          $scope.newForm;
           var templatename = type.contentType;
           $scope.$parent.$parent.typeID = type.typeID;
 
           if (templatename != null)
           {
-
-          $scope.newForm = "forms/" + templatename + ".html";
+          $scope.newForm = "forms/" + "newformtemplate" + ".html";
 
           }
           else
           {
-          $scope.newForm = "forms/noselection.html";
-
+            $scope.newForm = "forms/noselection.html";
           }
         };
 
+});
+
+app.controller('generateFormController',function($scope, $http, $sce) {
+
+        var typeID = $scope.$parent.$parent.$parent.typeID;
+
+        $http.get("reqs/construct/form/" + typeID)
+          .success(function(response)
+            {
+              $scope.generatedForm = $sce.trustAsHtml(response);
+            });
+
+
+});
+
+app.directive("compileHtml", function($parse, $sce, $compile) {
+    return {
+        restrict: "A",
+        link: function (scope, element, attributes) {
+
+            var expression = $sce.parseAsHtml(attributes.compileHtml);
+
+            var getResult = function () {
+                return expression(scope);
+            };
+
+            scope.$watch(getResult, function (newValue) {
+                var linker = $compile(newValue);
+                element.append(linker(scope));
+            });
+        }
+    }
 });

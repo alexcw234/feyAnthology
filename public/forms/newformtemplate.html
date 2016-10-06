@@ -1,0 +1,29 @@
+
+
+<div ng-controller="generateFormController">
+  <div class="Form_Elem"><div class="Form_Elem_Title">
+    URL<font color="red">*</font> : </div>
+  <div class="Form_Elem_Input Form_Elem_Input_Long">
+    <input type = "text" name="Url" ng-model="newentry.URL" required>
+  </div>
+  </div>
+  <div compile-html="generatedForm"></div>
+  <div class="Form_Elem"><div class="Form_Elem_Title">
+  Tags :</div>
+    <div class="Form_Elem_Input_Tags"><tags-input ng-model="tags"></tags-input></div>
+  </div>
+  
+<!-- I have read the rules -->
+<div>
+<input type="checkbox" ng-model="newentry.Rules" required>
+I have read the rules for new submissions.<font color="red">*</font>
+</div><br>
+<!-- SUBMIT BUTTON -->
+<button ng-disabled="submission.$invalid"
+type="button" ng-click="submitEntry(tags)">
+  <span class="glyphicon glyphicon-flash"></span> Submit!
+</button>
+<button type="button" ng-click="goToState('list.table')">Back</button>
+
+<br>(<font color="red">*</font>) denotes a required field.
+</div>

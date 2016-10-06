@@ -1,25 +1,20 @@
 <!-- Table for categories where I am a contributor-->
 
-<div class="panel panel-default">
-
-      <!-- Header message -->
-      <div class="panel-heading">
-        <b>My Categories:</b>
-      </div>
-
-<div class="panel-body">
-  <div>
-    <style scoped>@import url("css/catlist.css");</style>
-
-        <form name="catForm">
-
-          <table ng-controller="catstabledisplayctrl">
+  <div class="row">
+  <form name="catForm">
+    <div class="tab-content">
+        <div class="tab-pane active">
+          <div class="table-responsive">
+          <table ng-controller="catstabledisplayctrl" class="table table-hover">
+          <thead>
           <tr>
             <th>Category</th>
             <th>Description</th>
             <th>Group</th>
             <th>Menu</th>
           </tr>
+        </thead>
+        <tbody>
           <tr ng-repeat="x in cats">
             <td>
               {{x.catName}}
@@ -35,13 +30,11 @@
               <span ng-if="x.level >= 88" ng-include="'usercp/cpmenus/cp_archivistmenu.html'"></span>
             </td>
           </tr>
-
+        </tbody>
           </table>
-
+        </div>
+      </div>
+    </div>
        </form>
 
      </div>
-
-</div>
-
-</div>

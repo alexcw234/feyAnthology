@@ -17,16 +17,20 @@
 
 <div ng-controller="myCtrl">
 
-  <div>
-    <style scoped>@import url("css/catlist.css");</style>
+  <div class="row">
 
-        <form name="catForm">
-
-          <table ng-controller="catstableCtrl">
+    <form name="catForm">
+      <div class="tab-content">
+        <div class="tab-pane active">
+          <div class="table-responsive">
+          <table ng-controller="catstableCtrl" class="table table-hover">
+            <thead>
           <tr>
             <th>Category</th>
             <th>Description</th>
           </tr>
+        </thead>
+        <tbody>
           <tr ng-repeat="x in cats">
             <td>
               <a ui-sref="list({catID: x.catID})">
@@ -35,9 +39,11 @@
             </td>
             <td>{{x.description}}</td>
           </tr>
-
+        </tbody>
           </table>
-
+        </div>
+      </div>
+    </div>
        </form>
 
     </div>
