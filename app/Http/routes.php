@@ -92,16 +92,17 @@ Route::group(['middleware' => ['web']], function () {
         |
         |
         */
-        Route::get('reqs/pending/{catID}', 'WorksController@pending');
+        Route::group(['middleware' => ['authModerator']], function() {
+          Route::get('reqs/pending/{catID}', 'WorksController@pending');
 
-        Route::post('submission/setworkapproval', 'WorksController@setApproval');
+          Route::post('submission/setworkapproval', 'WorksController@setApproval');
 
-        Route::get('edit/work/{workID}','ModerationController@LoadWorkToEdit');
+          Route::get('edit/work/{workID}','ModerationController@LoadWorkToEdit');
 
-        Route::post('edit/work/alter','ModerationController@EditThisWork');
+          Route::post('edit/work/alter','ModerationController@EditThisWork');
 
-        Route::post('edit/work/delete','ModerationController@DeleteThisWork');
-
+          Route::post('edit/work/delete','ModerationController@DeleteThisWork');
+        });
         /*
         |--------------------------------------------------------------------------
         | Archive Manager Routes
@@ -111,11 +112,14 @@ Route::group(['middleware' => ['web']], function () {
         |
         |
         */
-        Route::get('role/promote/{catID}/{userID}', 'UGCController@ContributortoMod');
+        Route::group(['middleware' => ['authManager']],function() {
+          Route::get('role/promote/{catID}/{userID}', 'UGCController@ContributortoMod');
 
-        Route::get('role/demote/{catID}/{userID}', 'UGCController@ModtoContributor');
+          Route::get('role/demote/{catID}/{userID}', 'UGCController@ModtoContributor');
 
-        Route::get('category_settings/{catID}', 'ArchiveManagerController@LoadCatSettings');
+          Route::get('category_settings/{catID}', 'ArchiveManagerController@LoadCatSettings');
+
+        });
 
         /*
         |--------------------------------------------------------------------------
