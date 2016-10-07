@@ -10,4 +10,5 @@ var app = angular.module("browseApp",
     'browseApp.workslist',
     'browseApp.search',
     'browseApp.sidebar',
+    'browseApp.moderation',
   ]);

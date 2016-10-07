@@ -26,6 +26,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'controller_l',
     })
 
+
     .state('list.searchbox',{
       url: '/search',
       views: {
@@ -44,6 +45,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 controller: 'newSubmission'
               }
         }
+    })
+
+    .state('list.editbox',{
+      url: '/edit/:workID',
+      views: {
+          'editbox' : {
+              templateUrl: 'templates/list.edit.html',
+              controller: 'editSubmission'
+          }
+      }
+
+
     })
 
     .state('list.table',{

@@ -29,11 +29,6 @@ app.controller("workslistCtrl", function($scope, $http) {
 
         });
 
-    $scope.callEdit = function($workID)
-    {
-      $http.get("edit/work/" + $workID);
-    };
-
 });
 
 /*
@@ -55,6 +50,7 @@ app.controller("workslist_permissionsCtrl", function($scope, $http) {
       });
 
 });
+
 
 
 /*

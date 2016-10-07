@@ -18,6 +18,8 @@ use App\Work;
 use DB;
 use Response;
 
+use App\Repositories\generateFormRepository as generateFormRepository;
+
 class ModerationController extends Controller
 {
     //
@@ -25,9 +27,10 @@ class ModerationController extends Controller
     * Injects repository
     *
     */
-    public function __construct(Request $request)
+    public function __construct(Request $request, generateFormRepository $generateForm)
     {
           $this->request = $request;
+          $this->generateForm = $generateForm;
     }
 
 
@@ -40,8 +43,9 @@ class ModerationController extends Controller
       {
         $selectedWork = Work::where('workID','=',$workID)->get();
 
-        //Use this for tags: https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
-        return ;
+        $returnWork = $selectedWork->toJson();
+
+        return $returnWork;
       }
 
 

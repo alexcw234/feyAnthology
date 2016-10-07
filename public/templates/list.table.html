@@ -29,7 +29,7 @@
 
               <br><br>
 
-              <button ng-if="sidebar_level > 66" class="btn btn-primary pull-right" ng-click="callEdit(item.workID)"/>Edit</button>
+              <a ng-if="sidebar_level > 66" class="btn btn-primary pull-right" ui-sref="list.editbox({workID:item.workID})"/>Edit</a>
             </div>
           </div>
 
