@@ -148,7 +148,7 @@ app.controller('generateFormController',function($scope, $http, $sce) {
 
         var typeID = $scope.$parent.$parent.$parent.typeID;
 
-        $http.get("reqs/construct/form/" + typeID)
+        $http.get("reqs/construct/form/" + typeID + "/" + $scope.$parent.$parent.$parent.catInfo.catID)
           .success(function(response)
             {
               $scope.generatedForm = $sce.trustAsHtml(response);

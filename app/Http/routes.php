@@ -80,9 +80,10 @@ Route::group(['middleware' => ['web']], function () {
         |
         |
         */
-        Route::post('submission/new', 'WorksController@store');
-        Route::get('reqs/construct/form/{typeID}','ContributorController@newWorkFormBlank');
-
+        Route::group(['middleware' => ['authContributor']], function() {
+          Route::post('submission/new', 'WorksController@store');
+          Route::get('reqs/construct/form/{typeID}/{catID}','ContributorController@newWorkFormBlank');
+        });
         /*
         |--------------------------------------------------------------------------
         | Moderator Routes
