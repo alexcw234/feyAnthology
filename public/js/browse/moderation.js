@@ -37,7 +37,7 @@ app.controller('editSubmission',function($scope, $http, $stateParams) {
 });
 
 
-app.controller('editFormCtrl',function($scope, $http, $state) {
+app.controller('editFormCtrl',function($scope, $http, $state,$stateParams) {
 
     $scope.typeID;
 
@@ -49,7 +49,7 @@ app.controller('editFormCtrl',function($scope, $http, $state) {
         var tagarray = tags;
 
         var result = {};
-
+        result['workID'] = $stateParams.workID;
 
         result['catID'] = $scope.catInfo.catID;
         result['typeID'] = $scope.typeID;
@@ -80,7 +80,7 @@ app.controller('editFormCtrl',function($scope, $http, $state) {
 
         result['tags'] = tagstring;
 
-        $http.post("submission/new", result)
+        $http.post("edit/work/alter", result)
           .success(function(response)
             {
 

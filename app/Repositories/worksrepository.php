@@ -152,6 +152,34 @@ class WorksRepository
             return $newwork;
     }
 
+    /**
+    * Updates an existing entry
+    *
+    * @return Response
+    */
+    public function update($workID, $catID, $infos, $address, $typeID, $tags, $userID)
+    {
+        foreach ($infos as $key => $value)
+        {
+            $infos[$key] = urldecode($infos[$key]);
+        }
+            $address = urldecode($address);
+
+            $updatework = Work::where('workID',$workID)->update([
+              'catID' => $catID,
+              'typeID' => $typeID,
+              'url' => $address,
+              'info' => json_encode($infos),
+              'tags' => $tags,
+              'approved' => true,
+              'appID' => $userID,
+              'appDate' => Carbon::now(),
+            ]);
+  
+            return $updatework;
+    }
+
+
 
     /**
     * Sets work approval based on ID
