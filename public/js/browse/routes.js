@@ -92,4 +92,24 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
+
+
+    .state('list.editscreen',{
+        views: {
+              'edited' : {
+              templateUrl: 'templates/list.editscreen.html',
+              }
+          }
+      })
+
+
+      .state('list.deletescreen',{
+          views: {
+                'deleted' : {
+                templateUrl: 'templates/list.deletescreen.html',
+                }
+            }
+        })
+
+
 });

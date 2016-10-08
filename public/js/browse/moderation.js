@@ -89,7 +89,7 @@ app.controller('editFormCtrl',function($scope, $http, $state,$stateParams) {
               }
               else if (response.status == 'override')
               {
-                  $state.go('list.overscreen');
+                  $state.go('list.editscreen');
               }
               else if (response.status == 'failure')
               {
@@ -120,7 +120,7 @@ app.controller('deleteCtrl',function($scope, $http, $state,$stateParams) {
               }
               else if (response.status == 'override')
               {
-                  $state.go('list.overscreen');
+                  $state.go('list.deletescreen');
               }
               else if (response.status == 'failure')
               {
