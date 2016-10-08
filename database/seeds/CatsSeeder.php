@@ -25,7 +25,7 @@ class CatsSeeder extends Seeder
 
       DB::table('categories')->insert([
         'catName' => 'Stories',
-        'description' => 'Narumayo Stories',
+        'description' => 'Stories about this stuff',
         'options' => json_encode(array
         (
           'type' => 'Story',
@@ -34,9 +34,10 @@ class CatsSeeder extends Seeder
           )
         ),
       ]);
+      
       DB::table('categories')->insert([
         'catName' => 'Art',
-        'description' => 'Narumayo Art',
+        'description' => 'Art about this stuff',
         'options' => json_encode(array
         (
           'type' => 'Art',
@@ -47,7 +48,7 @@ class CatsSeeder extends Seeder
       ]);
       DB::table('categories')->insert([
         'catName' => 'Blogs',
-        'description' => 'Narumayo Blogs',
+        'description' => 'Blogs about this stuff',
         'options' => json_encode(array
         (
           'type' => 'Blog',
@@ -58,7 +59,7 @@ class CatsSeeder extends Seeder
       ]);
       DB::table('categories')->insert([
         'catName' => 'Websites',
-        'description' => 'Narumayo Sites',
+        'description' => 'Websites about this stuff',
         'options' => json_encode(array
         (
           'type' => 'Website',
@@ -70,7 +71,7 @@ class CatsSeeder extends Seeder
 
       DB::table('categories')->insert([
         'catName' => 'Videos',
-        'description' => 'Narumayo Videos',
+        'description' => 'Videos about this stuff',
         'options' => json_encode(array
         (
           'type' => 'Video',

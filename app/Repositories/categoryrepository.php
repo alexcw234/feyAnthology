@@ -26,16 +26,22 @@ class CategoryRepository {
 
   public function getglobalCPTable($userID, $globalobject)
   {
-    $categorylisting = Category::join('usersgroupscats','categories.catID','=','usersgroupscats.catID', 'left outer')
-    ->join('groups','usersgroupscats.groupID','=','groups.groupID', 'left outer')
-    ->select('categories.catID','catName','description','groups.groupName','level')
-    ->wherenull('userID')->orwhere('userID','=',$userID)->where('categories.catID','>',1)
-    ->orderBy('groups.groupName','ASC')->orderBy('categories.catID','ASC')
+    $categorylisting = Category::select('categories.catID','categories.catName','categories.description')
+    ->where('categories.catID','>',1)
+    ->orderBy('categories.catID','ASC')
     ->get();
+
+    $groupslisting = Category::distinct()->join('usersgroupscats','categories.catID','=','usersgroupscats.catID', 'left outer')
+    ->join('groups','usersgroupscats.groupID','=','groups.groupID', 'left outer')
+    ->select('categories.catID','categories.catName','categories.description','groups.groupName','level')
+    ->where('usersgroupscats.userID','=',$userID)->where('categories.catID','>',1)
+    ->orderBy('level','ASC')->get();
+
+    $categorylisting = $categorylisting->merge($groupslisting);
 
     $globallevel = $globalobject->pluck('level')->first();
 
-    $modifiedlisting = $categorylisting->map(function ($row, $key) use ($globallevel)
+    $modifiedlisting = $categorylisting->map(function ($row, $key) use ($globallevel, $userID)
     {
 
           if ($row['groupName'] != null)
