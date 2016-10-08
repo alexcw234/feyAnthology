@@ -119,4 +119,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
               }
             })
 
+
+            .state('controls.managecategory',{
+              url: '/managecategory/:catID',
+              views: {
+                    'categorymanagermenu' : {
+                        templateUrl: 'usercp/cppages/cp_categorymanagerpage.html',
+                        controller: 'managecategoryctrl'
+                      }
+                }
+              })
+
 });

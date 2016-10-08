@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+
+      <!-- Header message -->
+      <div class="panel-heading">
+        <b>Category Settings:</b>
+      </div>
+
+<div class="panel-body">
+  <div ng-if="level < 77">
+    You don't have permission to view this.
+  </div>
+  <div ng-if="level >= 77">
+
+    <div>
+          <form name="catform">
+            <div class="Form_Elem">
+              <div class="Form_Elem_Title">Name:</div>
+              <div class="Form_Elem_Wrapper Form_Elem_Wrapper_Short">
+                  <input class="Form_Elem_Input" ng-model="settings.catName"></input
+                </div>
+            </div>
+            <div class="Form_Elem">
+              <div class="Form_Elem_Title">Description:</div>
+              <div class="Form_Elem_Wrapper Form_Elem_Wrapper_Box">
+                  <textarea class="Form_Elem_Text_Area" ng-model="settings.catDescription"></textarea>
+                </div>
+            </div>
+            <div style="margin:20px"></div>
+          <button type="button" class="btn btn-primary" ng-click="change();">
+            Submit Changes</button>
+            <button type="button" class="btn btn-secondary" ng-click="back();">
+              Cancel</button>
+         </form>
+       </div>
+     </div>
+
+   </div>
+  </div>

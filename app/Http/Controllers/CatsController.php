@@ -41,7 +41,7 @@ class CatsController extends Controller
   public function index()
   {
       $allCats = DB::table('categories')->select('catID','catName','description','options')
-      ->where('catID', '>', 1)->get();
+      ->where('catID', '>', 1)->orderBy('catID')->get();
       return Response::json($allCats);
   }
 

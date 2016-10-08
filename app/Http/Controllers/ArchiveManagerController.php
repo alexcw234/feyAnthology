@@ -30,16 +30,26 @@ class ArchiveManagerController extends Controller
 
 
   /**
-  * Loads settings for the specified category
+  * Saves settings for the specified category
   *
   * @return Response
   */
-  public function LoadCatSettings($catID)
+  public function SaveCatSettings($catID)
   {
+      $status = json_encode(['status' => 'failure']);
+      $catName = $this->request->get('catName');
+      $catDescription = $this->request->get('catDescription');
 
-
-
-
+      $successful = Category::where('catID',$catID)
+      ->update([
+        'catName' => $catName,
+        'description' => $catDescription,
+        ]);
+      if ($successful)
+      {
+        $status = json_encode(['status' => 'success']);
+      }
+      return $status;
   }
 
 

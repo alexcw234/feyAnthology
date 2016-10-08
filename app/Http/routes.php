@@ -118,7 +118,7 @@ Route::group(['middleware' => ['web']], function () {
 
           Route::get('role/demote/{catID}/{userID}', 'UGCController@ModtoContributor');
 
-          Route::get('category_settings/{catID}', 'ArchiveManagerController@LoadCatSettings');
+          Route::post('save/settings/{catID}', 'ArchiveManagerController@SaveCatSettings');
 
         });
 
