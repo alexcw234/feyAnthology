@@ -124,6 +124,16 @@ Route::group(['middleware' => ['web']], function () {
 
         /*
         |--------------------------------------------------------------------------
+        | Administrator Routes
+        |--------------------------------------------------------------------------
+        | Controllers called by these routes are only available to site administrators.
+        |
+        |
+        */
+
+
+        /*
+        |--------------------------------------------------------------------------
         | SuperAdministrator Routes
         |--------------------------------------------------------------------------
         | Controllers called by these routes are only available to the superadmin.
@@ -136,6 +146,8 @@ Route::group(['middleware' => ['web']], function () {
               return view('superpanel');
           });
           Route::get('/userperms', 'AdminPanelController@userperms_getmenu');
+
+          Route::get('/sitesettings','AdminPanelController@');
 
           Route::post('/super/confirmthis', 'AdminPanelController@userperms_getselection');
 

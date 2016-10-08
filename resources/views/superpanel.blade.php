@@ -10,7 +10,9 @@
                 <div class="panel-body">
                   @if (Auth::user()->globalID == 1)
                     <a href="{{ url('/userperms') }}">Change User Permissions</a>
+                    <a href="{{url('/sitesettings')}}">Site Settings</a>
                   @endif
+
                 </div>
             </div>
         </div>
