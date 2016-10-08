@@ -5,9 +5,22 @@
 @if (Auth::user()->globalID == 1)
 
 
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+
+          @if ((Session::has('success')))
+          <div class="alert bg-success">
+          {!! Session::get('success') !!}
+          </div>
+          @endif
+          @if ((Session::has('error')))
+          <div class="alert bg-danger">
+          {!! Session::get('error') !!}
+          </div>
+          @endif
+
             <div class="panel panel-default">
                 <div class="panel-heading">Site Settings</div>
                 <div class="panel-body">
@@ -46,10 +59,9 @@
                                 </div>
 
                                 <div style="margin:20px"></div>
-                              <button type="button" class="btn btn-success pull-right">
-                                Submit Changes</button>
-                                <button type="button" class="btn btn-secondary pull-right">
-                                  Cancel</button>
+                              <input type="submit" class="btn btn-success pull-right">
+                                </input>
+                                <a href="{{ url('/superpanel') }}" class="btn btn-secondary pull-rigth">Cancel</a>
                              </form>
                            </div>
                   </p>

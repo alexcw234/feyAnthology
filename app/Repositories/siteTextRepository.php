@@ -29,6 +29,12 @@ class siteTextRepository {
 
   }
 
+  public function loadOptions($defaultCat)
+  {
+    $options = json_decode($defaultCat[0]['options'],true);
+    return $options;
+  }
+
   public function loadUpdates($defaultCat)
   {
     $options = json_decode($defaultCat[0]['options'],true);

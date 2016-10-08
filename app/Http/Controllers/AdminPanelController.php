@@ -8,6 +8,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
+use Purifier;
 
 use App\UGC;
 use App\Group;
@@ -276,18 +277,40 @@ class AdminPanelController extends Controller
     */
     public function sitesettings_save()
     {
-      $header = $this->request->get('header');
+      $headertext = $this->request->get('header');
       $frontpage_description = $this->request->get('frontpage_description');
       $updates = $this->request->get('updates');
       $about = $this->request->get('about');
 
-      return view('sitesettings_super')->with('updates',$updates)
-      ->with('about',$about);
+      $defaultCat = $this->siteText->loadDefault();
+      $options = $this->siteText->loadOptions($defaultCat);
+
+      $options['updates'] = $updates;
+      $options['aboutpage_description'] = $about;
+      $options['frontpage_description'] = $frontpage_description;
+
+      $update = Category::where('catID',1)->update([
+          'description' => $headertext,
+          'options' => json_encode($options),
+      ]);
+
+      if ($update)
+      {
+        return redirect('sitesettings')
+        ->with('success',"Operation Successful!");
+      }
+      else
+      {
+        return redirect('sitesettings')
+        ->with('error',"Error");
+      }
+
     }
 
-    private function sanitizeHTMLTags($input)
+    public function purify($input)
     {
-      
+      Purifier::clean($input);
+      echo $input;
     }
 
 
