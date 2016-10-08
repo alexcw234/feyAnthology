@@ -11,4 +11,5 @@ var app = angular.module("browseApp",
     'browseApp.search',
     'browseApp.sidebar',
     'browseApp.moderation',
+    'angularUtils.directives.dirPagination',
   ]);

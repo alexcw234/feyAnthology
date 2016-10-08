@@ -8,7 +8,7 @@
     <!--Angular scripts-->
       <script src="bower_components/angular/angular.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-
+      <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
 
     <!-- Angular plugins-->
       <script type="text/javascript" src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>

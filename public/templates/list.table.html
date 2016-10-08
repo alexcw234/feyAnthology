@@ -1,12 +1,15 @@
+
 <div class="panel panel-default">
 <div class="panel-heading"><div ng-controller="header">
         <b>Your results...</b>
   </div>
 </div>
 </div>
-
-<div ng-controller="workslistCtrl">
-    <div ng-repeat="item in works">
+<div class="text-center">
+<dir-pagination-controls ></dir-pagination-controls>
+</div>
+<div class="paginatethis" ng-controller="workslistCtrl">
+    <div class="paginatethis_item" dir-paginate="item in works | itemsPerPage: 5">
       <div class="panel panel-default">
 
           <div class="panel-heading">
@@ -36,4 +39,7 @@
 
       </div>
     </div>
+</div>
+<div class="text-center">
+<dir-pagination-controls ></dir-pagination-controls>
 </div>
