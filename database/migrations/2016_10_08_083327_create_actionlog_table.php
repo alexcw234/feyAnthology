@@ -12,8 +12,8 @@ class CreateActionlogTable extends Migration
      */
     public function up()
     {
-  
-      });
+
+    
     }
 
     /**

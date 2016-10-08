@@ -18,7 +18,7 @@ use DB;
 use Response;
 
 
-
+use App\Repositories\siteTextRepository as siteTextRepository;
 
 class AdminPanelController extends Controller
 {
@@ -26,9 +26,10 @@ class AdminPanelController extends Controller
   * Injects repository
   *
   */
-  public function __construct(Request $request)
+  public function __construct(Request $request, siteTextRepository $siteText)
   {
         $this->request = $request;
+        $this->siteText = $siteText;
   }
 
   /**
@@ -249,5 +250,40 @@ class AdminPanelController extends Controller
       }
 
     }
+
+    /**
+    * Gets data for the site settings menu.
+    *
+    * @return Response
+    */
+    public function sitesettings_getmenu()
+    {
+      $defaultCat = $this->siteText->loadDefault();
+      $headertext = $this->siteText->loadHeader($defaultCat);
+      $frontpage_description = $this->siteText->loadFront($defaultCat);
+      $updates = $this->siteText->loadUpdates($defaultCat);
+      $about = $this->siteText->loadAbout($defaultCat);
+
+      return view('sitesettings')->with('headertext',$headertext)
+      ->with('frontpage_description',$frontpage_description)
+      ->with('updates',$updates)->with('about',$about);
+    }
+
+    /**
+    * Gets data for the site settings menu.
+    *
+    * @return Response
+    */
+    public function sitesettings_getaboutandupdates()
+    {
+      $defaultCat = $this->siteText->loadDefault();
+      $updates = $this->siteText->loadUpdates($defaultCat);
+      $about = $this->siteText->loadAbout($defaultCat);
+
+      return view('sitesettings_super')->with('updates',$updates)
+      ->with('about',$about);
+    }
+
+
 
 }

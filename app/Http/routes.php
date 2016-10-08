@@ -147,7 +147,7 @@ Route::group(['middleware' => ['web']], function () {
           });
           Route::get('/userperms', 'AdminPanelController@userperms_getmenu');
 
-          Route::get('/sitesettings','AdminPanelController@');
+          Route::get('/sitesettings','AdminPanelController@sitesettings_getmenu');
 
           Route::post('/super/confirmthis', 'AdminPanelController@userperms_getselection');
 

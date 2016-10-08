@@ -9,8 +9,11 @@
                 <div class="panel-heading">Admin Control Panel</div>
                 <div class="panel-body">
                   @if (Auth::user()->globalID == 1)
-                    <a href="{{ url('/userperms') }}">Change User Permissions</a>
-                    <a href="{{url('/sitesettings')}}">Site Settings</a>
+                  <h4>Options:</h4>
+                  <ul>
+                    <li><a href="{{ url('/userperms') }}">Change User Permissions</a></li>
+                    <li><a href="{{url('/sitesettings')}}">Site Settings</a></li>
+                  </ul>
                   @endif
 
                 </div>
