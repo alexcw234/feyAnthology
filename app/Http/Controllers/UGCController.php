@@ -8,6 +8,8 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
+use App\UGC;
+
 use App\Repositories\UGCRepository as UGCRepository;
 use App\Repositories\UserRepository as UserRepository;
 
@@ -116,29 +118,28 @@ class UGCController extends Controller
 
     }
 
-
-
-
-
-    /**
-   * Will display selection of works.
-   *
-   * @return Response
-   */
-  public function index($catID)
-  {
-    //$this->ugc->setGroup($catID, 3, 6);
-  }
-
-
   /**
-   * Show the form for creating a new resource.
+   * Adds User to category
    *
    * @return Response
    */
-  public function create()
+  public function join_cat($catID)
   {
-      //
+      $userID = Auth::user()->userID;
+
+      $exists = UGC::where('catID',$catID)->where('userID',$userID)->count();
+
+      if ($exists == 0)
+      {
+          $newUGC = UGC::create([
+            'userID' => $userID,
+            'catID' => $catID,
+          ]);
+          $newUGC->groupID = 6;
+          $newUGC->save();
+          return $newUGC;
+      
+      }
   }
 
   /**

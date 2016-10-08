@@ -69,7 +69,7 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::get('reqs/cats/mycats', 'CatsController@userCP_index');
 
-
+        Route::get('join/cat/{catID}','UGCController@join_cat');
 
         /*
         |--------------------------------------------------------------------------

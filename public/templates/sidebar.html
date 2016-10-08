@@ -23,7 +23,7 @@
     <li><a href="" ng-click="goToState('list.searchbox')">Search</a></li>
     <li ng-if="sidebar_level > 44"><a href="" ng-click="goToState('list.newbox')">Contribute</a></li>
 <!--    <li ng-if="sidebar_level > 66"><a href="">Mod Controls</a></li> -->
-    <li ng-if="sidebar_level == 44"><a href="">Become a contributor.</a></li>
+    <li ng-if="sidebar_level == 44"><a href="" ng-click="joinCategory(); reloadPage()">Become a contributor.</a></li>
     <li ng-if="sidebar_level == 33"><font color="red">Your permissions have been limited in this category.</font></li>
     <li ng-if="sidebar_level == 22"><font color="red">You have been banned from contributing to this category.</font></li>
 
