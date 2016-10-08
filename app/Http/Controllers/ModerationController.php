@@ -82,4 +82,16 @@ class ModerationController extends Controller
     return $result;
    }
 
+    /**
+    * Deletes the selected work
+    */
+    public function DeleteThisWork()
+    {
+      $result = json_encode(['status' => 'override']);
+      $workID = $this->request->get('workID');
+      Work::where('workID',$workID)->delete();
+      return $result;
+
+    }
+
 }

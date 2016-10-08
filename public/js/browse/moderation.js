@@ -36,7 +36,6 @@ app.controller('editSubmission',function($scope, $http, $stateParams) {
       });
 });
 
-
 app.controller('editFormCtrl',function($scope, $http, $state,$stateParams) {
 
     $scope.typeID;
@@ -100,5 +99,36 @@ app.controller('editFormCtrl',function($scope, $http, $state,$stateParams) {
             });
 
     };
+
+});
+
+
+app.controller('deleteCtrl',function($scope, $http, $state,$stateParams) {
+
+    $scope.deleteEntry = function() {
+        result = {}
+        workID = $stateParams.workID;
+        result['workID'] = workID;
+
+        $http.post("edit/work/delete", result)
+          .success(function(response)
+            {
+
+              if (response.status == 'success')
+              {
+                  $state.go('list.addscreen');
+              }
+              else if (response.status == 'override')
+              {
+                  $state.go('list.overscreen');
+              }
+              else if (response.status == 'failure')
+              {
+                  $state.go('list.failscreen');
+              }
+
+            });
+
+    }
 
 });
