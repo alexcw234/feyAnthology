@@ -158,6 +158,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Bosnadev\Database\DatabaseServiceProvider::class,
+        Mews\Purifier\PurifierServiceProvider::class,
     ],
 
     /*
@@ -204,6 +205,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
     ],
 
 ];

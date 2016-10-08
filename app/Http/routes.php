@@ -149,6 +149,8 @@ Route::group(['middleware' => ['web']], function () {
 
           Route::get('/sitesettings','AdminPanelController@sitesettings_getmenu');
 
+          Route::post('/super/SaveSiteSettings','AdminPanelController@sitesettings_save');
+
           Route::post('/super/confirmthis', 'AdminPanelController@userperms_getselection');
 
           Route::post('/super/change/user/role', 'AdminPanelController@SuperAlterUGC');

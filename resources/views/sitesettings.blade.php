@@ -14,34 +14,34 @@
                   <p>
                         <div>
                           <h4>Edit the site's text:</h4>
-                              <form name="settingsForm">
-
+                              <form name="settingsForm" method="POST" action="{{ url('super/SaveSiteSettings') }}">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="Form_Elem">
                                   <div data-toggle="collapse" data-target="#header" class="btn btn-primary Form_Elem_Title">Header Text:</div>
 
                                   <div id="header" class="collapse Form_Elem_Wrapper Form_Elem_Wrapper_Long">
-                                      <input class="Form_Elem_Input" value="{{$headertext}}"></input>
+                                      <input class="Form_Elem_Input" name="header" value="{{$headertext}}"></input>
                                     </div>
                                 </div>
 
                                 <div class="Form_Elem">
                                   <div data-toggle="collapse" data-target="#description" class="btn btn-primary Form_Elem_Title">Front Page Text (HTML):</div>
                                   <div id="description" class="collapse Form_Elem_Wrapper Form_Elem_Wrapper_VLarge">
-                                      <textarea class="Form_Elem_Text_Area">{{$frontpage_description}}</textarea>
+                                      <textarea name="frontpage_description" class="Form_Elem_Text_Area">{{$frontpage_description}}</textarea>
                                     </div>
                                 </div>
 
                                 <div class="Form_Elem">
                                   <div data-toggle="collapse" data-target="#about" class="btn btn-primary Form_Elem_Title">About Page Text (HTML):</div>
                                   <div id="about" class="collapse Form_Elem_Wrapper Form_Elem_Wrapper_VLarge">
-                                      <textarea class="Form_Elem_Text_Area">{{$about}}</textarea>
+                                      <textarea name="about" class="Form_Elem_Text_Area">{{$about}}</textarea>
                                     </div>
                                 </div>
 
                                 <div class="Form_Elem">
                                   <div data-toggle="collapse" data-target="#updates" class="btn btn-primary Form_Elem_Title">Updates Page Text (HTML):</div>
                                   <div id="updates" class="collapse Form_Elem_Wrapper Form_Elem_Wrapper_VLarge">
-                                      <textarea class="Form_Elem_Text_Area">{{$updates}}</textarea>
+                                      <textarea name="updates"class="Form_Elem_Text_Area">{{$updates}}</textarea>
                                     </div>
                                 </div>
 

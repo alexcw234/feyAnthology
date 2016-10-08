@@ -270,18 +270,24 @@ class AdminPanelController extends Controller
     }
 
     /**
-    * Gets data for the site settings menu.
+    * Saves the site settings.
     *
     * @return Response
     */
-    public function sitesettings_getaboutandupdates()
+    public function sitesettings_save()
     {
-      $defaultCat = $this->siteText->loadDefault();
-      $updates = $this->siteText->loadUpdates($defaultCat);
-      $about = $this->siteText->loadAbout($defaultCat);
+      $header = $this->request->get('header');
+      $frontpage_description = $this->request->get('frontpage_description');
+      $updates = $this->request->get('updates');
+      $about = $this->request->get('about');
 
       return view('sitesettings_super')->with('updates',$updates)
       ->with('about',$about);
+    }
+
+    private function sanitizeHTMLTags($input)
+    {
+      
     }
 
 
