@@ -8,6 +8,7 @@ use App\Group;
 use App\Category;
 use DB;
 use Response;
+use Purifier;
 
 class siteTextRepository {
 
@@ -38,26 +39,34 @@ class siteTextRepository {
   public function loadUpdates($defaultCat)
   {
     $options = json_decode($defaultCat[0]['options'],true);
-    return $options['updates'];
+    return $this->purify($options['updates']);
   }
 
   public function loadAbout($defaultCat)
   {
     $options = json_decode($defaultCat[0]['options'],true);
-    return $options['aboutpage_description'];
+    return $this->purify($options['aboutpage_description']);
   }
 
   public function loadFront($defaultCat)
   {
     $options = json_decode($defaultCat[0]['options'],true);
-    return $options['frontpage_description'];
+    return $this->purify($options['frontpage_description']);
   }
 
   public function loadRules($defaultCat)
   {
     $options = json_decode($defaultCat[0]['options'],true);
-    return $options['rules'];
+    return $this->purify($options['rules']);
   }
+
+
+      public function purify($input)
+      {
+        $input = Purifier::clean($input);
+        return $input;
+      }
+
 
 
 

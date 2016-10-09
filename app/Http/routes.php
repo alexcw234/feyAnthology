@@ -166,14 +166,18 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'web' ], function () {
     Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/home', 'HomeController@home');
 
     Route::get('/browse', function () {
         return view('browse');
     });
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/', 'HomeController@index');
+    
+    Route::get('/about','HomeController@about');
+    Route::get('/rules','HomeController@rules');
+    Route::get('/updates','HomeController@updates');
+
+
 
 });

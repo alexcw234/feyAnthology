@@ -8,7 +8,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-use Purifier;
+
 
 use App\UGC;
 use App\Group;
@@ -311,11 +311,6 @@ class AdminPanelController extends Controller
 
     }
 
-    public function purify($input)
-    {
-      Purifier::clean($input);
-      echo $input;
-    }
 
 
 
