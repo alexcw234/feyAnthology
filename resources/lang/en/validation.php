@@ -95,6 +95,10 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'captcha' => [
+            'captcha' => 'Please type the correct text.',
+        ],
+
     ],
 
     /*

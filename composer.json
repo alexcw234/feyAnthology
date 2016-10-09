@@ -8,7 +8,9 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "bosnadev/database": " 0.*",
-         "mews/purifier": "~2.0"
+         "mews/purifier": "~2.0",
+        "mews/captcha": "^2.1"
+
 
     },
     "require-dev": {

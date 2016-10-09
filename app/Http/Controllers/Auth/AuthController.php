@@ -56,6 +56,7 @@ class AuthController extends Controller
             'username' => 'required|max:50|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'captcha' => 'required|captcha',
         ]);
     }
 
