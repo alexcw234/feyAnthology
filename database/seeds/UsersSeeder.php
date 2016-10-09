@@ -15,26 +15,11 @@ class UsersSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         User::create([
-            'username' => 'Admin',
+            'username' => 'Superadmin',
             'email' => 'feyanthology@gmail.com',
-            'password' => bcrypt('test'),
+            'password' => bcrypt('changethispassword'),
             'globalID' => 1,
         ]);
-
-        User::create([
-            'username' => 'Moderator',
-            'email' => 'mod@mod.com',
-            'password' => bcrypt('Moderator'),
-            'globalID' => 7,
-        ]);
-
-        User::create([
-            'username' => 'Contributor',
-            'email' => 'contributor@contributor.com',
-            'password' => bcrypt('Contributor'),
-            'globalID' => 7,
-        ]);
-
 
     }
 }

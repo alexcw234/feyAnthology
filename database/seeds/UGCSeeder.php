@@ -21,23 +21,5 @@ class UGCSeeder extends Seeder
 
       ]);
 
-        //6cat moderator , global
-        DB::table('usersgroupscats')->insert([
-
-          'userID' => 2,
-          'catID' => 1,
-          'groupID' => 7,
-
-        ]);
-
-        //8contributor global
-        DB::table('usersgroupscats')->insert([
-
-          'userID' => 3,
-          'catID' => 1,
-          'groupID' => 7,
-
-        ]);
-
     }
 }
