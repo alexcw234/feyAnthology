@@ -58,6 +58,13 @@
                                     </div>
                                 </div>
 
+                                <div class="Form_Elem">
+                                  <div data-toggle="collapse" data-target="#rules" class="btn btn-primary Form_Elem_Title">Rules Text (HTML):</div>
+                                  <div id="rules" class="collapse Form_Elem_Wrapper Form_Elem_Wrapper_VLarge">
+                                      <textarea name="rules"class="Form_Elem_Text_Area">{{$rules}}</textarea>
+                                    </div>
+                                </div>
+
                                 <div style="margin:20px"></div>
                               <input type="submit" class="btn btn-success pull-right">
                                 </input>

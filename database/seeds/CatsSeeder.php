@@ -35,6 +35,7 @@ class CatsSeeder extends Seeder
             </ul>
           </p>
           <a href="{{ url(\'/browse\') }}">Browse the database</a>',
+          'rules' => 'Rules go Here!',
           )
         ),
       ]);

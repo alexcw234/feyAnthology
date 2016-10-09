@@ -65,6 +65,9 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/browse') }}">Browse</a></li>
+                    <li><a href="{{ url('/about') }}">About this project</a></li>
+                    <li><a href="{{ url('/updates') }}">Updates</a></li>
+                    <li><a href="{{ url('/rules') }}">Rules</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -89,6 +92,7 @@
                         </li>
                     @endif
                 </ul>
+
             </div>
         </div>
     </nav>

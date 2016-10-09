@@ -53,6 +53,12 @@ class siteTextRepository {
     return $options['frontpage_description'];
   }
 
+  public function loadRules($defaultCat)
+  {
+    $options = json_decode($defaultCat[0]['options'],true);
+    return $options['rules'];
+  }
+
 
 
 

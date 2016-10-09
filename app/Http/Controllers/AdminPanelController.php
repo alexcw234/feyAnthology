@@ -264,10 +264,12 @@ class AdminPanelController extends Controller
       $frontpage_description = $this->siteText->loadFront($defaultCat);
       $updates = $this->siteText->loadUpdates($defaultCat);
       $about = $this->siteText->loadAbout($defaultCat);
+      $rules = $this->siteText->loadRules($defaultCat);
 
       return view('sitesettings')->with('headertext',$headertext)
       ->with('frontpage_description',$frontpage_description)
-      ->with('updates',$updates)->with('about',$about);
+      ->with('updates',$updates)->with('about',$about)
+      ->with('rules',$rules);
     }
 
     /**
@@ -281,6 +283,7 @@ class AdminPanelController extends Controller
       $frontpage_description = $this->request->get('frontpage_description');
       $updates = $this->request->get('updates');
       $about = $this->request->get('about');
+      $rules = $this->request->get('rules');
 
       $defaultCat = $this->siteText->loadDefault();
       $options = $this->siteText->loadOptions($defaultCat);
@@ -288,6 +291,7 @@ class AdminPanelController extends Controller
       $options['updates'] = $updates;
       $options['aboutpage_description'] = $about;
       $options['frontpage_description'] = $frontpage_description;
+      $options['rules'] = $rules;
 
       $update = Category::where('catID',1)->update([
           'description' => $headertext,
