@@ -64,10 +64,11 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/browse') }}">Browse</a></li>
-                    <li><a href="{{ url('/about') }}">About this project</a></li>
-                    <li><a href="{{ url('/updates') }}">Updates</a></li>
+                    <li><a href="{{ url('/browse') }}">Browse Database</a></li>
                     <li><a href="{{ url('/rules') }}">Rules</a></li>
+                    <li><a href="{{ url('/updates') }}">Updates</a></li>
+                    <li><a href="{{ url('/about') }}">About this project</a></li>
+                    
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -96,6 +97,8 @@
             </div>
         </div>
     </nav>
+
+
 
     @yield('content')
 

@@ -165,6 +165,10 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => 'web' ], function () {
     Route::auth();
+    Route::get('/', 'NavController@index');
+    Route::get('/about','NavController@about');
+    Route::get('/rules','NavController@rules');
+    Route::get('/updates','NavController@updates');
 
     Route::get('/home', 'HomeController@home');
 
@@ -172,11 +176,9 @@ Route::group(['middleware' => 'web' ], function () {
         return view('browse');
     });
 
-    Route::get('/', 'HomeController@index');
-    
-    Route::get('/about','HomeController@about');
-    Route::get('/rules','HomeController@rules');
-    Route::get('/updates','HomeController@updates');
+
+
+
 
 
 

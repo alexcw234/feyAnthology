@@ -159,6 +159,7 @@ return [
 
         Bosnadev\Database\DatabaseServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
+
     ],
 
     /*
@@ -206,6 +207,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
+        
     ],
 
 ];

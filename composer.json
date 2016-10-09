@@ -9,6 +9,7 @@
         "laravel/framework": "5.2.*",
         "bosnadev/database": " 0.*",
          "mews/purifier": "~2.0"
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
