@@ -1,0 +1,4 @@
+
+[ajax-cloak], [data-ajax-cloak], [x-ajax-cloak], .ajax-cloak {
+  display: none !important;
+}
