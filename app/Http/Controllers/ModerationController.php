@@ -64,7 +64,7 @@ class ModerationController extends Controller
         $userID = Auth::user()->userID;
 
         $input = $this->request->getContent();
-        $infos = $this->request->except('typeID','tags', 'URL', 'Rules', 'catID');
+        $infos = $this->request->except('workID','typeID','tags', 'URL', 'Rules', 'catID');
 
         $workID = $this->request->get('workID');
         $catID = $this->request->get('catID');
