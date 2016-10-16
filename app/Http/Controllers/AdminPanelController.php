@@ -42,7 +42,7 @@ class AdminPanelController extends Controller
   {
 
     $users = DB::table('users')->select('userID','username', 'globalID')->orderBy('username')->get();
-    $categories = DB::table('categories')->select('catID','catName')->get();
+    $categories = DB::table('categories')->select('catID','catName')->orderBy('catID')->get();
     $groups = DB::table('groups')->select('groupID','groupName','level')->where('groupName','!=','superadmin')->get();
 
     return view('groupspanel')->with('users',$users)->with('categories', $categories)->with('groups',$groups);
