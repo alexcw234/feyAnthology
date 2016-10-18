@@ -67,8 +67,11 @@ public function store()
         $infos = $this->request->except('typeID','tags', 'URL', 'Rules', 'catID');
         $catID = $this->request->get('catID');
         $address = $this->request->get('URL');
-        $tags = $this->request->get('tags');
+        $tagsArray = $this->request->get('tags');
         $typeID = $this->request->get('typeID');
+
+        $tags = '';
+
 
         $netlvl = $this->ugc->getNetlvl($catID, $userID);
         if ($netlvl > 55)
@@ -82,8 +85,8 @@ public function store()
             $result = json_encode(['status' => 'success']);
         }
 
+        return $result;
 
-    return $result;
 }
 
 

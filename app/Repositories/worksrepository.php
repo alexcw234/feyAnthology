@@ -175,7 +175,7 @@ class WorksRepository
               'appID' => $userID,
               'appDate' => Carbon::now(),
             ]);
-  
+
             return $updatework;
     }
 

@@ -47,23 +47,7 @@ app.controller('newFormCtrl',function($scope, $http, $state) {
         }
 
 
-
-        var tagstring = '';
-
-        for (i in tagarray) {
-
-          tagjson = tagarray[i];
-
-          for (key in tagjson)
-          {
-
-
-            tagstring += '"' + tagjson[key] + '" => "default",';
-          }
-        }
-        tagstring = tagstring.slice(0,-1);
-
-        result['tags'] = tagstring;
+        result['tags'] = tagarray;
 
         $http.post("submission/new", result)
           .success(function(response)
