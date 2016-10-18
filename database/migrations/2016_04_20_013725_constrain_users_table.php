@@ -3,6 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
 class ConstrainUsersTable extends Migration
 {
     /**
@@ -19,6 +20,7 @@ class ConstrainUsersTable extends Migration
             $table->foreign('globalID')->references('groupID')->on('groups');
 
         });
+
     }
 
     /**

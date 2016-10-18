@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password',
+        'username', 'email', 'password','username_lower','email_lower',
     ];
 
     protected $dates = ['deleted_at'];
@@ -30,6 +30,25 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Mutator for entering the username_lower column
+     *
+     * @var array
+     */
+     public function setUsernameLowerAttribute ($value)
+     {
+        $this->attributes['username_lower'] = mb_strtolower($value,'UTF-8');
+     }
+
+     /**
+      * Mutator for entering the email_lower column
+      *
+      * @var array
+      */
+      public function setEmailLowerAttribute ($value)
+      {
+        $this->attributes['email_lower'] = mb_strtolower($value,'UTF-8');
+      }
 
     /*
     *     Relationship: Has many Work:subID

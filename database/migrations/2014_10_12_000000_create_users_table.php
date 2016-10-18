@@ -16,6 +16,8 @@ class CreateUsersTable extends Migration
             $table->increments('userID');
             $table->string('username',50)->unique();
             $table->string('email')->unique();
+            $table->string('username_lower',50)->unique();
+            $table->string('email_lower')->unique();
             $table->string('password');
             $table->rememberToken();
 
@@ -27,6 +29,7 @@ class CreateUsersTable extends Migration
 
 
         });
+
     }
 
     /**
@@ -37,5 +40,7 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::drop('users');
+
+
     }
 }
