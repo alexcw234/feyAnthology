@@ -7,6 +7,7 @@ app.controller("workslistCtrl", function($scope, $http) {
 
 
     var query = '';
+    $scope.works = {};
 
     if ($scope.querystring != null) {
         query += '?' + encodeURI($scope.querystring);
@@ -25,10 +26,49 @@ app.controller("workslistCtrl", function($scope, $http) {
               $scope.works[i].tags = $scope.works[i].tags.split(",");
 
               $scope.works[i].info = JSON.parse($scope.works[i].info);
+
+              $scope.works[i].shown = true;
+
             }
 
 
         });
+
+
+    $scope.narrowSearchToInfo = function(field,info)
+    {
+      for (i in $scope.works)
+      {
+          if ($scope.works[i].info[field] != info)
+          {
+            $scope.works[i].shown = false;
+          }
+      }
+
+    };
+
+    $scope.narrowSearchToTag = function(tag)
+    {
+      for (i in $scope.works)
+      {
+        found = false;
+        for (j in $scope.works[i].tags)
+        {
+          if ($scope.works[i].tags[j] == tag)
+          {
+            found = true;
+
+          }
+        }
+        if (found == false)
+        {
+          $scope.works[i].shown = false;
+          found = true;
+        }
+      }
+
+    };
+
 
 
 

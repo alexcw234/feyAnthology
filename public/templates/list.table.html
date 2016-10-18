@@ -8,56 +8,66 @@
 <div class="text-center">
 <dir-pagination-controls ></dir-pagination-controls>
 </div>
-<div class="work_panel">
-  <div class="row border-between">
-    <div class="row"></div>
-    <div class="col-sm-6">
-      <div class="titleBox"></div>
-      <div class="infoBox"></div>
-      <div class="tagsBox"></div>
-    </div>
-    <div class="col-sm-6">
-      <div ng-if="item.info.Summary" class="summaryBox">{{item.info.Summary}}</div>
-      <div ng-if="item.info.Description"class="descriptionBox">{{item.info.Description}}</div>
-    </div>
 
-
-  <div class="row"></div>
-</div>
 
 
 
 <div class="paginatethis" ng-controller="workslistCtrl">
     <div class="paginatethis_item" dir-paginate="item in works | itemsPerPage: 10">
-      <div class="panel panel-default">
+        <div ng-if="item.shown==true" class="work_panel thumbnail">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="work_header">
 
-          <div class="panel-heading">
-            <div ng-controller="header">
-              <b><a ng-href="{{item.url|urlFilter}}">{{item.info.Title}}</a></b>
+            </div>
             </div>
           </div>
-
-
-          <div class="panel-body">
-            <div>
-
-                <div ng-repeat = "(key, value) in item.info">
-                  {{key}} : {{value}}
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="titleBox">
+                <div ng-controller="header">
+                <b><a ng-href="{{item.url|urlFilter}}">{{item.info.Title}}</a></b>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="row border-between">
+            <div class="col-sm-6">
+
+              <div class="infoBox">
+                <div ng-repeat = "(key, value) in item.info">
+                  <div ng-if="key != 'Summary' && key != 'Description'">{{key}} : {{value}}</div>
+                </div>
+              </div>
+              <div class="tagsBox">
                 Tags:
                 <span ng-repeat = "tag in item.tags">
-                  {{tag}},
+                  <span class="btn-primary" ng-click="narrowSearchToTag(tag)">{{tag}}</span>
                 </span>
+              </div>
+            </div>
+            <div class="col-sm-6">
 
-              <br><br>
+              <div ng-if="item.info.Summary" class="summaryBox">
+                <strong>Summary:</strong>
+                {{item.info.Summary}}
+              </div>
+              <div ng-if="item.info.Description"class="descriptionBox">
+                <strong>Description:</strong>
+                {{item.info.Description}}
+              </div>
+            </div>
 
-              <a ng-if="sidebar_level > 66" class="btn btn-primary pull-right" ui-sref="list.editbox({workID:item.workID})"/>Edit</a>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="work_footer">
+            <a ng-if="sidebar_level > 66" class="btn btn-primary pull-right" ui-sref="list.editbox({workID:item.workID})"/>Edit</a>
             </div>
           </div>
-
-
       </div>
-    </div>
+      </div>
+{{filteredOut}}
 </div>
 <div class="text-center">
 <dir-pagination-controls ></dir-pagination-controls>
