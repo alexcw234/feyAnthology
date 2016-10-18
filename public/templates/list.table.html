@@ -36,14 +36,19 @@
 
               <div class="infoBox">
                 <div ng-repeat = "(key, value) in item.info">
-                  <div ng-if="key != 'Summary' && key != 'Description'">{{key}} : {{value}}</div>
+                  <div ng-if="key != 'Title' && key != 'Summary' && key != 'Description'">
+                    <span class="listField_key">{{key}} : </span>
+                    <span class="listField_value">{{value}}</span>
+                  </div>
                 </div>
               </div>
               <div class="tagsBox">
-                Tags:
+                <span class="listField_key">Tags:</span>
+                <div class="AllTags">
                 <span ng-repeat = "tag in item.tags">
                   <span class="btn-primary" ng-click="narrowSearchToTag(tag)">{{tag}}</span>
                 </span>
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
