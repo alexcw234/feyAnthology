@@ -8,6 +8,25 @@
 <div class="text-center">
 <dir-pagination-controls ></dir-pagination-controls>
 </div>
+<div class="work_panel">
+  <div class="row border-between">
+    <div class="row"></div>
+    <div class="col-sm-6">
+      <div class="titleBox"></div>
+      <div class="infoBox"></div>
+      <div class="tagsBox"></div>
+    </div>
+    <div class="col-sm-6">
+      <div ng-if="item.info.Summary" class="summaryBox">{{item.info.Summary}}</div>
+      <div ng-if="item.info.Description"class="descriptionBox">{{item.info.Description}}</div>
+    </div>
+
+
+  <div class="row"></div>
+</div>
+
+
+
 <div class="paginatethis" ng-controller="workslistCtrl">
     <div class="paginatethis_item" dir-paginate="item in works | itemsPerPage: 10">
       <div class="panel panel-default">
