@@ -72,6 +72,25 @@ public function store()
 
         $tags = '';
 
+        foreach ($tagsArray as $tag)
+        {
+            $tagText = $tag["text"];
+            //echo $tagText;
+
+            if (preg_match('/=>|"|,/',$tagText))
+            {
+              return $result;
+            }
+            else
+            {
+
+                $tagText = mb_strtolower($tagText,'UTF-8');
+                $tags = $tags . '"' . $tagText . '" => "default",';
+
+            }
+
+        }
+
 
         $netlvl = $this->ugc->getNetlvl($catID, $userID);
         if ($netlvl > 55)
