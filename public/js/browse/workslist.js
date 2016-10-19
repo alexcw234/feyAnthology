@@ -7,7 +7,7 @@ app.controller("workslistCtrl", function($scope, $http) {
 
 
     var query = '';
-    $scope.works = {};
+    $scope.works = [];
 
     if ($scope.querystring != null) {
         query += '?' + encodeURI($scope.querystring);

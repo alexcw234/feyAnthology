@@ -13,8 +13,8 @@
 
 
 <div class="paginatethis" ng-controller="workslistCtrl">
-    <div class="paginatethis_item" dir-paginate="item in works | itemsPerPage: 10">
-        <div ng-if="item.shown==true" class="work_panel thumbnail">
+    <div class="paginatethis_item" dir-paginate="item in works | filter:{shown:'true'} | itemsPerPage: 10 ">
+        <div class="work_panel thumbnail">
           <div class="row">
             <div class="col-sm-12">
               <div class="work_header">
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="row border-between">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
 
               <div class="infoBox">
                 <div ng-repeat = "(key, value) in item.info">
@@ -51,7 +51,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-8">
 
               <div ng-if="item.info.Summary" class="summaryBox">
                 <strong>Summary:</strong>
@@ -72,7 +72,7 @@
           </div>
       </div>
       </div>
-{{filteredOut}}
+
 </div>
 <div class="text-center">
 <dir-pagination-controls ></dir-pagination-controls>
