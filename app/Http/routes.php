@@ -103,6 +103,9 @@ Route::group(['middleware' => ['web']], function () {
           Route::post('edit/work/alter','ModerationController@EditThisWork');
 
           Route::post('edit/work/delete','ModerationController@DeleteThisWork');
+
+          Route::post('edit/work/feature','ModerationController@FeatureThisWork');
+          Route::post('edit/work/unfeature','ModerationController@UnfeatureThisWork');
         });
         /*
         |--------------------------------------------------------------------------

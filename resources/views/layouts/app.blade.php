@@ -44,6 +44,7 @@
     </style>
 </head>
 <body id="app-layout">
+
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -98,9 +99,7 @@
             </div>
         </div>
     </nav>
-
-
-
+    
     @yield('content')
 
     <!-- JavaScripts -->

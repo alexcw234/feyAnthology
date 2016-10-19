@@ -22,10 +22,13 @@ class CreateWorksTable extends Migration
             $table->jsonb('info');
             $table->hstore('tags');
             $table->boolean('approved')->nullable();
+            $table->boolean('featured')->default(false);
             $table->integer('subID')->unsigned();
             $table->integer('appID')->unsigned()->nullable();
+            $table->integer('modID')->unsigned()->nullable();
             $table->dateTime('subDate');
             $table->dateTime('appDate')->nullable();
+            $table->dateTime('modDate')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

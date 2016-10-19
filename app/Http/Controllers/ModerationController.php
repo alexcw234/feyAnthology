@@ -94,4 +94,31 @@ class ModerationController extends Controller
 
     }
 
+    /*
+    * Adds selected work to Feature rotation
+    *
+    */
+    public function FeatureThisWork()
+    {
+          $workID = $this->request->get('workID');
+          $work = Work::find($workID);
+          $work->featured = true;
+          $work->save();
+          return json_encode(['status' => 'success']);
+    }
+
+    /*
+    * Removes selected work from Feature rotation
+    *
+    */
+    public function UnfeatureThisWork()
+    {
+      $workID = $this->request->get('workID');
+      $work = Work::find($workID);
+      $work->featured = false;
+      $work->save();
+      return json_encode(['status' => 'success']);
+
+    }
+
 }

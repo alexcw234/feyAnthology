@@ -29,6 +29,8 @@ app.controller("workslistCtrl", function($scope, $http) {
 
               $scope.works[i].shown = true;
 
+              $scope.works[i].featured = $scope.works[i].featured;
+
             }
 
 
@@ -69,6 +71,41 @@ app.controller("workslistCtrl", function($scope, $http) {
 
     };
 
+    $scope.callFeature = function(workID)
+    {
+      result = {};
+      result['workID'] = workID;
+
+      $http.post("edit/work/feature", result)
+        .success(function(response)
+          {
+            if (response.status == 'success')
+            {
+              $scope.works[i].featured = true;
+            }
+
+          });
+
+    }
+
+    $scope.callUnfeature = function(workID)
+    {
+      console.log('click');
+      result = {};
+      result['workID'] = workID;
+      $http.post("edit/work/unfeature", result)
+        .success(function(response)
+          {
+
+            if (response.status == 'success')
+            {
+                $scope.works[i].featured = false;
+            }
+
+          });
+
+
+    }
 
 
 
