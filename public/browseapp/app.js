@@ -12,4 +12,13 @@ var app = angular.module("browseApp",
     'browseApp.sidebar',
     'browseApp.moderation',
     'angularUtils.directives.dirPagination',
+    'providers.groupProviders',
   ]);
+
+
+app.config(function(usergroupProvider)
+{
+  
+
+
+});
