@@ -31,7 +31,7 @@ app.controller('editSubmission',function($scope, $http, $stateParams) {
           parsedtag = parsedtag.slice(1,-1);
           $scope.tags.push({'text': parsedtag});
         }
-        $scope.newForm = "forms/editformtemplate.html";
+        $scope.newForm = "browseapp/components/workslist/moderate/editformtemplate.html";
 
       });
 });

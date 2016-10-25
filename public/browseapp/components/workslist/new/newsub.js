@@ -96,7 +96,7 @@ app.controller('newFormSelect',function($scope, $http) {
         {
           $scope.anytype = false;
           $scope.$parent.typeID = matchedtype;
-          $scope.newForm = "forms/" + "newformtemplate" + ".html";
+          $scope.newForm = "browseapp/components/workslist/new/" + "newformtemplate" + ".html";
 
         }
         else
@@ -117,12 +117,12 @@ app.controller('newFormDisplay',function($scope) {
 
           if (templatename != null)
           {
-          $scope.newForm = "forms/" + "newformtemplate" + ".html";
+          $scope.newForm = "browseapp/components/workslist/new/" + "newformtemplate" + ".html";
 
           }
           else
           {
-            $scope.newForm = "forms/noselection.html";
+            $scope.newForm = "browseapp/components/workslist/new/noselection.html";
           }
         };
 

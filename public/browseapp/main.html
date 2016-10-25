@@ -2,15 +2,15 @@
 <!-- angular scripts -->
 
 <script src="js/ui-bootstrap-tpls-1.3.2.min.js"></script>
-<script src="js/browse/app.js"></script>
-<script src="js/browse/routes.js"></script>
-<script src="js/browse/mainctrls.js"></script>
-<script src="js/browse/moderation.js"></script>
-<script src="js/browse/cats.js"></script>
-<script src="js/browse/newsub.js"></script>
-<script src="js/browse/workslist.js"></script>
-<script src="js/browse/search.js"></script>
-<script src="js/browse/sidebar.js"></script>
+<script src="browseapp/app.js"></script>
+<script src="browseapp/routes.js"></script>
+<script src="browseapp/mainctrls.js"></script>
+<script src="browseapp/components/workslist/moderate/moderation.js"></script>
+<script src="browseapp/components/catslist/cats.js"></script>
+<script src="browseapp/components/workslist/new/newsub.js"></script>
+<script src="browseapp/components/workslist/list/workslist.js"></script>
+<script src="browseapp/components/workslist/search/search.js"></script>
+<script src="browseapp/shared/sidebar.js"></script>
 <!-- angular scripts -->
 
 
@@ -19,7 +19,7 @@
 <div ng-app="browseApp">
 
   <!-- Include sidebar -->
-  <div ng-include="'templates/sidebar.html'"></div>
+  <div ng-include="'browseapp/shared/sidebar.html'"></div>
 
 
       <span data-ajax-cloak ><div ui-view></div></span>

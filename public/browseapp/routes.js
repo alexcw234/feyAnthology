@@ -16,13 +16,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .state('allcats',{
         url: '/categories',
-        templateUrl: 'templates/catlist.html',
+        templateUrl: 'browseapp/components/catslist/catlist.html',
         controller: 'controller_c'
     })
 
     .state('list',{
         url: '/list/:catID',
-        templateUrl: 'templates/list.html',
+        templateUrl: 'browseapp/components/workslist/list.html',
         controller: 'controller_l',
     })
 
@@ -31,7 +31,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/search',
       views: {
             'searchbox' : {
-                templateUrl: 'templates/list.search.html',
+                templateUrl: 'browseapp/components/workslist/search/list.search.html',
                 controller: 'searchbox'
               }
         }
@@ -41,7 +41,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/new/',
       views: {
             'newbox' : {
-                templateUrl: 'templates/list.new.html',
+                templateUrl: 'browseapp/components/workslist/new/list.new.html',
                 controller: 'newSubmission'
               }
         }
@@ -51,7 +51,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/edit/:workID',
       views: {
           'editbox' : {
-              templateUrl: 'templates/list.edit.html',
+              templateUrl: 'browseapp/components/workslist/moderate/list.edit.html',
               controller: 'editSubmission'
           }
       }
@@ -62,7 +62,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('list.table',{
       views: {
             'table' : {
-                templateUrl: 'templates/list.table.html',
+                templateUrl: 'browseapp/components/workslist/list/list.table.html',
                 controller: 'workslistCtrl'
               }
         }
@@ -71,7 +71,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('list.addscreen',{
       views: {
               'submitted' : {
-                templateUrl: 'templates/list.addscreen.html',
+                templateUrl: 'browseapp/components/workslist/response/list.addscreen.html',
               }
       }
     })
@@ -79,7 +79,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('list.overscreen',{
       views: {
               'approved' : {
-                templateUrl: 'templates/list.overscreen.html',
+                templateUrl: 'browseapp/components/workslist/response/list.overscreen.html',
               }
       }
     })
@@ -87,7 +87,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('list.failscreen',{
       views: {
               'failure' : {
-                templateUrl: 'templates/list.failscreen.html',
+                templateUrl: 'browseapp/components/workslist/response/list.failscreen.html',
               }
       }
     })
@@ -97,7 +97,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('list.editscreen',{
         views: {
               'edited' : {
-              templateUrl: 'templates/list.editscreen.html',
+              templateUrl: 'browseapp/components/workslist/response/list.editscreen.html',
               }
           }
       })
@@ -106,7 +106,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       .state('list.deletescreen',{
           views: {
                 'deleted' : {
-                templateUrl: 'templates/list.deletescreen.html',
+                templateUrl: 'browseapp/components/workslist/response/list.deletescreen.html',
                 }
             }
         })

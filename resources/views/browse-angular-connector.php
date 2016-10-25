@@ -1,4 +1,4 @@
 <?php
-set_include_path("browsapp");
+set_include_path("browseapp");
 include("main.html");
  ?>

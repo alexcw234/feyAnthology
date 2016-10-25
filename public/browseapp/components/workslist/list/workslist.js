@@ -81,7 +81,7 @@ app.controller("workslistCtrl", function($scope, $http) {
           {
             if (response.status == 'success')
             {
-              $scope.works[i].featured = true;
+
             }
 
           });
@@ -99,7 +99,7 @@ app.controller("workslistCtrl", function($scope, $http) {
 
             if (response.status == 'success')
             {
-                $scope.works[i].featured = false;
+  
             }
 
           });
