@@ -81,7 +81,13 @@ app.controller("workslistCtrl", function($scope, $http) {
           {
             if (response.status == 'success')
             {
-
+              for (i in $scope.works)
+              {
+                if ($scope.works[i].workID == workID && $scope.works[i].featured == false)
+                {
+                  $scope.works[i].featured = true;
+                }
+              }
             }
 
           });
@@ -99,7 +105,13 @@ app.controller("workslistCtrl", function($scope, $http) {
 
             if (response.status == 'success')
             {
-  
+                for (i in $scope.works)
+                {
+                  if ($scope.works[i].workID == workID && $scope.works[i].featured == true)
+                  {
+                    $scope.works[i].featured = false;
+                  }
+                }
             }
 
           });
