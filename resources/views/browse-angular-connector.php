@@ -1,4 +1,4 @@
 <?php
-set_include_path("templates");
+set_include_path("browsapp");
 include("main.html");
  ?>

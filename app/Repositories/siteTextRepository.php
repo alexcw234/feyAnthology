@@ -10,6 +10,11 @@ use DB;
 use Response;
 use Purifier;
 
+
+/**
+* Loading for site general settings and text.
+*
+*/
 class siteTextRepository {
 
 
@@ -60,12 +65,17 @@ class siteTextRepository {
     return $this->purify($options['rules']);
   }
 
+  public function loadMaxFeatured ($defaultCat)
+  {
+    $options = json_decode($defaultCat[0]['options'],true);
+    return $options['maxfeatured'];
+  }
 
-      public function purify($input)
-      {
-        $input = Purifier::clean($input);
-        return $input;
-      }
+  public function purify($input)
+  {
+    $input = Purifier::clean($input);
+    return $input;
+  }
 
 
 

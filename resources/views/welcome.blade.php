@@ -4,10 +4,12 @@
 
 <div class="homepage_content">
   <div class="homepage_image_wrapper">
-    <img width="100%" src="img/defaultmainimg.jpg"/>
+    <div class="homepage_image_outer">
+  <img width="100%" src="img/defaultmainimg.jpg"/>
       <div class="homepage_image_text">
           <div class="homepage_image_header">{{$headertext}}</div>
             {!!$frontpage_description!!}
+        </div>
     </div>
   </div>
 <div class="featuredContent">

@@ -22,6 +22,12 @@ font-size:4vw;
 
 }
 
+.homepage_image_outer
+{
+background-image: url('../img/defaultmainimg.jpg');
+width:100%;
+}
+
 .homepage_image_wrapper
 {
 
@@ -29,8 +35,11 @@ font-size:4vw;
 
 .featuredContent
 {
-margin:2vw;  
+margin:2vw;
 }
+
+
+
 
 .work_panel
 {
