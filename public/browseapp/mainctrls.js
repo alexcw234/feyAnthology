@@ -4,9 +4,19 @@
 */
 var app = angular.module("browseApp.mainctrls", []);
 
-app.controller("header", function($scope){
-//    $scope.header = "Welcome to Fey Anthology!";
+/*
+* Controller that goes first and sets any provider variables that
+* require http calls. (others are in app.config())
+*/
+app.controller("initializer", function($scope, usergroup)
+{
+usergroup.setglobalView();
 
+
+});
+
+
+app.controller("header", function($scope){
 
 });
 
@@ -72,7 +82,6 @@ $scope.$parent.header = "Submit something new";
 $scope.catID = $stateParams.catID;
 
 });
-
 
 app.directive("ajaxCloak", ['$interval', '$http', function ($interval, $http) {
             return {

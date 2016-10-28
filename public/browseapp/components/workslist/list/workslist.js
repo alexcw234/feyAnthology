@@ -96,7 +96,6 @@ app.controller("workslistCtrl", function($scope, $http) {
 
     $scope.callUnfeature = function(workID)
     {
-      console.log('click');
       result = {};
       result['workID'] = workID;
       $http.post("edit/work/unfeature", result)

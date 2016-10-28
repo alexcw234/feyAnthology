@@ -13,12 +13,11 @@ var app = angular.module("browseApp",
     'browseApp.moderation',
     'angularUtils.directives.dirPagination',
     'providers.groupProviders',
+    'factories.catlistFactories',
   ]);
 
 
 app.config(function(usergroupProvider)
 {
-  
-
 
 });

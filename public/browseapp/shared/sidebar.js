@@ -13,7 +13,7 @@ $scope.joinCategory = function()
                 $http.get("join/cat/" + $stateParams.catID)
                   .success(function(response)
                     {
-                      console.log(response);
+                      
                     });
               }
 

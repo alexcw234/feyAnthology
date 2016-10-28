@@ -12,13 +12,14 @@
 <script src="browseapp/components/workslist/search/search.js"></script>
 <script src="browseapp/shared/sidebar.js"></script>
 <script src="browseapp/providers/groupProviders.js"></script>
+<script src="browseapp/factories/catlistFactories.js"></script>
 <!-- angular scripts -->
 
 
 <div class="container-fluid">
 <!-- Begin controll by browseApp -->
 <div ng-app="browseApp">
-
+  <div ng-controller="initializer">
   <!-- Include sidebar -->
   <div ng-include="'browseapp/shared/sidebar.html'"></div>
 
@@ -28,9 +29,6 @@
           </div>
         </div>
       </div>
-
-
-
 </div>
 <!-- End control by browseApp -->
 </div>
