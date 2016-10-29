@@ -8,10 +8,9 @@ var app = angular.module("browseApp.mainctrls", []);
 * Controller that goes first and sets any provider variables that
 * require http calls. (others are in app.config())
 */
-app.controller("initializer", function($scope, usergroup)
+app.controller("initializer", function($scope, usergroupProvider)
 {
-usergroup.setglobalView();
-
+    usergroupProvider.setglobalView();
 
 });
 

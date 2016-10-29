@@ -17,7 +17,7 @@ var app = angular.module("browseApp",
   ]);
 
 
-app.config(function(usergroupProvider)
+app.config(function(usergroupProviderProvider)
 {
 
 });

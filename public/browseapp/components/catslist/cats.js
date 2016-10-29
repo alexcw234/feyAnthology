@@ -26,14 +26,12 @@ app.controller("catstableCtrl", function($scope, catlistLoaderService) {
 *   Handles request for current user group to determine
 *   what should be displayed.
 */
-app.controller("cats_permissionsCtrl", function($scope, $http, usergroup) {
+app.controller("cats_permissionsCtrl", function($scope, $http, usergroupProvider) {
 
-          viewingGroup = usergroup.getviewingGroup();
+          viewingGroup = usergroupProvider.getviewingGroup();
 
           $scope.level = viewingGroup.level;
 
           $scope.$parent.$parent.sidebar_level = viewingGroup.level;
-
-
 
 });

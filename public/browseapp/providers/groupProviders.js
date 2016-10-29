@@ -1,6 +1,6 @@
 var app = angular.module('providers.groupProviders', []);
 
-app.provider('usergroup', function()
+app.provider('usergroupProvider', function()
 {
     this.viewingGroupGlobal = "None";
     this.viewingLevelGlobal = null;
@@ -10,28 +10,33 @@ app.provider('usergroup', function()
 
     this.$get = function($http) {
 
+        var setglobalView = function() {
+
+          $http.get("displaycheck/global")
+          .then(function(response)
+          {
+              this.viewingGroupGlobal = response.data.groupName;
+              this.viewingLevelGlobal = response.data.level;
+
+          });
+
+        };
+
+        var setcatView = function(catID) {
+
+          $http.get("displaycheck/group/" + catID)
+          .then(function(response)
+          {
+          this.viewingGroupCat = response.data.groupName;
+          this.viewingLevelCat = response.data.level;
+          });
+
+        };
+
+
         return {
-            setglobalView: function() {
-
-              $http.get("displaycheck/global")
-              .then(function(response)
-              {
-                  this.viewingGroupGlobal = response.groupName;
-                  this.viewingLevelGlobal = response.level;
-
-              });
-
-            },
-            setcatView: function(catID) {
-
-              $http.get("displaycheck/group/" + $scope.catID)
-              .then(function(response)
-              {
-              this.viewingGroupCat = response.groupName;
-              this.viewingLevelCat = response.level;
-              });
-
-            },
+            setglobalView: setglobalView,
+            setcatView: setcatView,
             getviewingGroup: function() {
 
               var viewingGroupGlobal = this.viewingGroupGlobal;
