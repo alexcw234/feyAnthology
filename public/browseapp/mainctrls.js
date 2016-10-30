@@ -25,10 +25,6 @@ app.controller("initializer", function($scope, usergroupProvider)
 });
 
 
-app.controller("header", function($scope){
-    $scope.header = "Select a category:";
-});
-
 
 
 

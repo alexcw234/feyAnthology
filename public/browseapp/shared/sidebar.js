@@ -1,12 +1,11 @@
 var app = angular.module("browseApp.sidebar", []);
 
-app.controller("sidebar",function($scope, $state, $stateParams, locationTracker){
+app.controller("sidebar",function($scope, $state, $stateParams, locationTracker, usergroupProvider){
 
 
       $scope.$watch( function() {return locationTracker.getLocation();},
       function(location)
       {
-
             $scope.sidebar_backtrack = location['sidebar_backtrack'];
             $scope.sidebar_onCatlist = location['sidebar_onCatlist'];
             $scope.sidebar_title = location['sidebar_title'];
@@ -14,25 +13,31 @@ app.controller("sidebar",function($scope, $state, $stateParams, locationTracker)
       }, true);
 
 
+      $scope.$watch( function() {return usergroupProvider.getviewingGroup();},
+      function(role)
+      {
+            $scope.sidebar_level = role['viewingLevel'];
 
-$scope.goToState = function(name)
-{
+      }, true);
 
-  $state.go(name);
 
-};
 
-$scope.reloadPage = function(){window.location.reload();};
+      $scope.goToState = function(name)
+      {
+        $state.go(name);
+      };
 
-$scope.joinCategory = function()
-              {
+      $scope.reloadPage = function(){window.location.reload();};
 
-                $http.get("join/cat/" + $stateParams.catID)
-                  .success(function(response)
-                    {
+      $scope.joinCategory = function()
+      {
 
-                    });
-              }
+        $http.get("join/cat/" + $stateParams.catID)
+        .success(function(response)
+        {
+
+        });
+      }
 
 
 });

@@ -6,31 +6,31 @@ var app = angular.module("browseApp.workslist", []);
 */
 app.controller("controller_l", function($scope, $state, $stateParams, $http, locationTracker) {
 
-$scope.$parent.header = "";
+    $scope.$parent.header = "";
 
-$scope.querystring = null; // Kept here for accessability.
+    $scope.querystring = null; // Kept here for accessability.
 
-$scope.catID = $stateParams.catID;
+    $scope.catID = $stateParams.catID;
 
+    locationTracker.setOnCategory($stateParams.catID)
+    .then(function(response)
+    {
+        $scope.catInfo = response.data;
 
-
-locationTracker.setOnCategory($stateParams.catID)
-.then(function(response)
-{
-  $scope.catInfo = response.data;
-
-  $scope.catOptions = JSON.parse(response.data.options);
-})
-.catch(function()
-{
-  $scope.iniError = "Error loading sidebar content.";
-});
+        $scope.catOptions = JSON.parse(response.data.options);
+    })
+    .catch(function()
+    {
+        $scope.iniError = "Error loading sidebar content.";
+    });
 
 
-$state.go('list.table');
+    $state.go('list.table');
 
-$scope.goToState = function(name){$state.go(name)};
-
+    $scope.goToState = function(name)
+    {
+        $state.go(name)
+    };
 
 });
 
@@ -168,10 +168,7 @@ app.controller("workslist_permissionsCtrl", function($scope, $http) {
       {
 
           userlevel = response.level;
-
           $scope.level = userlevel;
-
-          $scope.$parent.$parent.sidebar_level = userlevel;
 
       });
 
