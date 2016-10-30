@@ -13,11 +13,12 @@ var app = angular.module("browseApp",
     'browseApp.moderation',
     'angularUtils.directives.dirPagination',
     'providers.groupProviders',
+    'providers.locationProviders',
     'factories.catlistFactories',
   ]);
 
 
-app.config(function(usergroupProviderProvider)
+app.config(function(usergroupProviderProvider, locationTrackerProvider)
 {
 
 });

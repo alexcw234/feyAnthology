@@ -1,9 +1,17 @@
 var app = angular.module("browseApp.cats", []);
 
 
-app.controller("myCtrl", function($scope) {
+/*
+* Initial controller for the category state.
+*
+*/
+app.controller("controller_c", function($scope, locationTracker) {
+
+    locationTracker.setOnCatslist();
+
 
 });
+
 
 
 app.controller("catstableCtrl", function($scope, catlistLoaderService) {

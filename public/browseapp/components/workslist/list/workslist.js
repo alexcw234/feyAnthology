@@ -1,6 +1,41 @@
 var app = angular.module("browseApp.workslist", []);
 
 /*
+* Initial controller for the works list state. Loads the template and then does
+* state.go() to list.table to load the table.
+*/
+app.controller("controller_l", function($scope, $state, $stateParams, $http, locationTracker) {
+
+$scope.$parent.header = "";
+
+$scope.querystring = null; // Kept here for accessability.
+
+$scope.catID = $stateParams.catID;
+
+
+
+locationTracker.setOnCategory($stateParams.catID)
+.then(function(response)
+{
+  $scope.catInfo = response.data;
+
+  $scope.catOptions = JSON.parse(response.data.options);
+})
+.catch(function()
+{
+  $scope.iniError = "Error loading sidebar content.";
+});
+
+
+$state.go('list.table');
+
+$scope.goToState = function(name){$state.go(name)};
+
+
+});
+
+
+/*
 *   Handles sending get request to database with parameters.
 */
 app.controller("workslistCtrl", function($scope, $http) {

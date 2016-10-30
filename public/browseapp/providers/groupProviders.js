@@ -2,33 +2,34 @@ var app = angular.module('providers.groupProviders', []);
 
 app.provider('usergroupProvider', function()
 {
-    this.viewingGroupGlobal = "None";
-    this.viewingLevelGlobal = null;
-    this.viewingGroupCat = "None";
-    this.viewingLevelCat = null;
+    var viewingGroupGlobal = "None";
+    var viewingLevelGlobal = null;
+    var viewingGroupCat = "None";
+    var viewingLevelCat = null;
 
 
     this.$get = function($http) {
 
         var setglobalView = function() {
 
-          $http.get("displaycheck/global")
+          return $http.get("displaycheck/global")
           .then(function(response)
           {
-              this.viewingGroupGlobal = response.data.groupName;
-              this.viewingLevelGlobal = response.data.level;
-
+              viewingGroupGlobal = response.data.groupName;
+              viewingLevelGlobal = response.data.level;
+              return response.data;
           });
 
         };
 
         var setcatView = function(catID) {
 
-          $http.get("displaycheck/group/" + catID)
+          return $http.get("displaycheck/group/" + catID)
           .then(function(response)
           {
-          this.viewingGroupCat = response.data.groupName;
-          this.viewingLevelCat = response.data.level;
+              viewingGroupCat = response.data.groupName;
+              viewingLevelCat = response.data.level;
+              return response.data;
           });
 
         };
@@ -39,30 +40,30 @@ app.provider('usergroupProvider', function()
             setcatView: setcatView,
             getviewingGroup: function() {
 
-              var viewingGroupGlobal = this.viewingGroupGlobal;
-              var viewingLevelGlobal = this.viewingLevelGlobal;
-              var viewingGroupCat = this.viewingGroupCat;
-              var viewingLevelCat = this.viewingLevelCat;
+              var checkGroupGlobal = viewingGroupGlobal;
+              var checkLevelGlobal = viewingLevelGlobal;
+              var checkGroupCat = viewingGroupCat;
+              var checkLevelCat = viewingLevelCat;
               var netLevel;
               var netGroup;
 
-              if (viewingLevelCat != null)
+              if (checkLevelCat != null)
               {
-                if (viewingLevelGlobal < 44 || viewingLevelGlobal >= 77)
+                if (checkLevelGlobal < 44 || checkLevelGlobal >= 77)
                 {
-                  netLevel = viewingLevelGlobal;
-                  netGroup = viewingGroupGlobal;
+                  netLevel = checkLevelGlobal;
+                  netGroup = checkGroupGlobal;
                 }
                 else
                 {
-                  netLevel = viewingLevelCat;
-                  netGroup = viewingGroupCat;
+                  netLevel = checkLevelCat;
+                  netGroup = checkGroupCat;
                 }
               }
               else
               {
-                netLevel = viewingLevelGlobal;
-                netGroup = viewingGroupGlobal;
+                netLevel = checkLevelGlobal;
+                netGroup = checkGroupGlobal;
               }
 
               role = {};
