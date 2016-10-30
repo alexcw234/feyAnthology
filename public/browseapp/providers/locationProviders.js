@@ -1,5 +1,13 @@
 var app = angular.module('providers.locationProviders', []);
 
+/*
+*   Handles keeping track of user location on the app (ie. category list or category).
+*   Mostly this changes what is shown on the sidebar.
+*   Functions:
+*     setOnCategory - tells provider that user is viewing a category (ie. on the workslist)
+*     setOnCatslist - tells provider that user is viewing category listing.
+*     getLocation - returns the user's current location.
+*/
 app.provider('locationTracker', function()
 {
     var sidebar_onCatlist = true;
@@ -25,7 +33,6 @@ app.provider('locationTracker', function()
 
         }
 
-
         return {
             getLocation: function()
             {
@@ -46,10 +53,7 @@ app.provider('locationTracker', function()
               sidebar_text = "Select a category:";
             },
             setOnCategory: setOnCategory,
-            toggleBacktrack: function(tf)
-            {
-              sidebar_backtrack = tf;
-            },
+
         };
     };
 

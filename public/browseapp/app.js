@@ -15,6 +15,8 @@ var app = angular.module("browseApp",
     'providers.groupProviders',
     'providers.locationProviders',
     'factories.catlistFactories',
+    'factories.worklistFactories',
+    'factories.searchqueryFactories',
   ]);
 
 

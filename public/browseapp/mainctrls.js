@@ -24,24 +24,6 @@ app.controller("initializer", function($scope, usergroupProvider)
 
 });
 
-
-
-
-
-/*
-* Main controller for the new entry state.
-*
-*/
-app.controller("controller_n", function($scope, $stateParams) {
-
-$scope.$parent.header = "Submit something new";
-
-$scope.catID = $stateParams.catID;
-
-});
-
-
-
 app.directive("ajaxCloak", ['$interval', '$http', function ($interval, $http) {
             return {
                 restrict: 'A',

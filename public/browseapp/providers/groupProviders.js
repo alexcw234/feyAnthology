@@ -1,5 +1,15 @@
 var app = angular.module('providers.groupProviders', []);
 
+
+/*
+*   Handles keeping track of user permissions (for display purposes only,
+*   actual validation is on the backend of course).
+*
+*   Functions:
+*     setglobalView - adds user's global view to provider.
+*     setcatView - adds user's category view to provider.
+*     getviewingGroup - calculates and returns the user's net group for the category.
+*/
 app.provider('usergroupProvider', function()
 {
     var viewingGroupGlobal = "None";
@@ -46,12 +56,12 @@ app.provider('usergroupProvider', function()
               var checkLevelCat = viewingLevelCat;
               var netLevel;
               var netGroup;
-
               if (checkLevelCat != null)
               {
                 if (checkLevelGlobal < 44 || checkLevelGlobal >= 77)
                 {
                   netLevel = checkLevelGlobal;
+
                   netGroup = checkGroupGlobal;
                 }
                 else

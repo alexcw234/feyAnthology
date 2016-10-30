@@ -1,14 +1,10 @@
 var app = angular.module("browseApp.workslist", []);
 
 /*
-* Initial controller for the works list state. Loads the template and then does
-* state.go() to list.table to load the table.
+* Initial controller for the works list state.
+*
 */
-app.controller("controller_l", function($scope, $state, $stateParams, $http, locationTracker) {
-
-    $scope.$parent.header = "";
-
-    $scope.querystring = null; // Kept here for accessability.
+app.controller("controller_l", function($scope, $state, $stateParams, $http, locationTracker, usergroupProvider) {
 
     $scope.catID = $stateParams.catID;
 
@@ -16,60 +12,74 @@ app.controller("controller_l", function($scope, $state, $stateParams, $http, loc
     .then(function(response)
     {
         $scope.catInfo = response.data;
-
         $scope.catOptions = JSON.parse(response.data.options);
+
     })
     .catch(function()
     {
         $scope.iniError = "Error loading sidebar content.";
     });
 
-
-    $state.go('list.table');
-
     $scope.goToState = function(name)
     {
-        $state.go(name)
+        $state.go(name);
     };
 
 });
 
+/*
+*   Handles request for current user group to determine
+*   what should be displayed.
+*/
+app.controller("workslist_permissionsCtrl",
+    function($scope, $state, $stateParams, usergroupProvider) {
+
+    usergroupProvider.setcatView($stateParams.catID)
+    .then(function(response)
+    {
+        viewingGroup = usergroupProvider.getviewingGroup();
+        $scope.level = viewingGroup['viewingLevel'];
+        $state.go('list.table');
+    })
+    .catch(function()
+    {
+        $scope.iniError = "Error loading group permissions.";
+    });
+
+});
 
 /*
 *   Handles sending get request to database with parameters.
 */
-app.controller("workslistCtrl", function($scope, $http) {
+app.controller("workslistCtrl",
+    function($scope, $http, worklistLoaderService, worklistFeatureService,
+            searchqueryService) {
 
-
-    var query = '';
+    var query = searchqueryService.getQuerystring();
     $scope.works = [];
 
-    if ($scope.querystring != null) {
-        query += '?' + encodeURI($scope.querystring);
-    }
+    worklistLoaderService.getWorkListing($scope.catID, query)
+    .then(function(response)
+    {
+        $scope.works = response;
 
-
-    $http.get("reqs/list/" + $scope.catID + query)
-      .success(function(response)
+        for (i in $scope.works)
         {
+          $scope.works[i].tags = $scope.works[i].tags.slice(1,-1);
+          $scope.works[i].tags = $scope.works[i].tags.split(",");
 
-            $scope.works = response;
+          $scope.works[i].info = JSON.parse($scope.works[i].info);
 
-            for (i in $scope.works)
-            {
-              $scope.works[i].tags = $scope.works[i].tags.slice(1,-1);
-              $scope.works[i].tags = $scope.works[i].tags.split(",");
+          $scope.works[i].shown = true;
 
-              $scope.works[i].info = JSON.parse($scope.works[i].info);
+          $scope.works[i].featured = $scope.works[i].featured;
 
-              $scope.works[i].shown = true;
-
-              $scope.works[i].featured = $scope.works[i].featured;
-
-            }
-
-
-        });
+        }
+    })
+    .catch(function()
+    {
+      $scope.error = "Unable to load works";
+    });
 
 
     $scope.narrowSearchToInfo = function(field,info)
@@ -94,7 +104,6 @@ app.controller("workslistCtrl", function($scope, $http) {
           if ($scope.works[i].tags[j] == tag)
           {
             found = true;
-
           }
         }
         if (found == false)
@@ -108,72 +117,50 @@ app.controller("workslistCtrl", function($scope, $http) {
 
     $scope.callFeature = function(workID)
     {
-      result = {};
-      result['workID'] = workID;
-
-      $http.post("edit/work/feature", result)
-        .success(function(response)
+      worklistFeatureService.callFeature(workID)
+      .then(function(response)
+      {
+          if (response.status == 'success')
           {
-            if (response.status == 'success')
-            {
               for (i in $scope.works)
               {
-                if ($scope.works[i].workID == workID && $scope.works[i].featured == false)
-                {
-                  $scope.works[i].featured = true;
-                }
+                  if ($scope.works[i].workID == workID && $scope.works[i].featured == false)
+                  {
+                      $scope.works[i].featured = true;
+                  }
               }
-            }
-
-          });
-
-    }
+          }
+      })
+      .catch(function()
+      {
+          $scope.error = "Error in featuring content.";
+      });
+    };
 
     $scope.callUnfeature = function(workID)
     {
-      result = {};
-      result['workID'] = workID;
-      $http.post("edit/work/unfeature", result)
-        .success(function(response)
+      worklistFeatureService.callUnfeature(workID)
+      .then(function(response)
+      {
+          if (response.status == 'success')
           {
-
-            if (response.status == 'success')
-            {
-                for (i in $scope.works)
-                {
+              for (i in $scope.works)
+              {
                   if ($scope.works[i].workID == workID && $scope.works[i].featured == true)
                   {
-                    $scope.works[i].featured = false;
+                      $scope.works[i].featured = false;
                   }
-                }
-            }
-
-          });
-
-
-    }
-
-
-
-});
-
-/*
-*   Handles request for current user group to determine
-*   what should be displayed.
-*/
-app.controller("workslist_permissionsCtrl", function($scope, $http) {
-
-  $http.get("displaycheck/group/" + $scope.catID)
-    .success(function(response)
+              }
+          }
+      })
+      .catch(function()
       {
-
-          userlevel = response.level;
-          $scope.level = userlevel;
-
+          $scope.error = "Error in unfeaturing content";
       });
+    };
+
 
 });
-
 
 
 /*

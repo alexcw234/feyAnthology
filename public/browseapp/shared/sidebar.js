@@ -1,6 +1,6 @@
 var app = angular.module("browseApp.sidebar", []);
 
-app.controller("sidebar",function($scope, $state, $stateParams, locationTracker, usergroupProvider){
+app.controller("sidebar",function($scope, $state, $stateParams, $http, locationTracker, usergroupProvider){
 
 
       $scope.$watch( function() {return locationTracker.getLocation();},
@@ -20,11 +20,9 @@ app.controller("sidebar",function($scope, $state, $stateParams, locationTracker,
 
       }, true);
 
-
-
       $scope.goToState = function(name)
       {
-        $state.go(name);
+            $state.go(name);
       };
 
       $scope.reloadPage = function(){window.location.reload();};
@@ -32,11 +30,11 @@ app.controller("sidebar",function($scope, $state, $stateParams, locationTracker,
       $scope.joinCategory = function()
       {
 
-        $http.get("join/cat/" + $stateParams.catID)
-        .success(function(response)
-        {
+            $http.get("join/cat/" + $stateParams.catID)
+            .success(function(response)
+            {
 
-        });
+            });
       }
 
 

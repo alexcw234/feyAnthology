@@ -1,5 +1,17 @@
 var app = angular.module("browseApp.newsub", ['ngTagsInput']);
 
+/*
+* Main controller for the new entry state.
+*
+*/
+app.controller("controller_n", function($scope, $stateParams) {
+
+$scope.$parent.header = "Submit something new";
+
+$scope.catID = $stateParams.catID;
+
+});
+
 
 app.controller('permissions', function($scope, $http, $stateParams) {
 
