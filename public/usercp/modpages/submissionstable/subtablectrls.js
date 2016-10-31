@@ -1,18 +1,5 @@
-var app = angular.module("userCP.tablectrls", []);
+var app = angular.module("userCP.subtablectrls", []);
 
-/*
-* Sends request for categories table
-*
-*/
-app.controller("catstabledisplayctrl", function($scope, $http) {
-    $http.get("reqs/cats/mycats")
-      .success(function(response)
-        {
-            $scope.cats = response;
-
-        });
-
-});
 
 app.controller("submissionstablectrl", function($scope, $state, $stateParams, $http){
 
@@ -76,20 +63,6 @@ app.controller("submissionstablectrl", function($scope, $state, $stateParams, $h
       }
       $scope.pending.splice( index, 1 );
     };
-
-
-});
-
-app.controller("userstablectrl", function($scope, $state, $stateParams, $http){
-
-  $http.get("reqs/users/" + $stateParams.catID)
-    .success(function(response)
-      {
-
-        $scope.users = response;
-
-      });
-
 
 
 });

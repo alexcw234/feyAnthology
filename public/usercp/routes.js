@@ -30,7 +30,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 // Shows categories where I am a contributor
     .state('mycats',{
         url: '/mycategories',
-        templateUrl: 'usercp/cptables/cp_mycatstable.html',
+        templateUrl: 'usercp/mainmenu/cp_mycatstable.html',
         controller: 'mycatsctrl',
       })
 
@@ -54,7 +54,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
           url: '/users/:catID',
           views: {
                 'userstable' : {
-                    templateUrl: 'usercp/cptables/cp_userstable.html',
+                    templateUrl: 'usercp/userpages/memberlist/cp_userstable.html',
                     controller: 'userstablectrl'
                   },
                 'userstable_search' : {
@@ -113,7 +113,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/managestaff/:catID',
             views: {
                   'staffmanagermenu' : {
-                      templateUrl: 'usercp/cppages/cp_staffmanagerpage.html',
+                      templateUrl: 'usercp/managerpages/managestaff/cp_staffmanagerpage.html',
                       controller: 'managestaffctrl'
                     }
               }
@@ -124,7 +124,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
               url: '/managecategory/:catID',
               views: {
                     'categorymanagermenu' : {
-                        templateUrl: 'usercp/cppages/cp_categorymanagerpage.html',
+                        templateUrl: 'usercp/managerpages/managecategory/cp_categorymanagerpage.html',
                         controller: 'managecategoryctrl'
                       }
                 }

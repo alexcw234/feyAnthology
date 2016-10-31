@@ -18,9 +18,9 @@
             <td>
               {{x.groupName}}
             </td>
-            <td><span ng-include="'usercp/cpmenus/cp_usermenu.html'"></span>
-              <span ng-if="x.level >= 77" ng-include="'usercp/cpmenus/cp_modmenu.html'"></span>
-              <span ng-if="x.level >= 88" ng-include="'usercp/cpmenus/cp_archivistmenu.html'"></span>
+            <td><span ng-include="'usercp/mainmenu/cpmenus/cp_usermenu.html'"></span>
+              <span ng-if="x.level >= 77" ng-include="'usercp/mainmenu/cpmenus/cp_modmenu.html'"></span>
+              <span ng-if="x.level >= 88" ng-include="'usercp/mainmenu/cpmenus/cp_archivistmenu.html'"></span>
             </td>
           </tr>
         </tbody>

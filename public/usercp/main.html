@@ -1,14 +1,17 @@
 <!-- angular scripts -->
 
 <script src="js/ui-bootstrap-tpls-1.3.2.min.js"></script>
-<script src="js/usercp/app.js"></script>
-<script src="js/usercp/routes.js"></script>
-<script src="js/usercp/mainctrls.js"></script>
-<script src="js/usercp/sidebar.js"></script>
-<script src="js/usercp/archivemanagerctrls.js"></script>
-<script src="js/usercp/tablectrls.js"></script>
-<script src="js/usercp/optionsctrls.js"></script>
-<script src="js/usercp/formctrls.js"></script>
+<script src="usercp/app.js"></script>
+<script src="usercp/routes.js"></script>
+<script src="usercp/mainctrls.js"></script>
+<script src="usercp/sidebar/sidebar.js"></script>
+<script src="usercp/mainmenu/mainmenuctrls.js"></script>
+<script src="usercp/managerpages/managestaff/staffmanagerctrls.js"></script>
+<script src="usercp/managerpages/managecategory/catmanagerctrls.js"></script>
+<script src="usercp/modpages/submissionstable/subtablectrls.js"></script>
+<script src="usercp/mainmenu/optionsctrls.js"></script>
+<script src="usercp/userpages/memberlist/memberlist.js"></script>
+<script src="usercp/userpages/formctrls.js"></script>
 <!-- angular scripts -->
 
 
@@ -16,7 +19,7 @@
 <!-- Begin controll by userCP -->
         <div ng-app="userCP">
           <!-- Include sidebar -->
-          <div ng-include="'usercp/sidebar.html'"></div>
+          <div ng-include="'usercp/sidebar/sidebar.html'"></div>
 
           <div class="container">
               <div class="row">
