@@ -6,25 +6,8 @@ var app = angular.module("browseApp.newsub", ['ngTagsInput']);
 */
 app.controller("controller_n", function($scope, $stateParams) {
 
-$scope.$parent.header = "Submit something new";
-
-$scope.catID = $stateParams.catID;
-
-});
-
-
-app.controller('permissions', function($scope, $http, $stateParams) {
-
-  $http.get("reqs/check/")
-    .success(function(response)
-      {
-
-          $scope.cats = response;
-
-      });
-
-
-
+    $scope.$parent.header = "Submit something new";
+    $scope.catID = $stateParams.catID;
 
 });
 
@@ -34,11 +17,9 @@ app.controller('newSubmission',function($scope, $http) {
 
 });
 
-app.controller('newFormCtrl',function($scope, $http, $state) {
+app.controller('newFormCtrl',function($scope, $http, $state, locationTracker,typesService) {
 
     $scope.newentry = {};
-
-    $scope.typeID;
 
     $scope.submitEntry = function(tags) {
 
@@ -47,17 +28,14 @@ app.controller('newFormCtrl',function($scope, $http, $state) {
 
         var result = {};
 
-
-        result['catID'] = $scope.catInfo.catID;
-        result['typeID'] = $scope.typeID;
+        loct = locationTracker.getLocation();
+        result['catID'] = loct['catID'];
+        result['typeID'] = typesService.getSelectedTypeID();
 
         for (key in infojson) {
 
-
-
           result[key] = encodeURIComponent(infojson[key]);
         }
-
 
         result['tags'] = tagarray;
 
@@ -84,72 +62,55 @@ app.controller('newFormCtrl',function($scope, $http, $state) {
 
 });
 
-app.controller('newFormSelect',function($scope, $http) {
+app.controller('newFormSelect',function($scope, $http, locationTracker, typesService) {
 
-      $scope.categoryType = $scope.catOptions.type;
+      //gets $scope.types: list of types from database for select field.
+      $scope.types = typesService.getTypeList();
 
-      $http.get("reqs/types/showall")
-      .success(function(response){
+      //Loads the name of the type assigned to this category.
+      loct = locationTracker.getLocation();
 
-        $scope.types = response;
-
-        var foundmatchingtype = false;
-        var matchedtype;
-        for (i = 0; i < $scope.types.length; i++)
-        {
-            if ($scope.types[i].contentType == $scope.categoryType)
-            {
-              foundmatchingtype = true;
-              matchedtype = $scope.types[i].typeID;
-
-            }
-        }
-        if (foundmatchingtype == true)
-        {
+      if (loct['hasMatchingType'] == true)
+      {
           $scope.anytype = false;
-          $scope.$parent.typeID = matchedtype;
-          $scope.newForm = "browseapp/components/workslist/new/" + "newformtemplate" + ".html";
-
-        }
-        else
-        {
+          $scope.newForm = "browseapp/components/workslist/new/newformtemplate.html";
+      }
+      else
+      {
           $scope.anytype = true;
-        }
-
-      });
+      }
 
 });
 
-app.controller('newFormDisplay',function($scope) {
+app.controller('newFormDisplay',function($scope, typesService) {
 
-        $scope.display = function(type) {
-
-          var templatename = type.contentType;
-          $scope.$parent.$parent.typeID = type.typeID;
+      $scope.display = function(typeChosen)
+      {
+          var templatename = typeChosen.contentType;
 
           if (templatename != null)
           {
-          $scope.newForm = "browseapp/components/workslist/new/" + "newformtemplate" + ".html";
-
+              typesService.setSelectedTypeIDByName(typeChosen.contentType);
+              $scope.newForm = "browseapp/components/workslist/new/newformtemplate.html";
           }
           else
           {
-            $scope.newForm = "browseapp/components/workslist/new/noselection.html";
+              $scope.newForm = "browseapp/components/workslist/new/noselection.html";
           }
-        };
+      };
 
 });
 
-app.controller('generateFormController',function($scope, $http, $sce) {
+app.controller('generateFormController',function($scope, $http, $sce, typesService, locationTracker) {
 
-        var typeID = $scope.$parent.$parent.$parent.typeID;
+        var typeID = typesService.getSelectedTypeID();
+        loct = locationTracker.getLocation();
 
-        $http.get("reqs/construct/form/" + typeID + "/" + $scope.$parent.$parent.$parent.catInfo.catID)
+        $http.get("reqs/construct/form/" + typeID + "/" + loct['catID'])
           .success(function(response)
             {
               $scope.generatedForm = $sce.trustAsHtml(response);
             });
-
 
 });
 

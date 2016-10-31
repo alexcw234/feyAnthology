@@ -4,12 +4,12 @@ app.controller("sidebar",function($scope, $state, $stateParams, $http, locationT
 
 
       $scope.$watch( function() {return locationTracker.getLocation();},
-      function(location)
+      function(loct)
       {
-            $scope.sidebar_backtrack = location['sidebar_backtrack'];
-            $scope.sidebar_onCatlist = location['sidebar_onCatlist'];
-            $scope.sidebar_title = location['sidebar_title'];
-            $scope.sidebar_text = location['sidebar_text'];
+            $scope.sidebar_backtrack = loct['sidebar_backtrack'];
+            $scope.sidebar_onCatlist = loct['sidebar_onCatlist'];
+            $scope.sidebar_title = loct['sidebar_title'];
+            $scope.sidebar_text = loct['sidebar_text'];
       }, true);
 
 

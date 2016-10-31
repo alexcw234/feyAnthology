@@ -17,6 +17,7 @@ var app = angular.module("browseApp",
     'factories.catlistFactories',
     'factories.worklistFactories',
     'factories.searchqueryFactories',
+    'factories.typesFactories',
   ]);
 
 

@@ -5,16 +5,26 @@
 var app = angular.module("browseApp.mainctrls", []);
 
 /*
-* Controller that goes first and sets any provider variables that
+* Controller that goes first and sets any variables that
 * require http calls. (others are in app.config())
 */
-app.controller("initializer", function($scope, usergroupProvider)
+app.controller("initializer", function($scope, usergroupProvider, typesService)
 {
 
     usergroupProvider.setglobalView()
     .then(function()
     {
       $scope.initialized = true;
+
+    })
+    .catch(function()
+    {
+      $scope.iniError = "Error in initialization: Global load failed.";
+    });
+
+    typesService.loadTypeList()
+    .then(function()
+    {
 
     })
     .catch(function()
